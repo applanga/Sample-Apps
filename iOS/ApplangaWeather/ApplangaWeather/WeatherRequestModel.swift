@@ -13,6 +13,11 @@ class getWeatherResponse: Codable
     var main : tempData
 }
 
+class getWeatherForcastResponse: Codable
+{
+    var list : [weatherEntry]
+}
+
 class weatherObject: Codable
 {
     var id : Int
@@ -30,4 +35,11 @@ class tempData: Codable
     var temp_max : Double
     var pressure : Int
     var humidity : Int
+}
+
+class weatherEntry: Codable
+{
+    var dt : Double
+    var main : tempData
+    var weather : [weatherObject]
 }
