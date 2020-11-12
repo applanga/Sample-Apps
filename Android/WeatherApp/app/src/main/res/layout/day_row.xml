@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="dayRow"
+            type="com.example.weatherapp.networking.modules.daily.Day" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/daily_icon"
+            android:layout_width="50dp"
+            android:layout_height="85dp"
+            app:layout_constraintBottom_toBottomOf="@+id/daily_date_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/daily_date_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Date:"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/daily_description_text"
+            app:layout_constraintTop_toBottomOf="@+id/daily_description_text" />
+
+        <TextView
+            android:id="@+id/daily_date_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@{dayRow.dt_txt}"
+            app:layout_constraintBottom_toBottomOf="@+id/daily_date_text"
+            app:layout_constraintStart_toEndOf="@+id/daily_date_text"
+            tools:text="date" />
+
+        <TextView
+            android:id="@+id/daily_temperature_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Temperature:"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/daily_icon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/daily_temperature_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@{`` + dayRow.main.temp}"
+            app:layout_constraintBottom_toBottomOf="@+id/daily_temperature_text"
+            app:layout_constraintStart_toEndOf="@+id/daily_temperature_text"
+            tools:text="temperature" />
+
+        <TextView
+            android:id="@+id/daily_description_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Description:"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/daily_temperature_text"
+            app:layout_constraintTop_toBottomOf="@+id/daily_temperature_text" />
+
+        <TextView
+            android:id="@+id/daily_description_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@{dayRow.weather[0].description}"
+            app:layout_constraintBottom_toBottomOf="@+id/daily_description_text"
+            app:layout_constraintStart_toEndOf="@+id/daily_description_text"
+            tools:text="description" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
