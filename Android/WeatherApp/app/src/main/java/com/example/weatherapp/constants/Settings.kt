@@ -5,5 +5,6 @@ enum class Settings {
     CITY_KEY,
     UNITS_KEY,
     DARKMODE_KEY,
-    NOTIFICATIONS_KEY
+    NOTIFICATIONS_KEY,
+    LANGUAGE_KEY,
 }

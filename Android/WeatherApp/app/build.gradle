@@ -46,6 +46,8 @@ android {
         dataBinding true
     }
 
+//    applanga.settingsFileAutoUpdate = true
+
 }
 
 dependencies {

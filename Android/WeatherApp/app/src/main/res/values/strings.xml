@@ -1,4 +1,25 @@
 <resources>
     <string name="app_name">Weather App</string>
     <string name="test_string">Test</string>
+    <string name="not_available">Not Available</string>
+    <string name="bottom_nav_current">Current Weather</string>
+    <string name="bottom_nav_daily">Daily Weather</string>
+    <string name="bottom_nav_settings">Settings</string>
+    <string name="settings_save_changes">Save Changes</string>
+    <string name="settings_allow_notifications">Allow notifications</string>
+    <string name="settings_dark_mode">Dark mode</string>
+    <string name="settings_imperial">Imperial</string>
+    <string name="settings_metric">Metric</string>
+    <string name="settings_measurment_units">Measurment units</string>
+    <string name="settings_enter_city">Enter city</string>
+    <string name="daily_date">Date:</string>
+    <string name="daily_temperature">Temperature:</string>
+    <string name="daily_description">Description:</string>
+    <string name="daily_time">Time:</string>
+    <string name="current_description">Description</string>
+    <string name="current_feels_like">Feels Like</string>
+    <string name="current_humidity">Humidity</string>
+    <string name="current_clouds">Clouds</string>
+    <string name="current_wind_speed">Wind Speed</string>
+    <string name="current_pressure">Pressure</string>
 </resources>

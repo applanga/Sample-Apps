@@ -9,80 +9,102 @@
             type="com.example.weatherapp.networking.modules.daily.Day" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp">
+        android:layout_margin="4dp"
+        app:cardBackgroundColor="#020000FF"
+        app:cardElevation="2dp"
+        app:cardCornerRadius="7dp">
 
-        <ImageView
-            android:id="@+id/daily_icon"
-            android:layout_width="50dp"
-            android:layout_height="85dp"
-            app:layout_constraintBottom_toBottomOf="@+id/daily_date_text"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/daily_date_text"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Date:"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="@+id/daily_description_text"
-            app:layout_constraintTop_toBottomOf="@+id/daily_description_text" />
+            android:padding="8dp">
 
-        <TextView
-            android:id="@+id/daily_date_data"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="@{dayRow.dt_txt}"
-            app:layout_constraintBottom_toBottomOf="@+id/daily_date_text"
-            app:layout_constraintStart_toEndOf="@+id/daily_date_text"
-            tools:text="date" />
 
-        <TextView
-            android:id="@+id/daily_temperature_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="Temperature:"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@+id/daily_icon"
-            app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/daily_icon"
+                android:layout_width="150dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/daily_time_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/daily_temperature_data"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="@{`` + dayRow.main.temp}"
-            app:layout_constraintBottom_toBottomOf="@+id/daily_temperature_text"
-            app:layout_constraintStart_toEndOf="@+id/daily_temperature_text"
-            tools:text="temperature" />
+            <TextView
+                android:id="@+id/daily_date_text"
+                style="@style/daily_title_text"
+                android:text="@string/daily_date"
+                app:layout_constraintStart_toStartOf="@+id/daily_description_text"
+                app:layout_constraintTop_toBottomOf="@+id/daily_description_text" />
 
-        <TextView
-            android:id="@+id/daily_description_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Description:"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="@+id/daily_temperature_text"
-            app:layout_constraintTop_toBottomOf="@+id/daily_temperature_text" />
+            <TextView
+                android:id="@+id/daily_date_data"
+                style="@style/daily_data_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{dayRow.dt_txt.substring(0, 10)}"
+                app:layout_constraintBottom_toBottomOf="@+id/daily_date_text"
+                app:layout_constraintStart_toEndOf="@+id/daily_date_text"
+                tools:text="date" />
 
-        <TextView
-            android:id="@+id/daily_description_data"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="@{dayRow.weather[0].description}"
-            app:layout_constraintBottom_toBottomOf="@+id/daily_description_text"
-            app:layout_constraintStart_toEndOf="@+id/daily_description_text"
-            tools:text="description" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/daily_temperature_text"
+                style="@style/daily_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/daily_temperature"
+                app:layout_constraintStart_toEndOf="@+id/daily_icon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/daily_temperature_data"
+                style="@style/daily_data_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`` + dayRow.main.temp}"
+                app:layout_constraintBottom_toBottomOf="@+id/daily_temperature_text"
+                app:layout_constraintStart_toEndOf="@+id/daily_temperature_text"
+                tools:text="temperature" />
+
+            <TextView
+                android:id="@+id/daily_description_text"
+                style="@style/daily_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/daily_description"
+                app:layout_constraintStart_toStartOf="@+id/daily_temperature_text"
+                app:layout_constraintTop_toBottomOf="@+id/daily_temperature_text" />
+
+            <TextView
+                android:id="@+id/daily_description_data"
+                style="@style/daily_data_text"
+                android:text="@{dayRow.weather[0].description}"
+                app:layout_constraintBottom_toBottomOf="@+id/daily_description_text"
+                app:layout_constraintStart_toEndOf="@+id/daily_description_text"
+                tools:text="description" />
+
+            <TextView
+                android:id="@+id/daily_time_text"
+                style="@style/daily_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/daily_time"
+                app:layout_constraintStart_toStartOf="@+id/daily_date_text"
+                app:layout_constraintTop_toBottomOf="@+id/daily_date_text" />
+
+            <TextView
+                android:id="@+id/daily_time_data"
+                style="@style/daily_data_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{dayRow.dt_txt.substring(11, 16)}"
+                app:layout_constraintBottom_toBottomOf="@+id/daily_time_text"
+                app:layout_constraintStart_toEndOf="@+id/daily_time_text"
+                tools:text="time" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </layout>

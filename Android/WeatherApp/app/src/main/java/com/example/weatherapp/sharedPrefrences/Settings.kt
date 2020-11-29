@@ -5,5 +5,6 @@ data class Settings (
     val metric: Boolean,
     val imperial: Boolean,
     val darkMode: Boolean,
-    val notifications: Boolean
+    val notifications: Boolean,
+    val language: String
 )

@@ -13,18 +13,19 @@ import com.example.weatherapp.databinding.FragmentCurrentBinding
 import com.example.weatherapp.networking.Repository
 import com.example.weatherapp.networking.interfaces.NetworkRequestListenerCurrent
 import com.example.weatherapp.networking.modules.current.ApiResponseCurrent
+import com.squareup.picasso.Picasso
 
 class CurrentFragment(val activityContext: MainActivity) : Fragment(), NetworkRequestListenerCurrent {
 
     private val repository = Repository()
-    private lateinit var databinding: FragmentCurrentBinding
+    private lateinit var binding: FragmentCurrentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
-            databinding = FragmentCurrentBinding.inflate(inflater)
-            return databinding.root
+            binding = FragmentCurrentBinding.inflate(inflater)
+            return binding.root
     }
 
     override fun onResume() {
@@ -47,8 +48,17 @@ class CurrentFragment(val activityContext: MainActivity) : Fragment(), NetworkRe
 
     private fun initUiCurrent(apiResponseCurrent: ApiResponseCurrent?) {
         if (apiResponseCurrent != null) {
-            databinding.currentWeather = apiResponseCurrent
+            binding.currentWeather = apiResponseCurrent
+            val iconUrl = "http://openweathermap.org/img/wn/${apiResponseCurrent.weather[0].icon}@2x.png"
+            Picasso.get().load(iconUrl).into(binding.currentWeatherImg)
+//            binding.dayAndDateCurrent.text = getCurrentDate()
         }
     }
 
+//    private fun getCurrentDate(): String {
+//        val calendar = Calendar.getInstance()
+//        val date =  "${calendar.get(Calendar.DAY_OF_WEEK)}"
+//        println("day $date")
+//        return date
+//    }
 }

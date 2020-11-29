@@ -5,27 +5,28 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.applanga.android.Applanga
 import com.example.weatherapp.MainActivity
+import com.example.weatherapp.R
 import com.example.weatherapp.constants.Settings
 import com.example.weatherapp.databinding.FragmentSettingsBinding
 
 class SettingsFragment(private val activityContext: MainActivity) : Fragment() {
 
-    private lateinit var databinding: FragmentSettingsBinding
+    private lateinit var binding: FragmentSettingsBinding
+    private val spinnerOptions = arrayOf("English", "German", "French")
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?): View? {
-                databinding = FragmentSettingsBinding.inflate(inflater)
+                binding = FragmentSettingsBinding.inflate(inflater)
                 initUi()
-                databinding.settingsSaveBtn.setOnClickListener {
-                    saveSetttings()
-                }
-                return databinding.root
+                return binding.root
     }
 
     override fun onResume() {
@@ -35,10 +36,16 @@ class SettingsFragment(private val activityContext: MainActivity) : Fragment() {
 
 
     private fun saveSetttings() {
-        val cityInput: String = databinding.settingsCity.text.toString()
-        val pickedSystem: String = if (databinding.settingsImperial.isChecked) "imperial" else "metric"
-        val isDarkmode: Boolean = databinding.settingsDarkModeSwitch.isChecked
-        val notificationsAllowed = databinding.settingsNotificationsSwitch.isChecked
+        val cityInput: String = binding.settingsCity.text.toString()
+        val pickedSystem: String = if (binding.settingsImperial.isChecked) "imperial" else "metric"
+        val isDarkmode: Boolean = binding.settingsDarkModeSwitch.isChecked
+        val notificationsAllowed = binding.settingsNotificationsSwitch.isChecked
+        val iso = when(binding.spinner.selectedItem.toString()) {
+            "English" -> "en"
+            "German" -> "de"
+            "French" -> "fr"
+            else -> "en"
+        }
 
         val sharedPreferences = activityContext.getSharedPreferences(Settings.SHARED_PREFERENCES.toString(), Context.MODE_PRIVATE)
         sharedPreferences?.edit()?.apply{
@@ -46,9 +53,15 @@ class SettingsFragment(private val activityContext: MainActivity) : Fragment() {
             putString(Settings.UNITS_KEY.toString(), pickedSystem)
             putBoolean(Settings.DARKMODE_KEY.toString(), isDarkmode)
             putBoolean(Settings.NOTIFICATIONS_KEY.toString(), notificationsAllowed)
+            putString(Settings.LANGUAGE_KEY.toString(), iso)
         }?.apply()
 
         Toast.makeText(context, "Saved selected preferences", Toast.LENGTH_LONG).show()
+
+        Applanga.setLanguage(iso)
+
+        activityContext.finish()
+        activityContext.startActivity(activityContext.intent)
     }
 
     private fun initUi() {
@@ -58,16 +71,36 @@ class SettingsFragment(private val activityContext: MainActivity) : Fragment() {
         val systemBoolean = sharedPreferences?.getString(Settings.UNITS_KEY.toString(), null) != "metric"
         val darkmodeBoolean = sharedPreferences!!.getBoolean(Settings.DARKMODE_KEY.toString(), false)
         val notificationsBoolean = sharedPreferences!!.getBoolean(Settings.NOTIFICATIONS_KEY.toString(), true)
+        val languagePosition = when (sharedPreferences?.getString(Settings.LANGUAGE_KEY.toString(), null)) {
+            "en" -> 0
+            "de" -> 1
+            "fr" -> 2
+            else -> 0
+        }
 
         if (systemBoolean) {
-            databinding.settingsImperial.isChecked = true
+            binding.settingsImperial.isChecked = true
         } else {
-            databinding.settingsMetric.isChecked = true
+            binding.settingsMetric.isChecked = true
         }
-        databinding.settingsCity.setText(cityString, TextView.BufferType.EDITABLE)
-        databinding.settingsDarkModeSwitch.isChecked = darkmodeBoolean
-        databinding.settingsNotificationsSwitch.isChecked = notificationsBoolean
 
+        binding.apply {
+            settingsCity.setText(cityString, TextView.BufferType.EDITABLE)
+            settingsDarkModeSwitch.isChecked = darkmodeBoolean
+            settingsNotificationsSwitch.isChecked = notificationsBoolean
+            spinner.apply {
+                adapter = ArrayAdapter(
+                        activityContext,
+                        R.layout.spinner_language_item,
+                        spinnerOptions
+                )
+                (adapter as ArrayAdapter<*>).setDropDownViewResource(R.layout.spinner_dropdown_item)
+                setSelection(languagePosition)
+            }
+            settingsSaveBtn.setOnClickListener {
+                saveSetttings()
+            }
+        }
     }
 
 }

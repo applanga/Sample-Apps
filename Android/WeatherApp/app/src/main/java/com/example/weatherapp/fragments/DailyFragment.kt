@@ -20,17 +20,17 @@ import com.example.weatherapp.networking.modules.daily.ApiResponseDaily
 class DailyFragment(private val activityContext: MainActivity) : Fragment(), NetworkRequestListenerDaily {
 
     val repository = Repository()
-    private lateinit var databinding: FragmentDailyBinding
+    private lateinit var binding: FragmentDailyBinding
     private lateinit var recyclerView: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
-            databinding = FragmentDailyBinding.inflate(inflater)
-            recyclerView = databinding.recyclerViewDaily
+            binding = FragmentDailyBinding.inflate(inflater)
+            recyclerView = binding.recyclerViewDaily
             recyclerView.layoutManager = LinearLayoutManager(context)
-            return databinding.root
+            return binding.root
     }
 
     override fun onResume() {
