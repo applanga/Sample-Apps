@@ -31,21 +31,31 @@
 
         <TextView
             android:id="@+id/temperature_current_data"
-            android:layout_width="239dp"
-            android:layout_height="126dp"
+            android:layout_width="243dp"
+            android:layout_height="119dp"
             android:layout_marginTop="112dp"
             android:fontFamily="@font/roboto"
             android:gravity="center"
-            android:padding="-4dp"
             android:text="@{`` + currentWeather.main.temp + `°` + `  `}"
             android:textColor="@color/white"
             android:textSize="88sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.964"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="temp" />
+
+        <ImageView
+            android:id="@+id/current_weather_img"
+            android:layout_width="146dp"
+            android:layout_height="137dp"
+            app:layout_constraintBottom_toBottomOf="@+id/temperature_current_data"
+            app:layout_constraintEnd_toStartOf="@+id/temperature_current_data"
+            app:layout_constraintHorizontal_bias="0.875"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/temperature_current_data"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/current_description_text"
@@ -133,16 +143,6 @@
             app:layout_constraintStart_toStartOf="@+id/current_feels_like_text"
             app:layout_constraintTop_toBottomOf="@+id/current_feels_like_text" />
 
-        <ImageView
-            android:id="@+id/current_weather_img"
-            android:layout_width="0dp"
-            android:layout_height="137dp"
-            app:layout_constraintBottom_toBottomOf="@+id/temperature_current_data"
-            app:layout_constraintEnd_toStartOf="@+id/temperature_current_data"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/temperature_current_data"
-            app:layout_constraintVertical_bias="0.0" />
-
         <TextView
             android:id="@+id/wind_current_text"
             style="@style/current_title_text_sm"
@@ -193,20 +193,23 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/location_current_data" />
+            app:layout_constraintTop_toBottomOf="@+id/location_current_data"
+            tools:text="Monday, May 27" />
 
         <TextView
             android:id="@+id/max_current_data"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:padding="4dp"
-            android:text="@{currentWeather.main.temp_max + `°` + `  `}"
+            android:paddingLeft="4dp"
+            android:paddingTop="4dp"
+            android:paddingRight="0dp"
+            android:text="@{currentWeather.main.temp_max + `°` + ``}"
             android:textColor="@color/applanga_gray_dark"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.448"
+            app:layout_constraintHorizontal_bias="0.423"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/temperature_current_data"
             tools:text="max" />

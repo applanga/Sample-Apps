@@ -2,17 +2,18 @@ package com.example.weatherapp
 
 import android.content.Context
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.MotionEvent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.applanga.android.Applanga
 import com.example.weatherapp.constants.Settings
 import com.example.weatherapp.databinding.ActivityMainBinding
-import com.example.weatherapp.fragments.CurrentFragment
-import com.example.weatherapp.fragments.DailyFragment
-import com.example.weatherapp.fragments.SettingsFragment
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,20 +23,51 @@ class MainActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
+        navController = findNavController(R.id.navHostFragment)
+        navController.setGraph(R.navigation.navigation_graph)
+
+//        val appBarConfigurator = AppBarConfiguration.Builder(
+//                R.id.currentFragment, R.id.dailyFragment, R.id.settingsFragment
+//        ).setOpenableLayout(binding.drawerLayout).build()
+//
+//        setupActionBarWithNavController(navController, appBarConfigurator)
+//        binding.navView.setupWithNavController(navController)
+
+        NavigationUI.setupActionBarWithNavController(this, navController, binding.drawerLayout)
+        NavigationUI.setupWithNavController(binding.navView, navController)
+
         initNavigation()
         setInitialSettings()
         initNotification()
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home && binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            binding.drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            binding.drawerLayout.openDrawer(GravityCompat.START)
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    
     private fun setFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.test_fragment, fragment)
+            replace(R.id.navHostFragment, fragment)
             addToBackStack(null)
             commit()
         }
@@ -72,31 +104,31 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initNavigation() {
-        val currentFragment = CurrentFragment(this)
-        val dailyFragment = DailyFragment(this)
-        val settingsFragment = SettingsFragment(this)
-
-        val extras = intent.extras
-        val action = extras?.get(ACTION_KEY)
-        when (action) {
-            START_FRAGMENT -> {
-                setFragment(dailyFragment)
-            }
-        }
-
-        binding.bottomNavigation.setOnNavigationItemSelectedListener {
-            when (it.itemId) {
-                R.id.current_btn -> setFragment(currentFragment)
-                R.id.daily_btn -> setFragment(dailyFragment)
-                R.id.settings_btn -> setFragment(settingsFragment)
-                else -> setFragment(currentFragment)
-            }
-            true
-        }
-
-        if (action == null) {
-            setFragment(currentFragment)
-        }
+//        val currentFragment = CurrentFragment(this)
+//        val dailyFragment = DailyFragment(this)
+//        val settingsFragment = SettingsFragment(this)
+//
+//        val extras = intent.extras
+//        val action = extras?.get(ACTION_KEY)
+//        when (action) {
+//            START_FRAGMENT -> {
+//                setFragment(dailyFragment)
+//            }
+//        }
+//
+//        binding.bottomNavigation.setOnNavigationItemSelectedListener {
+//            when (it.itemId) {
+//                R.id.current_btn -> setFragment(currentFragment)
+//                R.id.daily_btn -> setFragment(dailyFragment)
+//                R.id.settings_btn -> setFragment(settingsFragment)
+//                else -> setFragment(currentFragment)
+//            }
+//            true
+//        }
+//
+//        if (action == null) {
+//            setFragment(currentFragment)
+//        }
     }
 
 //     --- Allow Applanga's draft mode --- //

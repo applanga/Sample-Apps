@@ -10,12 +10,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.applanga.android.Applanga
-import com.example.weatherapp.MainActivity
 import com.example.weatherapp.R
 import com.example.weatherapp.constants.Settings
 import com.example.weatherapp.databinding.FragmentSettingsBinding
 
-class SettingsFragment(private val activityContext: MainActivity) : Fragment() {
+class SettingsFragment : Fragment() {
 
     private lateinit var binding: FragmentSettingsBinding
     private val spinnerOptions = arrayOf("English", "German", "French")
@@ -47,7 +46,7 @@ class SettingsFragment(private val activityContext: MainActivity) : Fragment() {
             else -> "en"
         }
 
-        val sharedPreferences = activityContext.getSharedPreferences(Settings.SHARED_PREFERENCES.toString(), Context.MODE_PRIVATE)
+        val sharedPreferences = requireActivity().getSharedPreferences(Settings.SHARED_PREFERENCES.toString(), Context.MODE_PRIVATE)
         sharedPreferences?.edit()?.apply{
             putString(Settings.CITY_KEY.toString(), cityInput)
             putString(Settings.UNITS_KEY.toString(), pickedSystem)
@@ -60,13 +59,13 @@ class SettingsFragment(private val activityContext: MainActivity) : Fragment() {
 
         Applanga.setLanguage(iso)
 
-        activityContext.finish()
-        activityContext.startActivity(activityContext.intent)
+        requireActivity().finish()
+        requireActivity().startActivity(requireActivity().intent)
     }
 
     private fun initUi() {
 
-        val sharedPreferences = activityContext.getSharedPreferences(Settings.SHARED_PREFERENCES.toString(), Context.MODE_PRIVATE)
+        val sharedPreferences = requireActivity().getSharedPreferences(Settings.SHARED_PREFERENCES.toString(), Context.MODE_PRIVATE)
         val cityString = sharedPreferences?.getString(Settings.CITY_KEY.toString(), null)
         val systemBoolean = sharedPreferences?.getString(Settings.UNITS_KEY.toString(), null) != "metric"
         val darkmodeBoolean = sharedPreferences!!.getBoolean(Settings.DARKMODE_KEY.toString(), false)
@@ -90,7 +89,7 @@ class SettingsFragment(private val activityContext: MainActivity) : Fragment() {
             settingsNotificationsSwitch.isChecked = notificationsBoolean
             spinner.apply {
                 adapter = ArrayAdapter(
-                        activityContext,
+                        requireActivity(),
                         R.layout.spinner_language_item,
                         spinnerOptions
                 )

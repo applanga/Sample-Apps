@@ -10,7 +10,5 @@
     android:textColorHint="@color/applanga_gray"
     android:textSize="22sp"
     android:textStyle="bold"
-    tools:layout_editor_absoluteX="177dp"
-    tools:layout_editor_absoluteY="305dp"
     android:padding="4dp"
     tools:text="Test Text" />

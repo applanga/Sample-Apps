@@ -22,4 +22,5 @@
     <color name="applanga_green">#4c9b09</color>
     <color name="applanga_green_dark">#0d6c00</color>
     <color name="applanga_green_light">#7fcd45</color>
+    <color name="card_background">#aecce8</color>
 </resources>
