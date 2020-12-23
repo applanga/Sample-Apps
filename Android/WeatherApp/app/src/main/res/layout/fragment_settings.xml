@@ -1,109 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-        <variable
-            name="settings"
-            type="com.example.weatherapp.sharedPrefrences.Settings" />
-    </data>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_lg"
         tools:context=".fragments.SettingsFragment">
 
-        <com.google.android.material.textfield.TextInputEditText
+
+        <TextView
+            android:id="@+id/settings_location_title"
+            style="@style/settings_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:text="@string/settings_location_title" />
+
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/settings_city"
-            android:layout_width="231dp"
-            android:layout_height="44dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            android:hint="@string/settings_enter_city"
-            android:singleLine="true"
-            android:textColor="@color/applanga_gray_dark"
-            android:textSize="22sp"
+            style="@style/settings_item"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/settings_city_placeholder"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.577"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.06" />
+            android:layout_marginBottom="@dimen/spacing_lg"/>
 
         <RadioGroup
             android:id="@+id/settings_radio_group"
-            android:layout_width="wrap_content"
+            style="@style/settings_item"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="@+id/settings_city"
-            app:layout_constraintTop_toBottomOf="@+id/settings_city">
+            android:layout_marginTop="@dimen/spacing_md"
+            android:layout_marginBottom="@dimen/spacing_lg">
 
             <TextView
                 android:id="@+id/settings_radio_group_header"
-                style="@style/settings_text_title"
-                android:text="@string/settings_measurment_units" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_measurement_title"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatRadioButton
                 android:id="@+id/settings_metric"
-                style="@style/settings_radio_text"
-                android:text="@string/settings_metric" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_metric_radio"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="18sp"
+                android:textColor="@color/grey_dark" />
 
             <androidx.appcompat.widget.AppCompatRadioButton
                 android:id="@+id/settings_imperial"
-                style="@style/settings_radio_text"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/settings_imperial" />
+                android:text="@string/settings_imperial_radio"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="18sp"
+                android:textColor="@color/grey_dark" />
 
         </RadioGroup>
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/settings_dark_mode_switch"
-            style="@style/settings_text_title"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/settings_language_title"
+            style="@style/settings_title"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/settings_dark_mode"
-            app:layout_constraintStart_toStartOf="@+id/settings_radio_group"
-            app:layout_constraintTop_toBottomOf="@+id/settings_radio_group" />
+            android:text="@string/settings_language_title"
+            android:layout_marginBottom="@dimen/spacing_sm"
+             />
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/settings_notifications_switch"
-            style="@style/settings_text_title"
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/settings_language_spinner"
+            style="@style/settings_item"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/settings_allow_notifications"
-            app:layout_constraintStart_toStartOf="@+id/settings_dark_mode_switch"
-            app:layout_constraintTop_toBottomOf="@+id/settings_dark_mode_switch" />
+            android:layout_marginBottom="@dimen/spacing_lg"/>
+
+        <TextView
+            android:id="@+id/settings_days_title"
+            style="@style/settings_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_days_title"
+            android:layout_marginBottom="@dimen/spacing_sm"
+
+            />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/settings_days_spinner"
+            style="@style/settings_item"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_xl"/>
 
         <Button
             android:id="@+id/settings_save_btn"
+            style="@style/settings_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:text="@string/settings_save_changes"
-            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:text="@string/settings_save_changes_btn"
+            android:textSize="20sp"
             android:textStyle="bold"
-            app:backgroundTint="@color/applanga_blue_light"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/settings_dark_mode_switch"
-            app:layout_constraintVertical_bias="0.923" />
-
-        <androidx.appcompat.widget.AppCompatSpinner
-            android:id="@+id/spinner"
-            android:layout_width="232dp"
-            android:layout_height="38dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="@+id/settings_notifications_switch"
-            app:layout_constraintTop_toBottomOf="@+id/settings_notifications_switch" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:paddingBottom="@dimen/spacing_sm"
+            android:paddingTop="@dimen/spacing_sm"
+            android:paddingRight="@dimen/spacing_md"
+            android:paddingLeft="@dimen/spacing_md"
+            />
+    </LinearLayout>
 </layout>

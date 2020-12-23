@@ -2,106 +2,67 @@ package com.example.weatherapp.fragments
 
 import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Toast
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.weatherapp.MainActivity
 import com.example.weatherapp.R
 import com.example.weatherapp.adapters.DailyAdapter
-import com.example.weatherapp.constants.Settings
+import com.example.weatherapp.classes.SharedPrefrencesManager.Keys
+import com.example.weatherapp.classes.WeatherAppApplication
 import com.example.weatherapp.databinding.FragmentDailyBinding
-import com.example.weatherapp.networking.Repository
-import com.example.weatherapp.networking.interfaces.NetworkRequestListenerDaily
-import com.example.weatherapp.networking.modules.daily.ApiResponseDaily
 import com.example.weatherapp.networking.modules.daily.Day
 
-class DailyFragment : Fragment(), NetworkRequestListenerDaily {
+class DailyFragment : Fragment() {
 
-    val repository = Repository()
     private lateinit var binding: FragmentDailyBinding
-    private lateinit var recyclerView: RecyclerView
-    private val dailyAdapterFixedData = mutableListOf<Day>()
+    private val displayedDays = WeatherAppApplication.app.sharedPrefrencesManager.getInt(
+        Keys.DAYS_NUMBER_KEY.toString(),
+        5
+    )
     private val dailyAdapterMutableData = mutableListOf<Day>()
-    private val dailyAdapter = DailyAdapter(requireActivity(), dailyAdapterMutableData)
-    private val spinnerOptions = arrayOf("1", "2", "3", "4", "5")
+    private lateinit var dailyAdapter: DailyAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?): View? {
-            binding = FragmentDailyBinding.inflate(inflater)
-            recyclerView = binding.recyclerViewDaily
-            recyclerView.adapter = dailyAdapter
-
-            initUiDaily()
-            return binding.root
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentDailyBinding.inflate(inflater)
+        setDailyObserver()
+        initUiDaily()
+        return binding.root
     }
 
-    override fun onResume() {
-        super.onResume()
-
-        val sharedPreferences = requireActivity().getSharedPreferences(Settings.SHARED_PREFERENCES.toString(), Context.MODE_PRIVATE)
-        val city = sharedPreferences.getString(Settings.CITY_KEY.toString(), null)
-        val units = sharedPreferences.getString(Settings.UNITS_KEY.toString(), null)
-        if (city != null && units != null) {
-            repository.fetchDailyWeather(this, city, units)
-        }
-    }
-
-    override fun onCompleteNetworkRequest(apiResponseDaily: ApiResponseDaily?) {
-        dailyAdapterFixedData.addAll(apiResponseDaily?.list ?: listOf())
-        dailyAdapterMutableData.addAll(dailyAdapterFixedData)
-        dailyAdapter.notifyDataSetChanged()
-    }
-
-    override fun onNetworkRequestError(error: Throwable) {
-        Toast.makeText(context, error.message, Toast.LENGTH_LONG).show()
-    }
-
-    fun initUiDaily() {
-        binding.apply {
-            recyclerViewDaily.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            recyclerViewDaily.adapter = dailyAdapter
-            spinnerDaily.apply {
-                adapter = ArrayAdapter(
-                        requireActivity(),
-                        R.layout.spinner_days_item,
-                        spinnerOptions
-                )
-                (adapter as ArrayAdapter<*>).setDropDownViewResource(R.layout.spinner_dropdown_item)
-                setSelection(4)
-                onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                        setSelection(p2)
-
-                        val itemsNumber = (p2+1)*4
-
-                        if (itemsNumber <= dailyAdapterFixedData.size) {
-                            dailyAdapterMutableData.clear()
-                            dailyAdapterMutableData.addAll(dailyAdapterFixedData.subList(0, itemsNumber))
-                            dailyAdapter.notifyDataSetChanged()
-                        }
-                    }
-
-                    override fun onNothingSelected(p0: AdapterView<*>?) {
-                    }
-                }
-
+    private fun setDailyObserver() {
+        if (requireActivity() is MainActivity) {
+            (requireActivity() as MainActivity).dailyWeather.observe(viewLifecycleOwner) {
+                dailyAdapterMutableData.addAll(it.list.subList(0, displayedDays * 8))
+                dailyAdapter.notifyDataSetChanged()
             }
         }
     }
 
-//    fun initRecyclerView(apiResponseDaily: ApiResponseDaily?) {
-//        if (apiResponseDaily != null) {
-//            recyclerView.adapter = DailyAdapter(activityContext, apiResponseDaily.list)
-//            (recyclerView.adapter as DailyAdapter).notifyDataSetChanged()
-//        }
-//    }
+    private fun initUiDaily() {
+        dailyAdapter = DailyAdapter(context, dailyAdapterMutableData)
 
+        binding.apply {
+            val screenOrientation = (requireContext().getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay.orientation
 
+            if (screenOrientation == Surface.ROTATION_90) {
+                // In landscape
+                dailyRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            } else {
+                // In portrait
+                dailyRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+            }
+            dailyRecyclerView.adapter = dailyAdapter
+
+            dailyDaysDisplay.text = resources.getQuantityString(
+                R.plurals.daily_day_number,
+                displayedDays,
+                displayedDays
+            )
+        }
+    }
 }

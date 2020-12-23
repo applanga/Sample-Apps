@@ -1,140 +1,140 @@
 package com.example.weatherapp
 
-import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.view.MenuItem
 import android.view.MotionEvent
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
+import androidx.lifecycle.MediatorLiveData
 import androidx.navigation.findNavController
-import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.applanga.android.Applanga
-import com.example.weatherapp.constants.Settings
+import com.example.weatherapp.classes.SharedPrefrencesManager.Keys
+import com.example.weatherapp.classes.WeatherAppApplication
 import com.example.weatherapp.databinding.ActivityMainBinding
+import com.example.weatherapp.networking.Repository
+import com.example.weatherapp.networking.interfaces.NetworkRequestListenerCurrent
+import com.example.weatherapp.networking.interfaces.NetworkRequestListenerDaily
+import com.example.weatherapp.networking.modules.current.ApiResponseCurrent
+import com.example.weatherapp.networking.modules.daily.ApiResponseDaily
 
-class MainActivity : AppCompatActivity() {
 
-    companion object {
-        const val START_FRAGMENT = "START_FRAGMENT"
-        const val ACTION_KEY = "ACTION_KEY"
-    }
+class MainActivity : AppCompatActivity() ,
+    NetworkRequestListenerCurrent,
+    NetworkRequestListenerDaily {
+
+    private val repository = Repository()
+
+    var currentWeather : MediatorLiveData<ApiResponseCurrent> = MediatorLiveData()
+    var dailyWeather : MediatorLiveData<ApiResponseDaily> = MediatorLiveData()
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var navController: NavController
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+    }
 
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayShowHomeEnabled(true)
+    override fun onResume() {
+        super.onResume()
+        initApp()
+    }
 
-        navController = findNavController(R.id.navHostFragment)
-        navController.setGraph(R.navigation.navigation_graph)
-
-//        val appBarConfigurator = AppBarConfiguration.Builder(
-//                R.id.currentFragment, R.id.dailyFragment, R.id.settingsFragment
-//        ).setOpenableLayout(binding.drawerLayout).build()
-//
-//        setupActionBarWithNavController(navController, appBarConfigurator)
-//        binding.navView.setupWithNavController(navController)
-
-        NavigationUI.setupActionBarWithNavController(this, navController, binding.drawerLayout)
-        NavigationUI.setupWithNavController(binding.navView, navController)
-
-        initNavigation()
+    private fun initApp() {
         setInitialSettings()
-        initNotification()
+        initNavigation()
+        initUiHeader()
+        getApiData()
+    }
+
+    private fun getApiData() {
+        val settings = WeatherAppApplication.app.sharedPrefrencesManager
+        val city = settings.getString(Keys.CITY_KEY.toString(), "New York")
+        val unit = settings.getString(Keys.UNITS_KEY.toString(), "metric")
+
+        if (city != null && unit != null) {
+            repository.fetchCurrentWeather(this, city, unit)
+            repository.fetchDailyWeather(this, city, unit)
+        }
+    }
+
+    override fun onCompleteNetworkRequestCurrent(apiResponse: ApiResponseCurrent?) {
+        if (apiResponse != null) {
+            currentWeather.apply {
+                value = apiResponse
+            }
+        }
+    }
+
+    override fun onCompleteNetworkRequestDaily(apiResponse: ApiResponseDaily?) {
+        if (apiResponse != null) {
+            dailyWeather.apply {
+                value = apiResponse
+            }
+        }
+    }
+
+    override fun onNetworkRequestError(error: Throwable) {
+        Toast.makeText(this, error.message, Toast.LENGTH_LONG).show()
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp()
+        val navController = findNavController(R.id.nav_host_fragment)
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == android.R.id.home && binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            binding.drawerLayout.closeDrawer(GravityCompat.START)
-        } else {
-            binding.drawerLayout.openDrawer(GravityCompat.START)
-        }
-        return super.onOptionsItemSelected(item)
-    }
+    private fun initNavigation() {
 
-    
-    private fun setFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.navHostFragment, fragment)
-            addToBackStack(null)
-            commit()
+        val navController = findNavController(R.id.nav_host_fragment)
+
+        binding.apply {
+            setSupportActionBar(mainContent.toolbar)
+            appBarConfiguration = AppBarConfiguration(
+                setOf(
+                    R.id.nav_home,
+                    R.id.nav_daily,
+                    R.id.nav_about,
+                    R.id.nav_settings
+                ), drawerLayout
+            )
+            setupActionBarWithNavController(navController, appBarConfiguration)
+            navView.setupWithNavController(navController)
         }
     }
 
     private fun setInitialSettings() {
-        val sharedPreferences = this.getSharedPreferences(Settings.SHARED_PREFERENCES.toString(), Context.MODE_PRIVATE)
+        val settings = WeatherAppApplication.app.sharedPrefrencesManager
 
-        if (sharedPreferences.getString(Settings.CITY_KEY.toString(), null) != null) {
-            return
+        if (settings.getBoolean(Keys.FIRST_RUN_KEY.toString(), true)) {
+            settings.let {
+                it.putString(Keys.CITY_KEY.toString(), "New York")
+                it.putString(Keys.UNITS_KEY.toString(), "metric")
+                it.putString(Keys.LANGUAGE_KEY.toString(), "en")
+                it.putInt(Keys.DAYS_NUMBER_KEY.toString(), 5)
+                it.putBoolean(Keys.FIRST_RUN_KEY.toString(), false)
+            }
         }
-
-        sharedPreferences.edit().apply{
-                        // Replace hardcoded location when geolocation added
-                putString(Settings.CITY_KEY.toString(), "Berlin")
-                putString(Settings.UNITS_KEY.toString(), "metric")
-                putBoolean(Settings.DARKMODE_KEY.toString(), false)
-                putBoolean(Settings.NOTIFICATIONS_KEY.toString(), false)
-                putString(Settings.LANGUAGE_KEY.toString(), "en")
-        }.apply()
-
     }
 
-    private fun initNotification() {
-        val channelId = "CHANNEL_ID"
-        val notificationId = 1
-        val title = "Thinking about going to the beach?"
-        val description = "Check out the weather for today before heading out!"
-        val allowNotification = this.getSharedPreferences(Settings.SHARED_PREFERENCES.toString(), Context.MODE_PRIVATE).getBoolean(Settings.NOTIFICATIONS_KEY.toString(), true)
-
-        val notification = Notification(this, allowNotification, channelId, notificationId, title, description)
-        notification.createNotificationChannel()
-        notification.sendNotification()
+    private fun initUiHeader() {
+        val headerView = binding.navView.getHeaderView(0)
+        val applangaUrl = "https://www.applanga.com"
+        headerView.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(applangaUrl))
+            startActivity(browserIntent)
+        }
     }
 
-    private fun initNavigation() {
-//        val currentFragment = CurrentFragment(this)
-//        val dailyFragment = DailyFragment(this)
-//        val settingsFragment = SettingsFragment(this)
-//
-//        val extras = intent.extras
-//        val action = extras?.get(ACTION_KEY)
-//        when (action) {
-//            START_FRAGMENT -> {
-//                setFragment(dailyFragment)
-//            }
-//        }
-//
-//        binding.bottomNavigation.setOnNavigationItemSelectedListener {
-//            when (it.itemId) {
-//                R.id.current_btn -> setFragment(currentFragment)
-//                R.id.daily_btn -> setFragment(dailyFragment)
-//                R.id.settings_btn -> setFragment(settingsFragment)
-//                else -> setFragment(currentFragment)
-//            }
-//            true
-//        }
-//
-//        if (action == null) {
-//            setFragment(currentFragment)
-//        }
-    }
-
-//     --- Allow Applanga's draft mode --- //
+    //     --- Allow Applanga's draft mode --- //
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
         Applanga.dispatchTouchEvent(ev, this)
         return super.dispatchTouchEvent(ev)
     }
-}
 
+}

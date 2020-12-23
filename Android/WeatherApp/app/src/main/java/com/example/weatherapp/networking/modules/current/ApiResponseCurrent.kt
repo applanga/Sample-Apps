@@ -2,7 +2,7 @@ package com.example.weatherapp.networking.modules.current
 
 import com.google.gson.annotations.SerializedName
 
-data class ApiResponseCurrent (
+data class ApiResponseCurrent  (
         @SerializedName("coord") val coord : Coord,
         @SerializedName("weather") val weather : List<Weather>,
         @SerializedName("base") val base : String,

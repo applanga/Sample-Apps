@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Applanga>
-    <AllowStrings>app_name,hello_blank_fragment,</AllowStrings>
+    <AllowStrings>com_google_android_gms_fonts_certs_dev,com_google_android_gms_fonts_certs_prod,app_name,navigation_drawer_open,navigation_drawer_close,nav_header_title,nav_header_subtitle,nav_header_desc,menu_home,menu_daily,menu_about,menu_settings,fragment_settings_title,hello_blank_fragment,</AllowStrings>
     <PluginVersion>app:3.0.137,</PluginVersion>
     <PackageName>com.example.weatherapp</PackageName>
 </Applanga>

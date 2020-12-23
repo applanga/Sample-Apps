@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<Applanga>
-    <AllowStrings>com_google_android_gms_fonts_certs_dev,com_google_android_gms_fonts_certs_prod,app_name,test_string,bottom_nav_current,bottom_nav_daily,bottom_nav_settings,</AllowStrings>
-    <PluginVersion>app:3.0.137,</PluginVersion>
-    <PackageName>com.example.weatherapp</PackageName>
-    <Menu id="current_btn" layoutName="bottom_navigation" title="bottom_nav_current"/>
-    <Menu id="daily_btn" layoutName="bottom_navigation" title="bottom_nav_daily"/>
-    <Menu id="settings_btn" layoutName="bottom_navigation" title="bottom_nav_settings"/>
-</Applanga>

@@ -7,20 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="red">#d50000</color>
-    <color name="yellow">#ffeb3b</color>
+    <color name="grey_dark">#454545</color>
 
-
-    <color name="applanga_blue">#2da0dc</color>
-    <color name="applanga_blue_light">#6fd1ff</color>
-    <color name="applanga_blue_dark">#0072aa</color>
-
-    <color name="applanga_gray">#616161</color>
-    <color name="applanga_gray_dark">#373737</color>
-    <color name="applanga_gray_light">#8e8e8e</color>
-
-    <color name="applanga_green">#4c9b09</color>
-    <color name="applanga_green_dark">#0d6c00</color>
-    <color name="applanga_green_light">#7fcd45</color>
-    <color name="card_background">#aecce8</color>
+    <color name="primary_light">#29b6f6</color>
+    <color name="primary">#039be5</color>
+    <color name="primary_variant">#007ac1</color>
+    <color name="secondary">#FFC107</color>
+    <color name="secondary_variant">#c79100</color>
+    <color name="grey_light">#eff3f9</color>
 </resources>

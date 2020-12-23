@@ -1,5 +1,7 @@
 package com.example.weatherapp.networking
 
+import android.content.res.Resources
+import com.example.weatherapp.R
 import com.example.weatherapp.networking.interfaces.NetworkRequestListenerCurrent
 import com.example.weatherapp.networking.interfaces.NetworkRequestListenerDaily
 import com.example.weatherapp.networking.modules.current.ApiResponseCurrent
@@ -11,8 +13,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-class Repository() {
-
+class Repository {
     companion object {
         val appId = "aebbd2fcfb9380df055be33fa8989c94"
         val baseUrl = "https://api.openweathermap.org/"
@@ -28,7 +29,12 @@ class Repository() {
     fun fetchCurrentWeather(networkRequestListener: NetworkRequestListenerCurrent, city: String, units: String) {
         service.getCurrent(appId, units, city).enqueue(object : Callback<ApiResponseCurrent?> {
             override fun onResponse(call: Call<ApiResponseCurrent?>, response: Response<ApiResponseCurrent?>) {
-                networkRequestListener.onCompleteNetworkRequest(response.body())
+                if (response.code() == 404) {
+                    val error = Throwable(Resources.getSystem().getString(R.string.error_city_name))
+                    networkRequestListener.onNetworkRequestError(error)
+                    return
+                }
+                networkRequestListener.onCompleteNetworkRequestCurrent(response.body())
             }
 
             override fun onFailure(call: Call<ApiResponseCurrent?>, error: Throwable) {
@@ -40,7 +46,7 @@ class Repository() {
     fun fetchDailyWeather(networkRequestListener: NetworkRequestListenerDaily, city: String, units: String) {
         service.getDaily(appId, units, city).enqueue(object : Callback<ApiResponseDaily?> {
             override fun onResponse(call: Call<ApiResponseDaily?>, response: Response<ApiResponseDaily?>) {
-                networkRequestListener.onCompleteNetworkRequest(response.body())
+                networkRequestListener.onCompleteNetworkRequestDaily(response.body())
             }
 
             override fun onFailure(call: Call<ApiResponseDaily?>, error: Throwable) {
@@ -51,4 +57,4 @@ class Repository() {
 
 }
 
-//url = "https://api.openweathermap.org/data/2.5/weather?q=berlin&units=metric&appid=aebbd2fcfb9380df055be33fa8989c94"
+//example base request: https://api.openweathermap.org/data/2.5/weather?q=berlin&units=metric&appid=aebbd2fcfb9380df055be33fa8989c94

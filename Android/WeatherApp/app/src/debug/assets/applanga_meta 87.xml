@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<Applanga>
-    <AllowStrings>com_google_android_gms_fonts_certs_dev,com_google_android_gms_fonts_certs_prod,app_name,test_string,not_available,bottom_nav_current,bottom_nav_daily,bottom_nav_settings,settings_save_changes,settings_allow_notifications,settings_dark_mode,settings_imperial,settings_metric,settings_measurment_units,settings_enter_city,daily_date,daily_temperature,daily_description,daily_time,current_description,current_feels_like,current_humidity,current_clouds,current_wind_speed,current_pressure,</AllowStrings>
-    <PluginVersion>app:3.0.137,</PluginVersion>
-    <PackageName>com.example.weatherapp</PackageName>
-    <Menu id="current_btn" layoutName="bottom_navigation" title="bottom_nav_current"/>
-    <Menu id="daily_btn" layoutName="bottom_navigation" title="bottom_nav_daily"/>
-    <Menu id="settings_btn" layoutName="bottom_navigation" title="bottom_nav_settings"/>
-</Applanga>

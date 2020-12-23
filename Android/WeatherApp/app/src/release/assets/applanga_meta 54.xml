@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<Applanga>
-    <AllowStrings>app_name,</AllowStrings>
-    <PluginVersion>app:3.0.137,</PluginVersion>
-    <PackageName>com.example.weatherapp</PackageName>
-</Applanga>

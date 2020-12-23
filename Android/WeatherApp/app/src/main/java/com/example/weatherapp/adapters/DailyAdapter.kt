@@ -4,22 +4,22 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.weatherapp.databinding.DayRowBinding
+import com.example.weatherapp.R
+import com.example.weatherapp.databinding.ItemDayBinding
 import com.example.weatherapp.networking.modules.daily.Day
-import com.example.weatherapp.utils.DateHelper
-import com.squareup.picasso.Picasso
+import com.example.weatherapp.utils.DateTimeHelper
+import com.example.weatherapp.utils.IconHelper
 
-
-class DailyAdapter(val context: Context ,val days: List<Day>): RecyclerView.Adapter<DayViewHolder>() {
+class DailyAdapter(val context: Context?, val days: List<Day>) : RecyclerView.Adapter<DayViewHolder>() {
 
     override fun getItemCount(): Int {
         return days.size
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DayViewHolder {
-        val layoutInfalter = LayoutInflater.from(parent.context)
-        val databinding = DayRowBinding.inflate(layoutInfalter, parent, false)
-        return DayViewHolder(context ,databinding)
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val binding = ItemDayBinding.inflate(layoutInflater, parent, false)
+        return DayViewHolder(context, binding)
     }
 
     override fun onBindViewHolder(viewHolder: DayViewHolder, position: Int) {
@@ -28,19 +28,25 @@ class DailyAdapter(val context: Context ,val days: List<Day>): RecyclerView.Adap
 
 }
 
-class DayViewHolder(val context: Context, val dayRowBinding: DayRowBinding): RecyclerView.ViewHolder(dayRowBinding.root) {
+class DayViewHolder(val context: Context?, val binding: ItemDayBinding): RecyclerView.ViewHolder(binding.root) {
 
-    private fun getTime(): String {
-        val initialTime = dayRowBinding!!.dayRow!!.dt_txt!!.substring(11, 16)
-        val suffix = if (dayRowBinding!!.dayRow!!.dt_txt!!.substring(11, 13).toInt() > 11) "PM" else "AM"
-        return "$initialTime $suffix"
+    val dateTimeHelper = DateTimeHelper()
+
+    private fun getTime() : String {
+        val time = binding.dayItem!!.dt_txt.substring(11, 16)
+        val suffix = if (binding.dayItem!!.dt_txt.substring(11, 13).toInt() > 11) {
+            context?.getString(R.string.daily_pm).toString()
+        } else context?.getString(R.string.daily_am).toString()
+        return "$time $suffix"
     }
 
     fun bind(day: Day) {
-        dayRowBinding.dayRow = day
-        dayRowBinding.dailyDateData.text = DateHelper.getCurrentDateTTN()
-        dayRowBinding.dailyTimeData.text = getTime()
-        val iconUrl = "http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png"
-        Picasso.get().load(iconUrl).into(dayRowBinding.dailyIcon)
+
+        binding.apply {
+            dayItem = day
+            dayDate.text = dateTimeHelper.getFullDate(day.dt_txt.substring(0, 10))
+            dayTime.text = getTime()
+            dayIcon.setImageResource(IconHelper.getWeatherIcon(day.weather[0].icon))
+        }
     }
 }
