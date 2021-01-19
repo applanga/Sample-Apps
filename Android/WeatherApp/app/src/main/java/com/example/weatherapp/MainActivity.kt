@@ -22,6 +22,7 @@ import com.example.weatherapp.networking.interfaces.NetworkRequestListenerCurren
 import com.example.weatherapp.networking.interfaces.NetworkRequestListenerDaily
 import com.example.weatherapp.networking.modules.current.ApiResponseCurrent
 import com.example.weatherapp.networking.modules.daily.ApiResponseDaily
+import com.google.android.material.navigation.NavigationView
 
 
 class MainActivity : AppCompatActivity() ,
@@ -105,7 +106,24 @@ class MainActivity : AppCompatActivity() ,
             )
             setupActionBarWithNavController(navController, appBarConfiguration)
             navView.setupWithNavController(navController)
+
+            //set initial title to home page
+            mainContent.toolbar.title = getString(R.string.menu_home)
+
+            //add listner for when the navigation changes
+            navController.addOnDestinationChangedListener { _, destination, _ ->
+                when(destination.id){
+                    R.id.nav_home -> mainContent.toolbar.title = getString(R.string.menu_home)
+                    R.id.nav_daily -> mainContent.toolbar.title = getString(R.string.menu_daily)
+                    R.id.nav_about -> mainContent.toolbar.title = getString(R.string.menu_about)
+                    R.id.nav_settings -> mainContent.toolbar.title = getString(R.string.menu_settings)
+                }
+            }
         }
+
+        //localise the nav menu
+        val navView = findViewById<NavigationView>(R.id.nav_view)
+        Applanga.localizeMenu(R.menu.activity_main_drawer, navView.menu)
     }
 
     private fun setInitialSettings() {
