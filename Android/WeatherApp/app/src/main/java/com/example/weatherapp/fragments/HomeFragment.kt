@@ -29,7 +29,15 @@ class HomeFragment : Fragment() {
         if (requireActivity() is MainActivity) {
             (requireActivity() as MainActivity).currentWeather.observe(viewLifecycleOwner) {
                 initUiHome(it)
+                hideSpinner()
             }
+        }
+    }
+
+    private fun hideSpinner() {
+        binding.apply {
+            homeProgressBarBackground?.visibility = View.GONE
+            homeProgressBarSpinner?.visibility = View.GONE
         }
     }
 

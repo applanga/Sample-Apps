@@ -1,6 +1,7 @@
 package com.example.weatherapp.fragments
 
 import android.content.Context
+import android.content.res.Resources
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.LayoutInflater
@@ -26,8 +27,7 @@ class SettingsFragment : androidx.fragment.app.Fragment() {
     lateinit var binding: FragmentSettingsBinding
     lateinit var settings: SharedPrefrencesManager
 
-    // This needs to be extracted into string-array values
-    private val languageOptions = arrayOf("English", "German", "French")
+    private val languageOptions = Resources.getSystem().getStringArray(R.array.settings_language_options)
 
     private val daysOptions = arrayOf("1", "2", "3", "4", "5")
 
