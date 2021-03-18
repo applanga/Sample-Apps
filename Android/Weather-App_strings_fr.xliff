@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" target-language="fr" date="2021-03-18T08:59:54Z" product-name="Android - Weather App" tool="Applanga">
+    <header>
+      <tool tool-name="Applanga"/>
+    </header>
+    <body>
+      <trans-unit id="fragment_settings_title" maxbytes="12">
+        <source>App Settings</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Paramètres de l’application</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="menu_home" maxbytes="4">
+        <source>Home</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Accueil</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="menu_about" maxbytes="5">
+        <source>About</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Sur</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="app_name" maxbytes="11">
+        <source>Weather App</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Application météo</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="menu_daily" maxbytes="13">
+        <source>Daily Weather</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Météo quotidienne</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="menu_settings" maxbytes="8">
+        <source>Settings</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Paramètres</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="daily_pm" maxbytes="2">
+        <source>PM</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Pm</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="daily_am" maxbytes="2">
+        <source>AM</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Suis</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="home_description_title" maxbytes="11">
+        <source>Description</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Description</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="home_humidity_title" maxbytes="8">
+        <source>Humidity</source>
+        <target>Paramètres avancés</target>
+        <alt-trans alttranstype="proposal">
+          <target>Humidité</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="home_pressure_title" maxbytes="8">
+        <source>Pressure</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Pression</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="home_clouds_title" maxbytes="6">
+        <source>Clouds</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Nuages</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="home_wind_speed_title" maxbytes="10">
+        <source>Wind Speed</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Vent</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="home_feels_like_title" maxbytes="10">
+        <source>Feels like</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>On a l’impression</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="settings_saved_toast" maxbytes="14">
+        <source>Saved settings</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Paramètres enregistrés</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="days_sunday" maxbytes="6">
+        <source>Sunday</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Dimanche</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="days_wednesday" maxbytes="9">
+        <source>Wednesday</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Mercredi</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="month_december" maxbytes="8">
+        <source>December</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Décembre</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="days_tuesday" maxbytes="7">
+        <source>Tuesday</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Mardi</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="not_available" maxbytes="3" translate="No">
+        <source>N/A</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>N/A</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="month_june" maxbytes="4">
+        <source>June</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Juin</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="month_august" maxbytes="6">
+        <source>August</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Août</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="month_may" maxbytes="3">
+        <source>May</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Mai</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="days_thursday" maxbytes="8">
+        <source>Thrusday</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Jeudi</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="days_monday" maxbytes="6">
+        <source>Monday</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Lundi</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="month_november" maxbytes="8">
+        <source>November</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Novembre</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="month_october" maxbytes="7">
+        <source>October</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Octobre</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="month_january" maxbytes="7">
+        <source>January</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Janvier</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="days_saturday" maxbytes="8">
+        <source>Saturday</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Samedi</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="month_february" maxbytes="8">
+        <source>February</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Février</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="days_friday" maxbytes="6">
+        <source>Friday</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Vendredi</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="menu_documentation" maxbytes="13">
+        <source>Documentation</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Documentation</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="month_september" maxbytes="9">
+        <source>September</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Septembre</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="month_july" maxbytes="4">
+        <source>July</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Juillet</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="month_march" maxbytes="5">
+        <source>March</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Mars</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="month_april" maxbytes="5">
+        <source>April</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Avril</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="settings_error_toast" maxbytes="30">
+        <source>Please enter a valid city name</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Veuillez entrer un nom de ville valide</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="settings_language_title" maxbytes="12">
+        <source>App language</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Langue de l’application</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="settings_save_changes_btn" maxbytes="12">
+        <source>Save Changes</source>
+        <target>Rechercher</target>
+        <alt-trans alttranstype="proposal">
+          <target>Enregistrer les modifications</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="settings_measurement_title" maxbytes="17">
+        <source>Measurement Units</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Unités de mesure</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="settings_location_title" maxbytes="8">
+        <source>Location</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Emplacement</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="settings_city_placeholder" maxbytes="17">
+        <source>Enter a city name</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Entrez le nom d’une ville</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="settings_imperial_radio" maxbytes="8">
+        <source>Imperial</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Imperial</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="about_display_header" maxbytes="7">
+        <source>Display</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Affichage</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="about_features_text_second" maxbytes="71">
+        <source>Displayed information is based on the location (city based) you provide</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Les informations affichées sont basées sur l’emplacement (basé sur la ville) que vous fournissez</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="about_display_text" maxbytes="82">
+        <source>A simple UI designed to give you the most important information in the easiest way</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Une interface utilisateur simple conçue pour vous donner les informations les plus importantes de la manière la plus simple</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="about_app_header" maxbytes="11">
+        <source>Weather-App</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Météo-App</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="about_settings_text" maxbytes="127">
+        <source>Use the settings window to change the displayed location, preferred measurement unit, app language and number of displayed days</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Utilisez la fenêtre paramètres pour modifier l’emplacement affiché, l’unité de mesure préférée, le langage de l’application et le nombre de jours affichés</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="about_settings_header" maxbytes="8">
+        <source>Settings</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Paramètres</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="about_features_text_first" maxbytes="112">
+        <source>Get a detailed report of the weather in your current location or get a daily temperature report by time and date</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Obtenez un rapport détaillé de la météo à votre emplacement actuel ou obtenez un rapport de température quotidien à l’heure et à la date</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="about_app_text" maxbytes="98">
+        <source>Weather-App is a simple tool to help you find out what's the weather like in your desired location</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Weather-App est un outil simple pour vous aider à savoir quel est le temps comme dans l’emplacement désiré</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="description_broken_clouds" maxbytes="13">
+        <source>Broken clouds</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Nuages cassés</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="description_shower_rain" maxbytes="11">
+        <source>Shower rain</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Pluie de douche</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="error_city_name" maxbytes="30">
+        <source>Please enter a valid city name</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Veuillez entrer un nom de ville valide</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="description_few_clouds" maxbytes="10">
+        <source>Few clouds</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Peu de nuages</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="description_scattered_clouds" maxbytes="16">
+        <source>Scattered clouds</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Nuages dispersés</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="description_mist" maxbytes="4">
+        <source>Mist</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Brume</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="description_snow" maxbytes="4">
+        <source>Snow</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Neige</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="description_rain" maxbytes="4">
+        <source>Rain</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Pluie</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="description_clear_sky" maxbytes="9">
+        <source>Clear sky</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Ciel clair</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="description_thunderstorm" maxbytes="12">
+        <source>Thunderstorm</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Orage</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="daily_day_number[one]" maxbytes="17">
+        <source>Displaying %d day</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Affichage %d jour</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="nav_header_subtitle" maxbytes="26">
+        <source>Get your local weather now</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Obtenez votre météo locale maintenant</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="daily_day_number[other]" maxbytes="18">
+        <source>Displaying %d days</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Affichage %d jours</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="about_features_header" maxbytes="8">
+        <source>Features</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>fonctionnalités</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="settings_metric_radio" maxbytes="6">
+        <source>Metric</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Métrique</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="settings_days_title" maxbytes="24">
+        <source>Number of displayed days</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Nombre de jours affichés</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="settings_language_options[1]" maxbytes="6">
+        <source>German</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Allemand</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="settings_language_options[0]" maxbytes="7">
+        <source>English</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Anglais</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="settings_language_options[2]" maxbytes="6">
+        <source>French</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Français</target>
+        </alt-trans>
+      </trans-unit>
+    </body>
+    <reference/>
+  </file>
+</xliff>

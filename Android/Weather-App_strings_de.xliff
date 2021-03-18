@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" target-language="de" date="2021-03-18T08:58:15Z" product-name="Android - Weather App" tool="Applanga">
+    <header>
+      <tool tool-name="Applanga"/>
+    </header>
+    <body>
+      <trans-unit id="fragment_settings_title" maxbytes="12">
+        <source>App Settings</source>
+        <target>App-Einstellungen</target>
+      </trans-unit>
+      <trans-unit id="menu_home" maxbytes="4">
+        <source>Home</source>
+        <target>Startseite</target>
+      </trans-unit>
+      <trans-unit id="menu_about" maxbytes="5">
+        <source>About</source>
+        <target>Über</target>
+      </trans-unit>
+      <trans-unit id="app_name" maxbytes="11">
+        <source>Weather App</source>
+        <target>Wetter App</target>
+      </trans-unit>
+      <trans-unit id="menu_daily" maxbytes="13">
+        <source>Daily Weather</source>
+        <target>Tägliches Wetter</target>
+      </trans-unit>
+      <trans-unit id="menu_settings" maxbytes="8">
+        <source>Settings</source>
+        <target>Einstellungen</target>
+      </trans-unit>
+      <trans-unit id="daily_pm" maxbytes="2" translate="No">
+        <source>PM</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="daily_am" maxbytes="2" translate="No">
+        <source>AM</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="home_description_title" maxbytes="11">
+        <source>Description</source>
+        <target>Beschreibung</target>
+      </trans-unit>
+      <trans-unit id="home_humidity_title" maxbytes="8">
+        <source>Humidity</source>
+        <target>Feuchtigkeit</target>
+      </trans-unit>
+      <trans-unit id="home_pressure_title" maxbytes="8">
+        <source>Pressure</source>
+        <target>Druck</target>
+      </trans-unit>
+      <trans-unit id="home_clouds_title" maxbytes="6">
+        <source>Clouds</source>
+        <target>Wolken</target>
+      </trans-unit>
+      <trans-unit id="home_wind_speed_title" maxbytes="10">
+        <source>Wind Speed</source>
+        <target>Wind</target>
+      </trans-unit>
+      <trans-unit id="home_feels_like_title" maxbytes="10">
+        <source>Feels like</source>
+        <target>Fühlt sich an wie</target>
+      </trans-unit>
+      <trans-unit id="settings_saved_toast" maxbytes="14">
+        <source>Saved settings</source>
+        <target>Gespeicherte Einstellungen</target>
+      </trans-unit>
+      <trans-unit id="days_sunday" maxbytes="6">
+        <source>Sunday</source>
+        <target>Sonntag</target>
+      </trans-unit>
+      <trans-unit id="days_wednesday" maxbytes="9">
+        <source>Wednesday</source>
+        <target>Mittwoch</target>
+      </trans-unit>
+      <trans-unit id="month_december" maxbytes="8">
+        <source>December</source>
+        <target>Dezember</target>
+      </trans-unit>
+      <trans-unit id="days_tuesday" maxbytes="7">
+        <source>Tuesday</source>
+        <target>Dienstag</target>
+      </trans-unit>
+      <trans-unit id="not_available" maxbytes="3" translate="No">
+        <source>N/A</source>
+        <target>N/A</target>
+      </trans-unit>
+      <trans-unit id="month_june" maxbytes="4">
+        <source>June</source>
+        <target>Juni</target>
+      </trans-unit>
+      <trans-unit id="month_august" maxbytes="6">
+        <source>August</source>
+        <target>August</target>
+      </trans-unit>
+      <trans-unit id="month_may" maxbytes="3">
+        <source>May</source>
+        <target>Mai</target>
+      </trans-unit>
+      <trans-unit id="days_thursday" maxbytes="8">
+        <source>Thrusday</source>
+        <target>Donnerstag</target>
+      </trans-unit>
+      <trans-unit id="days_monday" maxbytes="6">
+        <source>Monday</source>
+        <target>Montag</target>
+      </trans-unit>
+      <trans-unit id="month_november" maxbytes="8">
+        <source>November</source>
+        <target>November</target>
+      </trans-unit>
+      <trans-unit id="month_october" maxbytes="7">
+        <source>October</source>
+        <target>Oktober</target>
+      </trans-unit>
+      <trans-unit id="month_january" maxbytes="7">
+        <source>January</source>
+        <target>Januar</target>
+      </trans-unit>
+      <trans-unit id="days_saturday" maxbytes="8">
+        <source>Saturday</source>
+        <target>Samstag</target>
+      </trans-unit>
+      <trans-unit id="month_february" maxbytes="8">
+        <source>February</source>
+        <target>Februar</target>
+      </trans-unit>
+      <trans-unit id="days_friday" maxbytes="6">
+        <source>Friday</source>
+        <target>Freitag</target>
+      </trans-unit>
+      <trans-unit id="menu_documentation" maxbytes="13">
+        <source>Documentation</source>
+        <target>Dokumentation</target>
+      </trans-unit>
+      <trans-unit id="month_september" maxbytes="9">
+        <source>September</source>
+        <target>September</target>
+      </trans-unit>
+      <trans-unit id="month_july" maxbytes="4">
+        <source>July</source>
+        <target>Juli</target>
+      </trans-unit>
+      <trans-unit id="month_march" maxbytes="5">
+        <source>March</source>
+        <target>März</target>
+      </trans-unit>
+      <trans-unit id="month_april" maxbytes="5">
+        <source>April</source>
+        <target>April</target>
+      </trans-unit>
+      <trans-unit id="settings_error_toast" maxbytes="30">
+        <source>Please enter a valid city name</source>
+        <target>Bitte geben Sie einen gültigen Ortsnamen ein</target>
+      </trans-unit>
+      <trans-unit id="settings_language_title" maxbytes="12">
+        <source>App language</source>
+        <target>App-Sprache</target>
+      </trans-unit>
+      <trans-unit id="settings_save_changes_btn" maxbytes="12">
+        <source>Save Changes</source>
+        <target>Änderungen Speichern</target>
+      </trans-unit>
+      <trans-unit id="settings_measurement_title" maxbytes="17">
+        <source>Measurement Units</source>
+        <target>Maßeinheiten</target>
+      </trans-unit>
+      <trans-unit id="settings_location_title" maxbytes="8">
+        <source>Location</source>
+        <target>Ort</target>
+      </trans-unit>
+      <trans-unit id="settings_city_placeholder" maxbytes="17">
+        <source>Enter a city name</source>
+        <target>Geben Sie einen Stadtnamen ein</target>
+      </trans-unit>
+      <trans-unit id="settings_imperial_radio" maxbytes="8">
+        <source>Imperial</source>
+        <target>Imperial</target>
+      </trans-unit>
+      <trans-unit id="about_display_header" maxbytes="7">
+        <source>Display</source>
+        <target>Anzeigen</target>
+      </trans-unit>
+      <trans-unit id="about_features_text_second" maxbytes="71">
+        <source>Displayed information is based on the location (city based) you provide</source>
+        <target>Die angezeigten Informationen basieren auf dem Standort (stadtbasiert), den Sie</target>
+      </trans-unit>
+      <trans-unit id="about_display_text" maxbytes="82">
+        <source>A simple UI designed to give you the most important information in the easiest way</source>
+        <target>Eine einfache Benutzeroberfläche, die Ihnen die wichtigsten Informationen auf einfachste Weise zur Besten tät</target>
+      </trans-unit>
+      <trans-unit id="about_app_header" maxbytes="11">
+        <source>Weather-App</source>
+        <target>Wetter-App</target>
+      </trans-unit>
+      <trans-unit id="about_settings_text" maxbytes="127">
+        <source>Use the settings window to change the displayed location, preferred measurement unit, app language and number of displayed days</source>
+        <target>Verwenden Sie das Einstellungsfenster, um den angezeigten Speicherort, die bevorzugte Messeinheit, die App-Sprache und die Anzahl der angezeigten Tage zu ändern.</target>
+      </trans-unit>
+      <trans-unit id="about_settings_header" maxbytes="8">
+        <source>Settings</source>
+        <target>Einstellungen</target>
+      </trans-unit>
+      <trans-unit id="about_features_text_first" maxbytes="112">
+        <source>Get a detailed report of the weather in your current location or get a daily temperature report by time and date</source>
+        <target>Erhalten Sie einen detaillierten Wetterbericht an Ihrem aktuellen Standort oder erhalten Sie einen täglichen Temperaturbericht nach Uhrzeit und Datum</target>
+      </trans-unit>
+      <trans-unit id="about_app_text" maxbytes="98">
+        <source>Weather-App is a simple tool to help you find out what's the weather like in your desired location</source>
+        <target>Weather-App ist ein einfaches Tool, um herauszufinden, wie das Wetter an Ihrem gewünschten Ort ist</target>
+      </trans-unit>
+      <trans-unit id="description_broken_clouds" maxbytes="13">
+        <source>Broken clouds</source>
+        <target>Gebrochene Wolken</target>
+      </trans-unit>
+      <trans-unit id="description_shower_rain" maxbytes="11">
+        <source>Shower rain</source>
+        <target>Schauerregen</target>
+      </trans-unit>
+      <trans-unit id="error_city_name" maxbytes="30">
+        <source>Please enter a valid city name</source>
+        <target>Bitte geben Sie einen gültigen Ortsnamen ein</target>
+      </trans-unit>
+      <trans-unit id="description_few_clouds" maxbytes="10">
+        <source>Few clouds</source>
+        <target>Wenige Wolken</target>
+      </trans-unit>
+      <trans-unit id="description_scattered_clouds" maxbytes="16">
+        <source>Scattered clouds</source>
+        <target>Verstreute Wolken</target>
+      </trans-unit>
+      <trans-unit id="description_mist" maxbytes="4">
+        <source>Mist</source>
+        <target>Nebel</target>
+      </trans-unit>
+      <trans-unit id="description_snow" maxbytes="4">
+        <source>Snow</source>
+        <target>Schnee</target>
+      </trans-unit>
+      <trans-unit id="description_rain" maxbytes="4">
+        <source>Rain</source>
+        <target>Regen</target>
+      </trans-unit>
+      <trans-unit id="description_clear_sky" maxbytes="9">
+        <source>Clear sky</source>
+        <target>Klarer Himmel</target>
+      </trans-unit>
+      <trans-unit id="description_thunderstorm" maxbytes="12">
+        <source>Thunderstorm</source>
+        <target>Gewitter</target>
+      </trans-unit>
+      <trans-unit id="daily_day_number[one]" maxbytes="17">
+        <source>Displaying %d day</source>
+        <target>Anzeigen von %d Tag</target>
+      </trans-unit>
+      <trans-unit id="nav_header_subtitle" maxbytes="26">
+        <source>Get your local weather now</source>
+        <target>Holen Sie sich jetzt Ihr lokales Wetter</target>
+      </trans-unit>
+      <trans-unit id="daily_day_number[other]" maxbytes="18">
+        <source>Displaying %d days</source>
+        <target>Anzeigen von %d Tagen</target>
+      </trans-unit>
+      <trans-unit id="about_features_header" maxbytes="8">
+        <source>Features</source>
+        <target>Funktionen</target>
+      </trans-unit>
+      <trans-unit id="settings_metric_radio" maxbytes="6">
+        <source>Metric</source>
+        <target>Metrisch</target>
+      </trans-unit>
+      <trans-unit id="settings_days_title" maxbytes="24">
+        <source>Number of displayed days</source>
+        <target>Anzahl der angezeigten Tage</target>
+      </trans-unit>
+      <trans-unit id="settings_language_options[1]" maxbytes="6">
+        <source>German</source>
+        <target>Deutsch</target>
+      </trans-unit>
+      <trans-unit id="settings_language_options[0]" maxbytes="7">
+        <source>English</source>
+        <target>Englisch</target>
+      </trans-unit>
+      <trans-unit id="settings_language_options[2]" maxbytes="6">
+        <source>French</source>
+        <target>Französisch</target>
+      </trans-unit>
+    </body>
+    <reference/>
+  </file>
+</xliff>
