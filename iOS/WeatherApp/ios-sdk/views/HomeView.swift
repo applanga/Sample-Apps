@@ -38,9 +38,10 @@ struct HomeView: View {
                     
                     // Date
                     Text(getTodayDate())
-                        .font(.system(size: 40))
+                        .font(.system(size: 35))
                         .foregroundColor(.white)
                         .padding(.top, 15)
+                        .lineLimit(1)
                     
                     // Temperature
                     Text("\(Int(round((state.currentWeatherData?.main.temp)!)))°")
