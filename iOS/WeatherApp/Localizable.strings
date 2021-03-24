@@ -2,15 +2,14 @@
   Localizable.strings
   ios-sdk
 */
-// Pages
 
+// Pages
 "home_page" = "Home";
 "daily_page" = "Daily";
 "about_page" = "About";
 "settings_page" = "Settings";
 
 // Home page
-
 "title_description" = "Description";
 "title_feels_like" = "Feels Like";
 "title_humidity" = "Humidity";
@@ -19,7 +18,6 @@
 "title_wind_pressure" = "Wind Pressure";
 
 // Settings
-    // title
 "title_location" = "Location";
 "title_units" = "Measurment units";
 "title_language" = "App language";
@@ -75,3 +73,7 @@
 "thunderstorm" = "thunderstorm";
 "snow" = "snow";
 "mist" = "mist";
+
+// navigation
+"app_name" = "Weather App";
+"nav_subtitle" = "Get your local weather";
