@@ -17,7 +17,7 @@ class AboutFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val htmlPath = "file:///android_asset/about-page.html"
         val view: View = inflater.inflate(R.layout.fragment_about, container, false)
 

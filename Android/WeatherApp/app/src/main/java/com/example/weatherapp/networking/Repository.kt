@@ -15,8 +15,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class Repository {
     companion object {
-        val appId = "aebbd2fcfb9380df055be33fa8989c94"
-        val baseUrl = "https://api.openweathermap.org/"
+        const val appId = "aebbd2fcfb9380df055be33fa8989c94"
+        const val baseUrl = "https://api.openweathermap.org/"
     }
 
     private val retrofit = Retrofit.Builder()

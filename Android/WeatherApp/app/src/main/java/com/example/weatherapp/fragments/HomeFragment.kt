@@ -19,7 +19,7 @@ class HomeFragment : Fragment() {
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentHomeBinding.inflate(inflater)
         setHomeObserver()
         return binding.root
@@ -36,8 +36,8 @@ class HomeFragment : Fragment() {
 
     private fun hideSpinner() {
         binding.apply {
-            homeProgressBarBackground?.visibility = View.GONE
-            homeProgressBarSpinner?.visibility = View.GONE
+            homeProgressBarBackground.visibility = View.GONE
+            homeProgressBarSpinner.visibility = View.GONE
         }
     }
 

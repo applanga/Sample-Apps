@@ -25,7 +25,7 @@ import com.example.weatherapp.networking.modules.current.ApiResponseCurrent
 class SettingsFragment : androidx.fragment.app.Fragment() {
 
     lateinit var binding: FragmentSettingsBinding
-    lateinit var settings: SharedPrefrencesManager
+    private lateinit var settings: SharedPrefrencesManager
 
     private val languageOptions = Resources.getSystem().getStringArray(R.array.settings_language_options)
 
@@ -36,7 +36,7 @@ class SettingsFragment : androidx.fragment.app.Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentSettingsBinding.inflate(inflater)
         initUiSettings()
         return binding.root

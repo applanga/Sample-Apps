@@ -3,7 +3,7 @@ package com.example.weatherapp.utils
 import com.example.weatherapp.R
 
 object IconHelper {
-    fun getWeatherIcon(resId: String,): Int {
+    fun getWeatherIcon(resId: String): Int {
         return when (resId) {
             "01d" -> R.drawable.ic__01d
             "01n" -> R.drawable.ic__01n

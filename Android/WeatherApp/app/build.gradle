@@ -83,10 +83,6 @@ dependencies {
 repositories {
     maven { url 'https://maven.applanga.com/'}
     maven { url 'https://jitpack.io' }
-//    def releaseRepositoryPath = file('/Users/richard/Documents/ApplangaSDK/sdk/android/sdk-android/maven/releases')
-//    maven {
-//        url "file://${releaseRepositoryPath.absolutePath}"
-//    }
 }
 
 apply plugin: 'applanga'

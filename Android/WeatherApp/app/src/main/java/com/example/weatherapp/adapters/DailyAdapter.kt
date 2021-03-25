@@ -10,7 +10,7 @@ import com.example.weatherapp.networking.modules.daily.Day
 import com.example.weatherapp.utils.DateTimeHelper
 import com.example.weatherapp.utils.IconHelper
 
-class DailyAdapter(val context: Context?, val days: List<Day>) : RecyclerView.Adapter<DayViewHolder>() {
+class DailyAdapter(val context: Context?, private val days: List<Day>) : RecyclerView.Adapter<DayViewHolder>() {
 
     override fun getItemCount(): Int {
         return days.size
@@ -30,7 +30,7 @@ class DailyAdapter(val context: Context?, val days: List<Day>) : RecyclerView.Ad
 
 class DayViewHolder(val context: Context?, val binding: ItemDayBinding): RecyclerView.ViewHolder(binding.root) {
 
-    val dateTimeHelper = DateTimeHelper()
+    private val dateTimeHelper = DateTimeHelper()
 
     private fun getTime() : String {
         val time = binding.dayItem!!.dt_txt.substring(11, 16)

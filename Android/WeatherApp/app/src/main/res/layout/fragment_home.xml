@@ -96,7 +96,7 @@
             app:layout_constraintEnd_toStartOf="@+id/home_temperature"
             app:layout_constraintTop_toTopOf="@+id/home_temperature"
             tools:src="@drawable/ic__11n"
-            />
+            android:contentDescription="TODO" />
 
         <TextView
             android:id="@+id/home_feels_like_title"

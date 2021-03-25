@@ -7,7 +7,7 @@ import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.contrib.DrawerActions
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.ActivityScenarioRule
-import androidx.test.runner.AndroidJUnit4
+import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import com.applanga.android.Applanga
 import org.junit.Rule
 import org.junit.Test
@@ -19,7 +19,7 @@ import java.util.*
  *
  * See [testing documentation](http://d.android.com/tools/testing).
  */
-@RunWith(AndroidJUnit4::class)
+@RunWith(AndroidJUnit4ClassRunner::class)
 class ExampleInstrumentedTest {
 
     @get:Rule
@@ -72,19 +72,20 @@ class ExampleInstrumentedTest {
         SystemClock.sleep(2000)
 
         // Home page
+        SystemClock.sleep(3000)
         Applanga.captureScreenshot("home", null)
-        SystemClock.sleep(1000)
+        SystemClock.sleep(500)
 
         // Navigation drawer
         onView(withId(R.id.drawer_layout)).perform(DrawerActions.open())
         Applanga.captureScreenshot("navDrawer", null)
-        SystemClock.sleep(1000)
+        SystemClock.sleep(500)
 
         // Daily weather page
         SystemClock.sleep(1000)
         onView(withId(R.id.nav_daily)).perform(click())
         Applanga.captureScreenshot("dailyWeather", null)
-        SystemClock.sleep(1000)
+        SystemClock.sleep(500)
 
         // About page
         onView(withId(R.id.drawer_layout)).perform(DrawerActions.open())
@@ -92,14 +93,14 @@ class ExampleInstrumentedTest {
         onView(withId(R.id.nav_about)).perform(click())
         SystemClock.sleep(1000)
         Applanga.captureScreenshot("about", null)
-        SystemClock.sleep(1000)
+        SystemClock.sleep(500)
 
         // Settings page
         onView(withId(R.id.drawer_layout)).perform(DrawerActions.open())
         SystemClock.sleep(500)
         onView(withId(R.id.nav_settings)).perform(click())
         Applanga.captureScreenshot("settings", null)
-        SystemClock.sleep(1000)
+        SystemClock.sleep(500)
     }
 
 }

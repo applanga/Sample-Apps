@@ -55,15 +55,13 @@ class DateTimeHelper {
     }
 
     fun getCurrentDate(): String {
-//        val day = SimpleDateFormat("EEEE", Locale.ENGLISH).format(System.currentTimeMillis())
-//        val month = SimpleDateFormat("LLLL").format(getInstance().time)
         val date = getInstance().get(DAY_OF_MONTH)
 
         return "${getDayNameFromInt()}, ${getMonthName()} $date"
     }
 
     fun getFullDate(givenDate: String): String {
-        val format = SimpleDateFormat("yyyy-MM-dd").parse(givenDate)
+        val format = SimpleDateFormat("yyyy-MM-dd").parse(givenDate) as Date
         val dayName = SimpleDateFormat("EEEE", Locale.ENGLISH).format(format)
         val monthName = SimpleDateFormat("LLLL").format(getInstance().time)
 

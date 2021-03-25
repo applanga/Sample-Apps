@@ -1,6 +1,6 @@
 package com.example.weatherapp.fragments
 
-import android.content.Context
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -27,7 +27,7 @@ class DailyFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentDailyBinding.inflate(inflater)
         setDailyObserver()
         initUiDaily()
@@ -47,9 +47,9 @@ class DailyFragment : Fragment() {
         dailyAdapter = DailyAdapter(context, dailyAdapterMutableData)
 
         binding.apply {
-            val screenOrientation = (requireContext().getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay.orientation
+            val screenOrientation = resources.configuration.orientation
 
-            if (screenOrientation == Surface.ROTATION_90) {
+            if (screenOrientation == Configuration.ORIENTATION_LANDSCAPE) {
                 // In landscape
                 dailyRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             } else {
