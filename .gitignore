@@ -4,4 +4,6 @@ Android/WeatherApp/build
 Android/WeatherApp/app/build
 Android/WeatherApp/.idea
 Android/WeatherApp/.gradle
+Android/WeatherApp/local.properties
+Android/WeatherApp/**/*.applanga
 Android/WeatherApp/src/main/res/raw/applanga_settings.applanga
