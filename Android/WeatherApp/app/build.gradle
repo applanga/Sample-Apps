@@ -2,6 +2,7 @@ buildscript {
     repositories {
         jcenter()
         maven { url 'https://maven.applanga.com/' }
+
     }
     dependencies {
         classpath  'com.applanga.android:plugin:3.0.141'
@@ -19,7 +20,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.example.sdktest"
+        applicationId "com.applanga.weathersample"
         minSdkVersion 19
         targetSdkVersion 30
         versionCode 1

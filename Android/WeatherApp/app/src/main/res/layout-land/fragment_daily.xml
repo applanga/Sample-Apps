@@ -6,7 +6,7 @@
     <data>
         <variable
             name="dailyWeather"
-            type="com.example.weatherapp.networking.modules.daily.ApiResponseDaily" />
+            type="com.applanga.weathersample.networking.modules.daily.ApiResponseDaily" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
