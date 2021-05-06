@@ -73,18 +73,20 @@ class ExampleInstrumentedTest {
 
         // Home page
         SystemClock.sleep(3000)
-        Applanga.captureScreenshot("home", null)
+        Applanga.captureScreenshot("Home", null)
         SystemClock.sleep(500)
 
         // Navigation drawer
         onView(withId(R.id.drawer_layout)).perform(DrawerActions.open())
-        Applanga.captureScreenshot("navDrawer", null)
+        SystemClock.sleep(1000)
+        Applanga.captureScreenshot("Navigation", null)
         SystemClock.sleep(500)
 
         // Daily weather page
         SystemClock.sleep(1000)
         onView(withId(R.id.nav_daily)).perform(click())
-        Applanga.captureScreenshot("dailyWeather", null)
+        SystemClock.sleep(1000)
+        Applanga.captureScreenshot("DailyWeather", null)
         SystemClock.sleep(500)
 
         // About page
@@ -92,14 +94,15 @@ class ExampleInstrumentedTest {
         SystemClock.sleep(500)
         onView(withId(R.id.nav_about)).perform(click())
         SystemClock.sleep(1000)
-        Applanga.captureScreenshot("about", null)
+        Applanga.captureScreenshot("About", null)
         SystemClock.sleep(500)
 
         // Settings page
         onView(withId(R.id.drawer_layout)).perform(DrawerActions.open())
         SystemClock.sleep(500)
         onView(withId(R.id.nav_settings)).perform(click())
-        Applanga.captureScreenshot("settings", null)
+        SystemClock.sleep(1000)
+        Applanga.captureScreenshot("Settings", null)
         SystemClock.sleep(500)
     }
 

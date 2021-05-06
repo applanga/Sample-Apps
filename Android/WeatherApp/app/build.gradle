@@ -5,7 +5,7 @@ buildscript {
 
     }
     dependencies {
-        classpath  'com.applanga.android:plugin:3.0.141'
+        classpath  'com.applanga.android:plugin:3.0.143'
     }
 }
 
@@ -72,7 +72,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.3.0'
     // Applanga
 //    implementation 'com.applanga.android:Applanga:3.0.999'
-    implementation 'com.applanga.android:Applanga:3.0.141'
+    implementation 'com.applanga.android:Applanga:3.0.143'
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     // Gson converter for retrofit
