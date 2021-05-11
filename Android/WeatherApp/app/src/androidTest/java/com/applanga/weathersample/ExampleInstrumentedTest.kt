@@ -90,11 +90,22 @@ class ExampleInstrumentedTest {
         SystemClock.sleep(500)
 
         // About page
+        // we need to pass the string id's as this is a webview
+        val listOfIds = listOf(
+            "about_app_header",
+            "about_app_text",
+            "about_features_header",
+            "about_features_text_first",
+            "about_features_text_second",
+            "about_display_header",
+            "about_display_text",
+            "about_settings_header",
+            "about_settings_text")
         onView(withId(R.id.drawer_layout)).perform(DrawerActions.open())
         SystemClock.sleep(500)
         onView(withId(R.id.nav_about)).perform(click())
         SystemClock.sleep(1000)
-        Applanga.captureScreenshot("About", null)
+        Applanga.captureScreenshot("About", listOfIds)
         SystemClock.sleep(500)
 
         // Settings page
