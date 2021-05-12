@@ -71,9 +71,31 @@ class ExampleInstrumentedTest {
         checkAndChangeLanguage(language)
         SystemClock.sleep(2000)
 
+        val dateIds = listOf(
+            "days_sunday",
+            "days_monday",
+            "days_tuesday",
+            "days_wednesday",
+            "days_thursday",
+            "days_friday",
+            "days_saturday",
+            "month_january",
+            "month_february",
+            "month_march",
+            "month_april",
+            "month_may",
+            "month_june",
+            "month_july",
+            "month_august",
+            "month_september",
+            "month_october",
+            "month_november",
+            "month_december",
+        )
+
         // Home page
         SystemClock.sleep(3000)
-        Applanga.captureScreenshot("Home", null)
+        Applanga.captureScreenshot("Home", dateIds)
         SystemClock.sleep(500)
 
         // Navigation drawer
@@ -86,12 +108,12 @@ class ExampleInstrumentedTest {
         SystemClock.sleep(1000)
         onView(withId(R.id.nav_daily)).perform(click())
         SystemClock.sleep(1000)
-        Applanga.captureScreenshot("DailyWeather", null)
+        Applanga.captureScreenshot("DailyWeather", dateIds)
         SystemClock.sleep(500)
 
         // About page
         // we need to pass the string id's as this is a webview
-        val listOfIds = listOf(
+        val aboutIds = listOf(
             "about_app_header",
             "about_app_text",
             "about_features_header",
@@ -105,7 +127,7 @@ class ExampleInstrumentedTest {
         SystemClock.sleep(500)
         onView(withId(R.id.nav_about)).perform(click())
         SystemClock.sleep(1000)
-        Applanga.captureScreenshot("About", listOfIds)
+        Applanga.captureScreenshot("About", aboutIds)
         SystemClock.sleep(500)
 
         // Settings page

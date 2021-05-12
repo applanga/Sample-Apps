@@ -70,7 +70,6 @@
       </trans-unit>
       <trans-unit id="home_humidity_title" maxbytes="8">
         <source>Humidity</source>
-        <target>Paramètres avancés</target>
         <alt-trans alttranstype="proposal">
           <target>Humidité</target>
         </alt-trans>
@@ -273,7 +272,6 @@
       </trans-unit>
       <trans-unit id="settings_save_changes_btn" maxbytes="12">
         <source>Save Changes</source>
-        <target>Rechercher</target>
         <alt-trans alttranstype="proposal">
           <target>Enregistrer les modifications</target>
         </alt-trans>
