@@ -340,10 +340,10 @@
         </alt-trans>
       </trans-unit>
       <trans-unit id="about_settings_header" maxbytes="8">
-        <source>Settings</source>
+        <source>Customize</source>
         <target/>
         <alt-trans alttranstype="proposal">
-          <target>Paramètres</target>
+          <target>Personnaliser</target>
         </alt-trans>
       </trans-unit>
       <trans-unit id="about_features_text_first" maxbytes="112">
