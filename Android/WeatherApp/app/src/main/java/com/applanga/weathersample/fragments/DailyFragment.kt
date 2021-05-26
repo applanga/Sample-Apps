@@ -1,8 +1,9 @@
 package com.applanga.weathersample.fragments
 
-import android.content.res.Configuration
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.applanga.weathersample.MainActivity
@@ -47,15 +48,15 @@ class DailyFragment : Fragment() {
         dailyAdapter = DailyAdapter(context, dailyAdapterMutableData)
 
         binding.apply {
-            val screenOrientation = resources.configuration.orientation
-
-            if (screenOrientation == Configuration.ORIENTATION_LANDSCAPE) {
-                // In landscape
-                dailyRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-            } else {
-                // In portrait
+//            val screenOrientation = resources.configuration.orientation
+//
+//            if (screenOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+//                // In landscape
+//                dailyRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+//            } else {
+//                // In portrait
                 dailyRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-            }
+//            }
             dailyRecyclerView.adapter = dailyAdapter
 
             dailyDaysDisplay.text = resources.getQuantityString(

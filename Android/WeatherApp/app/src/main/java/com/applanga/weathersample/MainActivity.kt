@@ -1,28 +1,25 @@
 package com.applanga.weathersample
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.MotionEvent
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.MediatorLiveData
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.applanga.android.Applanga
 import com.applanga.weathersample.classes.SharedPrefrencesManager.Keys
 import com.applanga.weathersample.classes.WeatherAppApplication
 import com.applanga.weathersample.databinding.ActivityMainBinding
+import com.applanga.weathersample.fragments.AboutFragment
+import com.applanga.weathersample.fragments.DailyFragment
+import com.applanga.weathersample.fragments.HomeFragment
+import com.applanga.weathersample.fragments.SettingsFragment
 import com.applanga.weathersample.networking.Repository
 import com.applanga.weathersample.networking.interfaces.NetworkRequestListenerCurrent
 import com.applanga.weathersample.networking.interfaces.NetworkRequestListenerDaily
 import com.applanga.weathersample.networking.modules.current.ApiResponseCurrent
 import com.applanga.weathersample.networking.modules.daily.ApiResponseDaily
-import com.google.android.material.navigation.NavigationView
 
 
 class MainActivity : AppCompatActivity() ,
@@ -35,7 +32,6 @@ class MainActivity : AppCompatActivity() ,
     var dailyWeather : MediatorLiveData<ApiResponseDaily> = MediatorLiveData()
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,8 +46,34 @@ class MainActivity : AppCompatActivity() ,
     private fun initApp() {
         setInitialSettings()
         initNavigation()
-        initUiHeader()
         getApiData()
+    }
+
+    private fun initNavigation() {
+        val homeFragment = HomeFragment()
+        val dailyFragment = DailyFragment()
+        val aboutFragment = AboutFragment()
+        val settingsFragment = SettingsFragment()
+
+        setFragmentView(homeFragment)
+
+        binding.bottomNav?.setOnNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.nav_home -> setFragmentView(homeFragment)
+                R.id.nav_daily -> setFragmentView(dailyFragment)
+                R.id.nav_about -> setFragmentView(aboutFragment)
+                R.id.nav_settings -> setFragmentView(settingsFragment)
+                else -> setFragmentView(homeFragment)
+            }
+            true
+        }
+    }
+
+    private fun setFragmentView(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment_wrapper, fragment)
+            commit()
+        }
     }
 
     private fun getApiData() {
@@ -85,47 +107,6 @@ class MainActivity : AppCompatActivity() ,
         Toast.makeText(this, error.message, Toast.LENGTH_LONG).show()
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
-    }
-
-    private fun initNavigation() {
-
-        val navController = findNavController(R.id.nav_host_fragment)
-
-        binding.apply {
-            setSupportActionBar(mainContent.toolbar)
-            appBarConfiguration = AppBarConfiguration(
-                setOf(
-                    R.id.nav_home,
-                    R.id.nav_daily,
-                    R.id.nav_about,
-                    R.id.nav_settings
-                ), drawerLayout
-            )
-            setupActionBarWithNavController(navController, appBarConfiguration)
-            navView.setupWithNavController(navController)
-
-            //set initial title to home page
-            mainContent.toolbar.title = getString(R.string.menu_home)
-
-            //add listner for when the navigation changes
-            navController.addOnDestinationChangedListener { _, destination, _ ->
-                when(destination.id){
-                    R.id.nav_home -> mainContent.toolbar.title = getString(R.string.menu_home)
-                    R.id.nav_daily -> mainContent.toolbar.title = getString(R.string.menu_daily)
-                    R.id.nav_about -> mainContent.toolbar.title = getString(R.string.menu_about)
-                    R.id.nav_settings -> mainContent.toolbar.title = getString(R.string.menu_settings)
-                }
-            }
-        }
-
-        //localise the nav menu
-        val navView = findViewById<NavigationView>(R.id.nav_view)
-        Applanga.localizeMenu(R.menu.activity_main_drawer, navView.menu)
-    }
-
     private fun setInitialSettings() {
         val settings = WeatherAppApplication.app.sharedPrefrencesManager
 
@@ -137,15 +118,6 @@ class MainActivity : AppCompatActivity() ,
                 it.putInt(Keys.DAYS_NUMBER_KEY.toString(), 5)
                 it.putBoolean(Keys.FIRST_RUN_KEY.toString(), false)
             }
-        }
-    }
-
-    private fun initUiHeader() {
-        val headerView = binding.navView.getHeaderView(0)
-        val applangaUrl = "https://www.applanga.com"
-        headerView.setOnClickListener {
-            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(applangaUrl))
-            startActivity(browserIntent)
         }
     }
 
