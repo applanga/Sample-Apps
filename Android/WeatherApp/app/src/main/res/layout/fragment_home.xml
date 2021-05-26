@@ -20,38 +20,38 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
-            android:translationZ="10dp"/>
+            android:translationZ="10dp" />
 
         <ProgressBar
             android:id="@+id/home_progress_bar_spinner"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="@dimen/spacing_xl"
-            android:translationZ="10dp"
             android:duration="10"
-        />
+            android:padding="@dimen/spacing_xl"
+            android:translationZ="10dp" />
 
         <TextView
             android:id="@+id/home_location"
             style="@style/home_data"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
             android:text="@{homeWeather.name + `, ` + homeWeather.sys.country + ` `}"
             android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="@+id/home_location_icon"
-            app:layout_constraintStart_toEndOf="@+id/home_location_icon"
-            app:layout_constraintTop_toTopOf="@+id/home_location_icon"
+            app:layout_constraintEnd_toStartOf="@+id/home_progress_bar_background"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/home_progress_bar_background"
+            app:layout_constraintTop_toTopOf="@+id/home_progress_bar_background"
             tools:text="location" />
 
         <ImageView
             android:id="@+id/home_location_icon"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="56dp"
             android:contentDescription="@string/settings_location_title"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.336"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/home_location"
+            app:layout_constraintEnd_toStartOf="@+id/home_location"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_location_white"
             tools:ignore="VectorDrawableCompat" />
@@ -90,13 +90,13 @@
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:layout_marginEnd="4dp"
+            android:contentDescription="TODO"
             android:paddingLeft="@dimen/spacing_md"
             android:paddingRight="@dimen/spacing_md"
             app:layout_constraintBottom_toBottomOf="@+id/home_temperature"
             app:layout_constraintEnd_toStartOf="@+id/home_temperature"
             app:layout_constraintTop_toTopOf="@+id/home_temperature"
-            tools:src="@drawable/ic__11n"
-            android:contentDescription="TODO" />
+            tools:src="@drawable/ic__11n" />
 
         <TextView
             android:id="@+id/home_feels_like_title"
@@ -115,7 +115,7 @@
             style="@style/home_data"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_xs"
+            android:layout_marginTop="4dp"
             app:doubleToInt="@{homeWeather.main.feels_like}"
             app:layout_constraintStart_toStartOf="@+id/home_feels_like_title"
             app:layout_constraintTop_toBottomOf="@+id/home_feels_like_title"
@@ -138,7 +138,7 @@
             style="@style/home_data"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_xs"
+            android:layout_marginTop="4dp"
             app:getDescriptionString="@{homeWeather.weather[0].icon + ``}"
             app:layout_constraintStart_toStartOf="@+id/home_description_title"
             app:layout_constraintTop_toBottomOf="@+id/home_description_title"
@@ -149,7 +149,7 @@
             style="@style/home_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="54dp"
             android:text="@string/home_clouds_title"
             app:layout_constraintStart_toStartOf="@+id/home_feels_like_title"
             app:layout_constraintTop_toBottomOf="@+id/home_feels_like_title" />
@@ -181,7 +181,7 @@
             style="@style/home_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="54dp"
             android:text="@string/home_humidity_title"
             app:layout_constraintStart_toStartOf="@+id/home_description_title"
             app:layout_constraintTop_toBottomOf="@+id/home_description_title" />
@@ -191,7 +191,7 @@
             style="@style/home_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="54dp"
             android:text="@string/home_wind_speed_title"
             app:layout_constraintStart_toStartOf="@+id/home_humidity_title"
             app:layout_constraintTop_toBottomOf="@+id/home_humidity_title" />
@@ -223,7 +223,7 @@
             style="@style/home_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="54dp"
             android:text="@string/home_pressure_title"
             app:layout_constraintStart_toStartOf="@+id/home_clouds_title"
             app:layout_constraintTop_toBottomOf="@+id/home_clouds_title" />

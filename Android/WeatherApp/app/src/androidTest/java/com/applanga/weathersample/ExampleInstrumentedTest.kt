@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.SystemClock
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.contrib.DrawerActions
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
@@ -95,20 +94,14 @@ class ExampleInstrumentedTest {
 
         // Home page
         SystemClock.sleep(3000)
-        Applanga.captureScreenshot("Home", dateIds)
-        SystemClock.sleep(500)
-
-        // Navigation drawer
-        onView(withId(R.id.drawer_layout)).perform(DrawerActions.open())
-        SystemClock.sleep(1000)
-        Applanga.captureScreenshot("Navigation", null)
+        Applanga.captureScreenshot("Home", null)
         SystemClock.sleep(500)
 
         // Daily weather page
         SystemClock.sleep(1000)
         onView(withId(R.id.nav_daily)).perform(click())
         SystemClock.sleep(1000)
-        Applanga.captureScreenshot("DailyWeather", dateIds)
+        Applanga.captureScreenshot("DailyWeather", null)
         SystemClock.sleep(500)
 
         // About page
@@ -123,16 +116,14 @@ class ExampleInstrumentedTest {
             "about_display_text",
             "about_settings_header",
             "about_settings_text")
-        onView(withId(R.id.drawer_layout)).perform(DrawerActions.open())
-        SystemClock.sleep(500)
+        SystemClock.sleep(1000)
         onView(withId(R.id.nav_about)).perform(click())
         SystemClock.sleep(1000)
         Applanga.captureScreenshot("About", aboutIds)
         SystemClock.sleep(500)
 
         // Settings page
-        onView(withId(R.id.drawer_layout)).perform(DrawerActions.open())
-        SystemClock.sleep(500)
+        SystemClock.sleep(1000)
         onView(withId(R.id.nav_settings)).perform(click())
         SystemClock.sleep(1000)
         Applanga.captureScreenshot("Settings", null)
