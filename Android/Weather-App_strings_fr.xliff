@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en" datatype="plaintext" target-language="fr" date="2021-03-18T08:59:54Z" product-name="Android - Weather App" tool="Applanga">
+  <file source-language="en" datatype="plaintext" target-language="fr" date="2021-05-27T11:01:43Z" product-name="Android - Weather App" tool="Applanga">
     <header>
       <tool tool-name="Applanga"/>
     </header>
@@ -33,11 +33,11 @@
           <target>Application météo</target>
         </alt-trans>
       </trans-unit>
-      <trans-unit id="menu_daily" maxbytes="13">
-        <source>Daily Weather</source>
+      <trans-unit id="menu_daily" maxbytes="14">
+        <source>Daily Forecast</source>
         <target/>
         <alt-trans alttranstype="proposal">
-          <target>Météo quotidienne</target>
+          <target>Prévisions quotidiennes</target>
         </alt-trans>
       </trans-unit>
       <trans-unit id="menu_settings" maxbytes="8">
@@ -70,6 +70,7 @@
       </trans-unit>
       <trans-unit id="home_humidity_title" maxbytes="8">
         <source>Humidity</source>
+        <target/>
         <alt-trans alttranstype="proposal">
           <target>Humidité</target>
         </alt-trans>
@@ -272,6 +273,7 @@
       </trans-unit>
       <trans-unit id="settings_save_changes_btn" maxbytes="12">
         <source>Save Changes</source>
+        <target/>
         <alt-trans alttranstype="proposal">
           <target>Enregistrer les modifications</target>
         </alt-trans>
@@ -330,20 +332,6 @@
         <target/>
         <alt-trans alttranstype="proposal">
           <target>Météo-App</target>
-        </alt-trans>
-      </trans-unit>
-      <trans-unit id="about_settings_text" maxbytes="127">
-        <source>Use the settings window to change the displayed location, preferred measurement unit, app language and number of displayed days</source>
-        <target/>
-        <alt-trans alttranstype="proposal">
-          <target>Utilisez la fenêtre paramètres pour modifier l’emplacement affiché, l’unité de mesure préférée, le langage de l’application et le nombre de jours affichés</target>
-        </alt-trans>
-      </trans-unit>
-      <trans-unit id="about_settings_header" maxbytes="8">
-        <source>Customize</source>
-        <target/>
-        <alt-trans alttranstype="proposal">
-          <target>Personnaliser</target>
         </alt-trans>
       </trans-unit>
       <trans-unit id="about_features_text_first" maxbytes="112">
@@ -444,11 +432,11 @@
           <target>Obtenez votre météo locale maintenant</target>
         </alt-trans>
       </trans-unit>
-      <trans-unit id="daily_day_number[other]" maxbytes="18">
-        <source>Displaying %d days</source>
+      <trans-unit id="daily_day_number[other]" maxbytes="23">
+        <source>Displaying next %d days</source>
         <target/>
         <alt-trans alttranstype="proposal">
-          <target>Affichage %d jours</target>
+          <target>Affichage des prochains %d jours</target>
         </alt-trans>
       </trans-unit>
       <trans-unit id="about_features_header" maxbytes="8">
@@ -491,6 +479,20 @@
         <target/>
         <alt-trans alttranstype="proposal">
           <target>Français</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="about_customize_header" maxbytes="9">
+        <source>Customize</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Personnaliser</target>
+        </alt-trans>
+      </trans-unit>
+      <trans-unit id="about_customize_text" maxbytes="127">
+        <source>Use the settings window to change the displayed location, preferred measurement unit, app language and number of displayed days</source>
+        <target/>
+        <alt-trans alttranstype="proposal">
+          <target>Utilisez la fenêtre paramètres pour modifier l’emplacement affiché, l’unité de mesure préférée, la langue de l’application et le nombre de jours affichés</target>
         </alt-trans>
       </trans-unit>
     </body>

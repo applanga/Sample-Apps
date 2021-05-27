@@ -48,17 +48,8 @@ class DailyFragment : Fragment() {
         dailyAdapter = DailyAdapter(context, dailyAdapterMutableData)
 
         binding.apply {
-//            val screenOrientation = resources.configuration.orientation
-//
-//            if (screenOrientation == Configuration.ORIENTATION_LANDSCAPE) {
-//                // In landscape
-//                dailyRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-//            } else {
-//                // In portrait
-                dailyRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-//            }
+            dailyRecyclerView.layoutManager = LinearLayoutManager(requireContext())
             dailyRecyclerView.adapter = dailyAdapter
-
             dailyDaysDisplay.text = resources.getQuantityString(
                 R.plurals.daily_day_number,
                 displayedDays,

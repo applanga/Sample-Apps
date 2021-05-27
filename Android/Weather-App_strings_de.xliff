@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en" datatype="plaintext" target-language="de" date="2021-03-18T08:58:15Z" product-name="Android - Weather App" tool="Applanga">
+  <file source-language="en" datatype="plaintext" target-language="de" date="2021-05-27T11:01:43Z" product-name="Android - Weather App" tool="Applanga">
     <header>
       <tool tool-name="Applanga"/>
     </header>
@@ -21,9 +21,9 @@
         <source>Weather App</source>
         <target>Wetter App</target>
       </trans-unit>
-      <trans-unit id="menu_daily" maxbytes="13">
-        <source>Daily Weather</source>
-        <target>Tägliches Wetter</target>
+      <trans-unit id="menu_daily" maxbytes="14">
+        <source>Daily Forecast</source>
+        <target>Tägliche Prognose</target>
       </trans-unit>
       <trans-unit id="menu_settings" maxbytes="8">
         <source>Settings</source>
@@ -193,14 +193,6 @@
         <source>Weather-App</source>
         <target>Wetter-App</target>
       </trans-unit>
-      <trans-unit id="about_settings_text" maxbytes="127">
-        <source>Use the settings window to change the displayed location, preferred measurement unit, app language and number of displayed days</source>
-        <target>Verwenden Sie das Einstellungsfenster, um den angezeigten Speicherort, die bevorzugte Messeinheit, die App-Sprache und die Anzahl der angezeigten Tage zu ändern.</target>
-      </trans-unit>
-      <trans-unit id="about_settings_header" maxbytes="8">
-        <source>Customize</source>
-        <target>Anpassen</target>
-      </trans-unit>
       <trans-unit id="about_features_text_first" maxbytes="112">
         <source>Get a detailed report of the weather in your current location or get a daily temperature report by time and date</source>
         <target>Erhalten Sie einen detaillierten Wetterbericht an Ihrem aktuellen Standort oder erhalten Sie einen täglichen Temperaturbericht nach Uhrzeit und Datum</target>
@@ -257,9 +249,9 @@
         <source>Get your local weather now</source>
         <target>Holen Sie sich jetzt Ihr lokales Wetter</target>
       </trans-unit>
-      <trans-unit id="daily_day_number[other]" maxbytes="18">
-        <source>Displaying %d days</source>
-        <target>Anzeigen von %d Tagen</target>
+      <trans-unit id="daily_day_number[other]" maxbytes="23">
+        <source>Displaying next %d days</source>
+        <target>Anzeigen der nächsten %d Tage</target>
       </trans-unit>
       <trans-unit id="about_features_header" maxbytes="8">
         <source>Features</source>
@@ -284,6 +276,14 @@
       <trans-unit id="settings_language_options[2]" maxbytes="6">
         <source>French</source>
         <target>Französisch</target>
+      </trans-unit>
+      <trans-unit id="about_customize_header" maxbytes="9">
+        <source>Customize</source>
+        <target>Anpassen</target>
+      </trans-unit>
+      <trans-unit id="about_customize_text" maxbytes="127">
+        <source>Use the settings window to change the displayed location, preferred measurement unit, app language and number of displayed days</source>
+        <target>Verwenden Sie das Einstellungsfenster, um den angezeigten Speicherort, die bevorzugte Messeinheit, die App-Sprache und die Anzahl der angezeigten Tage zu ändern.</target>
       </trans-unit>
     </body>
     <reference/>

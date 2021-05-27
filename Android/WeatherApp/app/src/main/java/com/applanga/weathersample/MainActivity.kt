@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() ,
 
         setFragmentView(homeFragment)
 
-        binding.bottomNav?.setOnNavigationItemSelectedListener {
+        binding.bottomNav.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.nav_home -> setFragmentView(homeFragment)
                 R.id.nav_daily -> setFragmentView(dailyFragment)
