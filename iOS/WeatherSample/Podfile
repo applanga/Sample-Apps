@@ -1,0 +1,7 @@
+target 'WeatherSample' do
+
+  use_frameworks!
+  	pod 'Applanga'
+
+	pod 'DropDown'
+end

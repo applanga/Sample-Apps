@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" target-language="en" date="2021-06-16T13:26:35Z" product-name="IOS - Storyboards - Weather app" tool="Applanga">
+    <header>
+      <tool tool-name="Applanga"/>
+    </header>
+    <body>
+      <trans-unit id="about_app_text">
+        <source>Weather-App is a simple tool to help you find out what's the weather like in your desired location</source>
+      </trans-unit>
+      <trans-unit id="about_customize_header">
+        <source>Customize</source>
+      </trans-unit>
+      <trans-unit id="about_customize_text">
+        <source>Use the settings window to change the displayed location, preferred measurement unit, app language and number of displayed days</source>
+      </trans-unit>
+      <trans-unit id="about_display_header">
+        <source>Display</source>
+      </trans-unit>
+      <trans-unit id="about_display_text">
+        <source>A simple UI designed to give you the most important information in the easiest way</source>
+      </trans-unit>
+      <trans-unit id="about_features_header">
+        <source>Features</source>
+      </trans-unit>
+      <trans-unit id="about_features_text_first">
+        <source>Get a detailed report of the weather in your current location or get a daily temperature report by time and date</source>
+      </trans-unit>
+      <trans-unit id="about_features_text_second">
+        <source>Displayed information is based on the location (city based) you provide</source>
+      </trans-unit>
+      <trans-unit id="about_title">
+        <source>About</source>
+      </trans-unit>
+      <trans-unit id="app_name">
+        <source>Weather-App</source>
+      </trans-unit>
+      <trans-unit id="April">
+        <source>April</source>
+      </trans-unit>
+      <trans-unit id="August">
+        <source>August</source>
+      </trans-unit>
+      <trans-unit id="broken_clouds">
+        <source>broken clouds</source>
+      </trans-unit>
+      <trans-unit id="clear_sky">
+        <source>clear sky</source>
+      </trans-unit>
+      <trans-unit id="daily_displayed_days" translate="No">
+        <source/>
+      </trans-unit>
+      <trans-unit id="daily_displayed_days[one]">
+        <source>Displaying %d day</source>
+      </trans-unit>
+      <trans-unit id="daily_displayed_days[other]">
+        <source>Displaying next %d days</source>
+      </trans-unit>
+      <trans-unit id="daily_title">
+        <source>Daily Forecast</source>
+      </trans-unit>
+      <trans-unit id="December">
+        <source>December</source>
+      </trans-unit>
+      <trans-unit id="February">
+        <source>February</source>
+      </trans-unit>
+      <trans-unit id="few_clouds">
+        <source>few clouds</source>
+      </trans-unit>
+      <trans-unit id="Friday">
+        <source>Friday</source>
+      </trans-unit>
+      <trans-unit id="home_clouds">
+        <source>Clouds</source>
+      </trans-unit>
+      <trans-unit id="home_description">
+        <source>Description</source>
+      </trans-unit>
+      <trans-unit id="home_feels_like">
+        <source>Feels like</source>
+      </trans-unit>
+      <trans-unit id="home_humidity">
+        <source>Humidity</source>
+      </trans-unit>
+      <trans-unit id="home_pressure">
+        <source>Pressure</source>
+      </trans-unit>
+      <trans-unit id="home_title">
+        <source>Home</source>
+      </trans-unit>
+      <trans-unit id="home_wind_speed">
+        <source>Wind speed</source>
+      </trans-unit>
+      <trans-unit id="January">
+        <source>January</source>
+      </trans-unit>
+      <trans-unit id="July">
+        <source>July</source>
+      </trans-unit>
+      <trans-unit id="June">
+        <source>June</source>
+      </trans-unit>
+      <trans-unit id="March">
+        <source>March</source>
+      </trans-unit>
+      <trans-unit id="May">
+        <source>May</source>
+      </trans-unit>
+      <trans-unit id="mist">
+        <source>mist</source>
+      </trans-unit>
+      <trans-unit id="Monday">
+        <source>Monday</source>
+      </trans-unit>
+      <trans-unit id="November">
+        <source>November</source>
+      </trans-unit>
+      <trans-unit id="October">
+        <source>October</source>
+      </trans-unit>
+      <trans-unit id="rain">
+        <source>rain</source>
+      </trans-unit>
+      <trans-unit id="Saturday">
+        <source>Saturday</source>
+      </trans-unit>
+      <trans-unit id="scattered_clouds">
+        <source>scattered clouds</source>
+      </trans-unit>
+      <trans-unit id="September">
+        <source>September</source>
+      </trans-unit>
+      <trans-unit id="settings_displayed_days">
+        <source>Number of displayed days</source>
+      </trans-unit>
+      <trans-unit id="settings_error_warning">
+        <source>Something went wrong. Please make sure to enter a valid city name</source>
+      </trans-unit>
+      <trans-unit id="settings_imperial_option">
+        <source>Imperial</source>
+      </trans-unit>
+      <trans-unit id="settings_language">
+        <source>App language</source>
+      </trans-unit>
+      <trans-unit id="settings_location">
+        <source>Location</source>
+      </trans-unit>
+      <trans-unit id="settings_measurement_unit">
+        <source>Measurement unit</source>
+      </trans-unit>
+      <trans-unit id="settings_metric_option">
+        <source>Metric</source>
+      </trans-unit>
+      <trans-unit id="settings_save_button">
+        <source>Save Settings</source>
+      </trans-unit>
+      <trans-unit id="settings_title">
+        <source>Settings</source>
+      </trans-unit>
+      <trans-unit id="shower_rain">
+        <source>shower rain</source>
+      </trans-unit>
+      <trans-unit id="snow">
+        <source>snow</source>
+      </trans-unit>
+      <trans-unit id="Sunday">
+        <source>Sunday</source>
+      </trans-unit>
+      <trans-unit id="thunderstorm">
+        <source>thunderstorm</source>
+      </trans-unit>
+      <trans-unit id="Thursday">
+        <source>Thursday</source>
+      </trans-unit>
+      <trans-unit id="Tuesday">
+        <source>Tuesday</source>
+      </trans-unit>
+      <trans-unit id="Wednesday">
+        <source>Wednesday</source>
+      </trans-unit>
+      <trans-unit id="settings_app_language[0]">
+        <source>English</source>
+      </trans-unit>
+      <trans-unit id="settings_app_language[1]">
+        <source>German</source>
+      </trans-unit>
+      <trans-unit id="settings_app_language[2]">
+        <source>French</source>
+      </trans-unit>
+    </body>
+    <reference/>
+  </file>
+</xliff>
