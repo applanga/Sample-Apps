@@ -24,6 +24,7 @@
             app:itemBackground="@color/applanga_blue"
             app:itemIconTint="@color/white"
             app:itemTextColor="@color/white"
+            app:labelVisibilityMode="labeled"
             />
 
     </RelativeLayout>

@@ -9,14 +9,24 @@ import kotlin.math.roundToInt
 object FragmentBindingAdapter {
     @JvmStatic
     @BindingAdapter("doubleToInt")
-    fun doubleToInt(textView : TextView, temp: Double) {
-        textView.text = temp.roundToInt().toString() + "° "
+    fun doubleToInt(textView : TextView, temp: Double?) {
+        textView.text = doubleToInt(temp)
+    }
+
+    @JvmStatic
+    fun doubleToInt(temp: Double?): String {
+        return temp?.roundToInt().toString() + "°"
     }
 
     @JvmStatic
     @BindingAdapter("getDescriptionString")
-    fun getDescriptionString(textView: TextView, descriptionId: String) {
-        textView.text = when (descriptionId) {
+    fun getDescriptionString(textView: TextView, descriptionId: String?) {
+        textView.text = getDescriptionString(descriptionId)
+    }
+
+    @JvmStatic
+    fun getDescriptionString(descriptionId: String?): String {
+        return when (descriptionId) {
             "01d", "01n" -> Resources.getSystem().getString(R.string.description_clear_sky)
             "02d", "02n" -> Resources.getSystem().getString(R.string.description_few_clouds)
             "03d", "03n" -> Resources.getSystem().getString(R.string.description_scattered_clouds)
