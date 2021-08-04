@@ -113,190 +113,216 @@
             app:layout_constraintTop_toBottomOf="@+id/home_weather_icon">
 
             <!-- description -->
-            <include layout="@layout/home_data_item"
-                bind:title="@{context.resources.getString(R.string.home_description_title)}"
-                bind:data="@{FragmentBindingAdapter.getDescriptionString(homeWeather.weather[0].icon)}" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:background="@color/applanga_blue"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp">
+
+                <TextView
+                    android:id="@+id/home_description_title"
+                    style="@style/home_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_description_title"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="title" />
+
+                <TextView
+                    android:id="@+id/home_description_data"
+                    style="@style/home_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:getDescriptionString="@{homeWeather.weather[0].icon}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="data" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!-- feels like -->
-            <include layout="@layout/home_data_item"
-                bind:title="@{context.resources.getString(R.string.home_feels_like_title)}"
-                bind:data="@{FragmentBindingAdapter.doubleToInt(homeWeather.main.feels_like)}" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:background="@color/applanga_blue"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp">
+
+                <TextView
+                    android:id="@+id/home_feels_like_title"
+                    style="@style/home_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_feels_like_title"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="title" />
+
+                <TextView
+                    android:id="@+id/home_feels_like_data"
+                    style="@style/home_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:doubleToInt="@{homeWeather.main.feels_like}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="data" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!-- clouds -->
-            <include layout="@layout/home_data_item"
-                bind:title="@{context.resources.getString(R.string.home_clouds_title)}"
-                bind:data="@{homeWeather.clouds.all  + `%` + ` `}" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:background="@color/applanga_blue"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp">
+
+                <TextView
+                    android:id="@+id/home_clouds_title"
+                    style="@style/home_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_clouds_title"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="title" />
+
+                <TextView
+                    android:id="@+id/home_clouds_data"
+                    style="@style/home_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{homeWeather.clouds.all  + `%` + ` `}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="data" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!-- humidity -->
-            <include layout="@layout/home_data_item"
-                bind:title="@{context.resources.getString(R.string.home_humidity_title)}"
-                bind:data="@{homeWeather.main.humidity + `%` + ` `}" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:background="@color/applanga_blue"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp">
+
+                <TextView
+                    android:id="@+id/home_humidity_title"
+                    style="@style/home_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_humidity_title"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="title" />
+
+                <TextView
+                    android:id="@+id/home_humidity_data"
+                    style="@style/home_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{homeWeather.main.humidity + `%` + ` `}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="data" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!-- pressure -->
-            <include layout="@layout/home_data_item"
-                bind:title="@{context.resources.getString(R.string.home_pressure_title)}"
-                bind:data="@{homeWeather.main.pressure + ` hPa` + ` `}" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:background="@color/applanga_blue"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp">
+
+                <TextView
+                    android:id="@+id/home_pressure_title"
+                    style="@style/home_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_pressure_title"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="title" />
+
+                <TextView
+                    android:id="@+id/home_pressure_data"
+                    style="@style/home_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{homeWeather.main.pressure + ` hPa` + ` `}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="data" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!-- wind speed -->
-            <include layout="@layout/home_data_item"
-                bind:title="@{context.resources.getString(R.string.home_wind_speed_title)}"
-                bind:data="@{homeWeather.wind.speed + ` km/h` + ` `}" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:background="@color/applanga_blue"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp">
+
+                <TextView
+                    android:id="@+id/home_wind_speed_title"
+                    style="@style/home_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_wind_speed_title"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="title" />
+
+                <TextView
+                    android:id="@+id/home_wind_speed_data"
+                    style="@style/home_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{homeWeather.wind.speed + ` km/h` + ` `}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="data" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
-
-<!--        <TextView-->
-<!--            android:id="@+id/home_feels_like_data"-->
-<!--            style="@style/home_data"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginEnd="24dp"-->
-<!--            android:gravity="end"-->
-<!--            app:doubleToInt="@{homeWeather.main.feels_like}"-->
-<!--            app:layout_constraintBottom_toBottomOf="@+id/home_feels_like_title"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/home_feels_like_title"-->
-<!--            tools:text="feels like" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/home_feels_like_title"-->
-<!--            style="@style/home_title"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="24dp"-->
-<!--            android:layout_marginTop="16dp"-->
-<!--            android:text="@string/home_feels_like_title"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/home_description_title" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/home_clouds_title"-->
-<!--            style="@style/home_title"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="24dp"-->
-<!--            android:layout_marginTop="16dp"-->
-<!--            android:text="@string/home_clouds_title"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/home_feels_like_title" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/home_clouds_data"-->
-<!--            style="@style/home_data"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginEnd="24dp"-->
-<!--            android:gravity="end"-->
-<!--            android:text="@{homeWeather.clouds.all  + `%` + ` `}"-->
-<!--            app:layout_constraintBottom_toBottomOf="@+id/home_clouds_title"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/home_clouds_title"-->
-<!--            tools:text="clouds" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/home_humidity_data"-->
-<!--            style="@style/home_data"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginEnd="24dp"-->
-<!--            android:gravity="end"-->
-<!--            android:text="@{homeWeather.main.humidity + `%` + ` `}"-->
-<!--            app:layout_constraintBottom_toBottomOf="@+id/home_humidity_title"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/home_humidity_title"-->
-<!--            tools:text="humidity" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/home_humidity_title"-->
-<!--            style="@style/home_title"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="24dp"-->
-<!--            android:layout_marginTop="16dp"-->
-<!--            android:text="@string/home_humidity_title"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/home_clouds_title" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/home_wind_speed_title"-->
-<!--            style="@style/home_title"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="35dp"-->
-<!--            android:layout_marginStart="24dp"-->
-<!--            android:layout_marginTop="16dp"-->
-<!--            android:text="@string/home_wind_speed_title"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/home_pressure_title" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/home_wind_speed_data"-->
-<!--            style="@style/home_data"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginEnd="24dp"-->
-<!--            android:paddingRight="8dp"-->
-<!--            android:gravity="end"-->
-<!--            android:text="@{homeWeather.wind.speed + ` km/h` + ` `}"-->
-<!--            app:layout_constraintBottom_toBottomOf="@+id/home_wind_speed_title"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/home_wind_speed_title"-->
-<!--            tools:text="wind speed" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/home_pressure_data"-->
-<!--            style="@style/home_data"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginEnd="24dp"-->
-<!--            android:gravity="end"-->
-<!--            android:text="@{homeWeather.main.pressure + ` hPa` + ` `}"-->
-<!--            app:layout_constraintBottom_toBottomOf="@+id/home_pressure_title"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintHorizontal_bias="0.0"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/home_pressure_title"-->
-<!--            tools:text="pressure" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/home_pressure_title"-->
-<!--            style="@style/home_title"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="24dp"-->
-<!--            android:layout_marginTop="16dp"-->
-<!--            android:text="@string/home_pressure_title"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/home_humidity_title" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/home_description_title"-->
-<!--            style="@style/home_title"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="24dp"-->
-<!--            android:layout_marginTop="8dp"-->
-<!--            android:text="@string/home_description_title"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/home_weather_icon" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/home_description_data"-->
-<!--            style="@style/home_data"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginEnd="24dp"-->
-<!--            android:gravity="end"-->
-<!--            app:getDescriptionString="@{homeWeather.weather[0].icon + ``}"-->
-<!--            app:layout_constraintBottom_toBottomOf="@+id/home_description_title"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/home_description_title"-->
-<!--            tools:text="description" />-->
-
-<!--        <androidx.constraintlayout.widget.Guideline-->
-<!--            android:id="@+id/guideline"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="vertical"-->
-<!--            app:layout_constraintGuide_percent="0.5" />-->
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

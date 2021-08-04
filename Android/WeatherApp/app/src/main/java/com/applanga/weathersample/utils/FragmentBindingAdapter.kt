@@ -15,13 +15,14 @@ object FragmentBindingAdapter {
 
     @JvmStatic
     fun doubleToInt(temp: Double?): String {
-        return temp?.roundToInt().toString() + "°"
+        return temp?.roundToInt().toString() + "° "
     }
 
     @JvmStatic
     @BindingAdapter("getDescriptionString")
     fun getDescriptionString(textView: TextView, descriptionId: String?) {
-        textView.text = getDescriptionString(descriptionId)
+        val text = "${getDescriptionString(descriptionId)} "
+        textView.text = text
     }
 
     @JvmStatic

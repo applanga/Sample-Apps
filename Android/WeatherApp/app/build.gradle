@@ -1,11 +1,11 @@
 buildscript {
     repositories {
-        jcenter()
+        mavenCentral()
         maven { url 'https://maven.applanga.com/' }
 
     }
     dependencies {
-        classpath  'com.applanga.android:plugin:3.0.145'
+        classpath  'com.applanga.android:plugin:3.0.147'
     }
 }
 
@@ -71,7 +71,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
     androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.3.0'
     // Applanga
-    implementation 'com.applanga.android:Applanga:3.0.145'
+    implementation 'com.applanga.android:Applanga:3.0.147'
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     // Gson converter for retrofit

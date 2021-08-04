@@ -68,7 +68,7 @@ class ExampleInstrumentedTest {
     private fun runScreenshotAutomation(language: String) {
 
         checkAndChangeLanguage(language)
-        SystemClock.sleep(2000)
+        SystemClock.sleep(1000)
 
         val dateIds = listOf(
             "days_sunday",
@@ -93,14 +93,14 @@ class ExampleInstrumentedTest {
         )
 
         // Home page
-        SystemClock.sleep(3000)
+        SystemClock.sleep(2000)
         Applanga.captureScreenshot("Home", null)
         SystemClock.sleep(500)
 
         // Daily weather page
-        SystemClock.sleep(1000)
+        SystemClock.sleep(500)
         onView(withId(R.id.nav_daily)).perform(click())
-        SystemClock.sleep(1000)
+        SystemClock.sleep(500)
         Applanga.captureScreenshot("DailyWeather", null)
         SystemClock.sleep(500)
 
@@ -116,16 +116,16 @@ class ExampleInstrumentedTest {
             "about_display_text",
             "about_settings_header",
             "about_settings_text")
-        SystemClock.sleep(1000)
+        SystemClock.sleep(500)
         onView(withId(R.id.nav_about)).perform(click())
-        SystemClock.sleep(1000)
+        SystemClock.sleep(500)
         Applanga.captureScreenshot("About", aboutIds)
         SystemClock.sleep(500)
 
         // Settings page
-        SystemClock.sleep(1000)
+        SystemClock.sleep(500)
         onView(withId(R.id.nav_settings)).perform(click())
-        SystemClock.sleep(1000)
+        SystemClock.sleep(500)
         Applanga.captureScreenshot("Settings", null)
         SystemClock.sleep(500)
     }
