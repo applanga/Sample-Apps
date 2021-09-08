@@ -2,16 +2,24 @@ package com.applanga.weathersample
 
 import android.content.Intent
 import android.os.SystemClock
+import androidx.test.core.app.ActivityScenario
+import androidx.test.core.app.ApplicationProvider
+import androidx.test.core.app.launchActivity
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.matcher.ViewMatchers.withId
-import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import com.applanga.android.Applanga
-import org.junit.Rule
+import com.applanga.android.ScreenshotCallback
+import junit.framework.Assert.fail
+import org.junit.After
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import java.util.*
+import java.util.concurrent.CountDownLatch
+import java.util.concurrent.TimeUnit
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -19,93 +27,112 @@ import java.util.*
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 @RunWith(AndroidJUnit4ClassRunner::class)
-class ExampleInstrumentedTest {
+class ScreenshotRunner {
+    val timeout = 6000L;
+    lateinit var scenario: ActivityScenario<MainActivity>
 
-    @get:Rule
-    var activityRule: ActivityScenarioRule<MainActivity>
-            = ActivityScenarioRule(MainActivity::class.java)
+    @After
+    fun cleanup() {
+        Applanga.setShowIdModeEnabled(false)
+        scenario.close()
+    }
 
+    @Before
+    fun init() {
+        updateApplangaWithAllLanguages();
+    }
+
+    /*
+        This test runs with show id mode enabled. This means that all id's are shown instead of
+        their actual translations. This is useful to accurately and automatically
+        connect string ids to the screenshot - even if they were set at runtime.
+     */
     @Test
-    fun englishTest() {
-        runScreenshotAutomation("en")
+    fun screenshotsShowIdMode() {
+        // enable show id mode
+        Applanga.setShowIdModeEnabled(true)
+        startMainActivity()
+        // do screenshots with all ids
+        runScreenshotAutomation()
     }
 
     @Test
-    fun germanTest() {
-        runScreenshotAutomation("de")
+    fun screenshotsEn() {
+        Applanga.setLanguage("en");
+        startMainActivity()
+        runScreenshotAutomation();
     }
 
     @Test
-    fun frenchTest() {
-        runScreenshotAutomation("fr")
+    fun screenshotsDe() {
+        Applanga.setLanguage("de");
+        startMainActivity()
+        runScreenshotAutomation();
     }
 
-    private fun restartActivity() {
-        activityRule.scenario.onActivity {
-            val intent = Intent(it.intent)
-            it.finish()
-            it.startActivity(intent)
+    @Test
+    fun screenshotsFr() {
+        Applanga.setLanguage("fr");
+        startMainActivity()
+        runScreenshotAutomation();
+    }
+
+    private fun startMainActivity() {
+        val intent = Intent(ApplicationProvider.getApplicationContext(), MainActivity::class.java)
+        scenario = launchActivity(intent)
+        // wait activity to be ready
+        onView(withId(R.id.home_progress_bar_spinner)).perform(waitUntilGone(timeout))
+    }
+
+    private fun updateApplangaWithAllLanguages() {
+        val updateLatch = CountDownLatch(1)
+        val groups: MutableList<String> = ArrayList()
+        groups.add("main")
+
+        val languages: MutableList<String> = ArrayList()
+        languages.add("de")
+        languages.add("fr")
+        languages.add("en")
+
+        Applanga.update(groups, languages) {
+            if (it) {
+                updateLatch.countDown()
+            } else
+                fail()
         }
+        // wait for the callback
+        updateLatch.await(timeout, TimeUnit.MILLISECONDS);
     }
 
-    private fun checkAndChangeLanguage(language: String) {
-        if (Locale.getDefault().displayLanguage != language) {
-            val groups: MutableList<String> = ArrayList()
-            groups.add("main")
-
-            val languages: MutableList<String> = ArrayList()
-            languages.add("en")
-            languages.add("de")
-            languages.add("fr")
-
-            Applanga.update(groups, languages) {
-                Applanga.setLanguage(language)
-                restartActivity()
-            }
-        }
+    private fun captureScreenshot(screenTag: String, ids: List<String>? = null) {
+        val latch = CountDownLatch(1)
+        Applanga.captureScreenshot(screenTag, ids, ScreenshotCallback {
+            if (it)
+                latch.countDown()
+            else
+                fail()
+        })
+        // wait for the screenshot
+        latch.await(timeout, TimeUnit.MILLISECONDS);
     }
 
-    private fun runScreenshotAutomation(language: String) {
+    private fun waitUntilGone(timeout: Long): ViewAction {
+        return WaitUntilGoneAction(timeout)
+    }
 
-        checkAndChangeLanguage(language)
-        SystemClock.sleep(1000)
-
-        val dateIds = listOf(
-            "days_sunday",
-            "days_monday",
-            "days_tuesday",
-            "days_wednesday",
-            "days_thursday",
-            "days_friday",
-            "days_saturday",
-            "month_january",
-            "month_february",
-            "month_march",
-            "month_april",
-            "month_may",
-            "month_june",
-            "month_july",
-            "month_august",
-            "month_september",
-            "month_october",
-            "month_november",
-            "month_december",
-        )
-
-        // Home page
-        SystemClock.sleep(2000)
-        Applanga.captureScreenshot("Home", null)
-        SystemClock.sleep(500)
+    private fun runScreenshotAutomation() {
+        // Home
+        captureScreenshot("Home")
 
         // Daily weather page
-        SystemClock.sleep(500)
         onView(withId(R.id.nav_daily)).perform(click())
-        SystemClock.sleep(500)
-        Applanga.captureScreenshot("DailyWeather", null)
-        SystemClock.sleep(500)
+        captureScreenshot("DailyWeather")
 
-        // About page
-        // we need to pass the string id's as this is a webview
+        // About (WebView)
+        onView(withId(R.id.nav_about)).perform(click())
+
+        // about is a webview, we don't support automatic screenshot string collection
+        // for webviews yet
         val aboutIds = listOf(
             "about_app_header",
             "about_app_text",
@@ -115,19 +142,17 @@ class ExampleInstrumentedTest {
             "about_display_header",
             "about_display_text",
             "about_settings_header",
-            "about_settings_text")
-        SystemClock.sleep(500)
-        onView(withId(R.id.nav_about)).perform(click())
-        SystemClock.sleep(500)
-        Applanga.captureScreenshot("About", aboutIds)
-        SystemClock.sleep(500)
+            "about_settings_text"
+        )
+        // wait for the webview to load
+        onView(withId(R.id.about_progress_bar_spinner)).perform(waitUntilGone(timeout))
+        // we need to sleep here as applanga attaches to the webview which takes a moment
+        SystemClock.sleep(1000)
+        captureScreenshot("About", aboutIds)
 
-        // Settings page
-        SystemClock.sleep(500)
+        // Settings
         onView(withId(R.id.nav_settings)).perform(click())
-        SystemClock.sleep(500)
-        Applanga.captureScreenshot("Settings", null)
-        SystemClock.sleep(500)
+        captureScreenshot("Settings")
     }
 
 }

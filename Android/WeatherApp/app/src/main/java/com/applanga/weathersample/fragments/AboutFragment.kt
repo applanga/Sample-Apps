@@ -22,9 +22,16 @@ class AboutFragment : Fragment() {
         val view: View = inflater.inflate(R.layout.fragment_about, container, false)
 
         val aboutWebView = view.findViewById<View>(R.id.about_webview) as WebView
+        val loadingSpinner = view.findViewById<View>(R.id.about_progress_bar_spinner)
         aboutWebView.apply {
             settings.javaScriptEnabled = true
-            webViewClient = WebViewClient()
+            webViewClient = object: WebViewClient() {
+                override fun onPageFinished(view: WebView, url: String) {
+                    if(view.progress == 100) {
+                        loadingSpinner.visibility = View.GONE
+                    }
+                }
+            }
             loadUrl(htmlPath)
         }
         Applanga.attachWebView(aboutWebView)
