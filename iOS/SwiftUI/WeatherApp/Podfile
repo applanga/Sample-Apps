@@ -1,0 +1,9 @@
+target 'ios-sdk' do
+
+  use_frameworks!
+  pod 'Applanga'
+
+  target 'ios-sdkUITests' do
+    pod 'Applanga'
+  end
+end
