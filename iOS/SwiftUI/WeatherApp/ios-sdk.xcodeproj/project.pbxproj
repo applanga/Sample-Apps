@@ -13,8 +13,9 @@
 		5318C7AF25ED3E97009A48A8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5318C7AE25ED3E97009A48A8 /* ContentView.swift */; };
 		5318C7B125ED3E99009A48A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5318C7B025ED3E99009A48A8 /* Assets.xcassets */; };
 		5318C7B425ED3E99009A48A8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5318C7B325ED3E99009A48A8 /* Preview Assets.xcassets */; };
-		5318C80125ED4F69009A48A8 /* applanga_settings.applanga in Resources */ = {isa = PBXBuildFile; fileRef = 5318C80025ED4F69009A48A8 /* applanga_settings.applanga */; };
 		5318C80425ED5191009A48A8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5318C80325ED5191009A48A8 /* Localizable.strings */; };
+		532EE59D26E8F7A8001539DD /* applanga_settings.applanga in Resources */ = {isa = PBXBuildFile; fileRef = 532EE59C26E8F7A8001539DD /* applanga_settings.applanga */; };
+		532EE59E26E8F7A8001539DD /* applanga_settings.applanga in Resources */ = {isa = PBXBuildFile; fileRef = 532EE59C26E8F7A8001539DD /* applanga_settings.applanga */; };
 		53442B6625EE4D8C00555CD6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53442B6525EE4D8C00555CD6 /* HomeView.swift */; };
 		53442B6925EE4DA600555CD6 /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53442B6825EE4DA600555CD6 /* DailyView.swift */; };
 		53442B6C25EE4DB300555CD6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53442B6B25EE4DB300555CD6 /* SettingsView.swift */; };
@@ -63,8 +64,8 @@
 		5318C7B025ED3E99009A48A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5318C7B325ED3E99009A48A8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5318C7B525ED3E99009A48A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5318C80025ED4F69009A48A8 /* applanga_settings.applanga */ = {isa = PBXFileReference; lastKnownFileType = file; path = applanga_settings.applanga; sourceTree = "<group>"; };
 		5318C80325ED5191009A48A8 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		532EE59C26E8F7A8001539DD /* applanga_settings.applanga */ = {isa = PBXFileReference; lastKnownFileType = file; path = applanga_settings.applanga; sourceTree = "<group>"; };
 		53442B6525EE4D8C00555CD6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		53442B6825EE4DA600555CD6 /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyView.swift; sourceTree = "<group>"; };
 		53442B6B25EE4DB300555CD6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -125,6 +126,7 @@
 			children = (
 				5318C80325ED5191009A48A8 /* Localizable.strings */,
 				539A9397260B6D83008DA42F /* Localizable.stringsdict */,
+				532EE59C26E8F7A8001539DD /* applanga_settings.applanga */,
 				5318C7AB25ED3E97009A48A8 /* ios-sdk */,
 				5357F5552609DE6400A706E4 /* ios-sdkUITests */,
 				5318C7AA25ED3E97009A48A8 /* Products */,
@@ -149,7 +151,6 @@
 				5364F5AF25F646CD006C9BBB /* util */,
 				5385963E25EEA88F00FDFFA6 /* views */,
 				53442B7D25EE96C800555CD6 /* networking */,
-				5318C80025ED4F69009A48A8 /* applanga_settings.applanga */,
 				5318C7AC25ED3E97009A48A8 /* ios_sdkApp.swift */,
 				5318C7AE25ED3E97009A48A8 /* ContentView.swift */,
 				5318C7B025ED3E99009A48A8 /* Assets.xcassets */,
@@ -358,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53BC2AF02604C43E00841904 /* calendar.png in Resources */,
+				532EE59D26E8F7A8001539DD /* applanga_settings.applanga in Resources */,
 				5374C4002601DFE500FA868B /* about-page.css in Resources */,
 				5318C7B425ED3E99009A48A8 /* Preview Assets.xcassets in Resources */,
 				539A9398260B6D83008DA42F /* Localizable.stringsdict in Resources */,
@@ -367,7 +369,6 @@
 				5374C4012601DFE500FA868B /* about-page.html in Resources */,
 				53BC2AF22604C43E00841904 /* settings.png in Resources */,
 				5318C7B125ED3E99009A48A8 /* Assets.xcassets in Resources */,
-				5318C80125ED4F69009A48A8 /* applanga_settings.applanga in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +376,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				532EE59E26E8F7A8001539DD /* applanga_settings.applanga in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

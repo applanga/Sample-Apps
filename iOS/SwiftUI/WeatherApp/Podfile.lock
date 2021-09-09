@@ -1,5 +1,5 @@
 PODS:
-  - Applanga (2.0.146)
+  - Applanga (2.0.149)
 
 DEPENDENCIES:
   - Applanga
@@ -9,7 +9,7 @@ SPEC REPOS:
     - Applanga
 
 SPEC CHECKSUMS:
-  Applanga: e4099d3b2116fc3ee835f0d42475c77f7b15aefc
+  Applanga: f6c37d1a60678119d2631f9584473d57da02678f
 
 PODFILE CHECKSUM: 2dabccf87954c60ec1208e12a97b213a406fc93d
 
