@@ -18,6 +18,7 @@ A sample app that demnstrates Applanga's localization SDK automatic string uploa
 
  * Add German (language code DE) and French (language code FR) to your app on the Applanga dashboard
  * Go into German and import **Localizable_de.xliff**. Switch Language to French and import **Localizable_fr.xliff**.
- * in Android Studio open ```weatherAppUITests```. Run the tests.
+ * On the dashboard, open the "Tags" sidebar and create four new tags with the following names: 'Home', 'Daily', 'About' and 'Settings'.
+ * In Xcode open ```weatherAppUITests```. Run the tests.
     * You should now see the test running, capturing and uploading screenshots of the app in all languages (English, German, French).
- * In the dashboard, in the language view, open the "Tags" window on the left of the language view. Screenshots should now appear for each language along with their tags.
+ * In the dashboard, in the language view, open the "Screens" window on the left of the language view. Screenshots should now appear for each language along with their tags.
