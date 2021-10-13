@@ -5,7 +5,7 @@ buildscript {
 
     }
     dependencies {
-        classpath  'com.applanga.android:plugin:3.0.147'
+        classpath  'com.applanga.android:plugin:3.0.150'
     }
 }
 
@@ -64,14 +64,16 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.2'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test:core-ktx:1.4.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.ext:junit-ktx:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     androidTestImplementation 'androidx.test:runner:1.3.0'
     androidTestImplementation 'androidx.test:rules:1.3.0'
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
     androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.3.0'
     // Applanga
-    implementation 'com.applanga.android:Applanga:3.0.147'
+    implementation 'com.applanga.android:Applanga:3.0.150'
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     // Gson converter for retrofit

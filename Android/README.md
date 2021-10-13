@@ -20,3 +20,4 @@ A sample app that demnstrates Applanga's localization SDK automatic string uploa
  * in Android Studio right click to ```app->java->...->ExampleInstrumentedTest and click Run ExampleInstrumentedTest```
     * You should now see the test running, capturing and uploading screenshots of the app in all languages (English, German, French).
  * In the dashboard, in the language view, open the "Tags" window on the left of the language view. Screenshots should now appear for each language together with their tags.
+* Open a screenshot, and click on the *variants* tab. When choosing an OS, note how you can switch between your device and the **show ID mode** version of that device. in this mode, string ID's are shown instead of they're values. This is useful to capture strings that were set at runtime.

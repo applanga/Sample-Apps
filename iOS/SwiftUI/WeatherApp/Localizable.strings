@@ -1,0 +1,79 @@
+/* 
+  Localizable.strings
+  ios-sdk
+*/
+
+// Pages
+"home_page" = "Home";
+"daily_page" = "Daily";
+"about_page" = "About";
+"settings_page" = "Settings";
+
+// Home page
+"title_description" = "Description";
+"title_feels_like" = "Feels Like";
+"title_humidity" = "Humidity";
+"title_wind_speed" = "Wind Speed";
+"title_clouds" = "Clouds";
+"title_wind_pressure" = "Wind Pressure";
+
+// Settings
+"title_location" = "Location";
+"title_units" = "Measurment units";
+"title_language" = "App language";
+"title_displayed_days" = "Number of displayed days";
+"metric" = "Metric";
+"imperial" = "Imperial";
+"english" = "English";
+"german" = "German";
+"french" = "French";
+"save_button" = "Save Settings";
+
+// About
+"about_app_header" = "Weather-App";
+"about_app_text" = "Weather-App is a simple tool to help you find out what's the weather like in your desired location";
+"about_features_header" = "Features";
+"about_features_text_first" = "Get a detailed report of the weather in your current location or get a daily temperature report by time and date";
+"about_features_text_second" = "Displayed information is based on the city you provide";
+"about_display_header" = "Display";
+"about_display_text" = "A simple UI designed to give you the most important information in the easiest way";
+"about_settings_header" = "Settings";
+"about_settings_text" = "Use the settings window to change the displayed location, preferred measurement unit, app language and number of displayed days";
+
+// Days
+"Sunday" = "Sunday";
+"Monday" = "Monday";
+"Tuesday" = "Tuesday";
+"Wednesday" = "Wednesday";
+"Thursday" = "Thursday";
+"Friday" = "Friday";
+"Saturday" = "Saturday";
+
+// Months
+"January" = "January";
+"February" = "February";
+"March" = "March";
+"April" = "April";
+"May" = "May";
+"June" = "June";
+"July" = "July";
+"August" = "August";
+"September" = "September";
+"October" = "October";
+"November" = "November";
+"December" = "December";
+
+// descriptions
+"clear_sky" = "clear sky";
+"few_clouds" = "few clouds";
+"scattered_clouds" = "scattered clouds";
+"broken_clouds" = "broken clouds";
+"shower_rain" = "shower rain";
+"rain" = "rain";
+"thunderstorm" = "thunderstorm";
+"snow" = "snow";
+"mist" = "mist";
+
+// navigation
+"app_name" = "Weather App";
+"nav_subtitle" = "Get your local weather";
