@@ -2,6 +2,8 @@ target 'WeatherSample' do
 
   use_frameworks!
   	pod 'Applanga'
+end
 
-	pod 'DropDown'
+target 'WeatherSampleUITests' do
+    pod 'Applanga'
 end

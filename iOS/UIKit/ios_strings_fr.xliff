@@ -65,7 +65,7 @@
         <source>About</source>
         <target/>
         <alt-trans alttranstype="proposal">
-          <target>environ</target>
+          <target>Environ</target>
         </alt-trans>
       </trans-unit>
       <trans-unit id="app_name" maxbytes="11">
@@ -195,7 +195,7 @@
         <source>Home</source>
         <target/>
         <alt-trans alttranstype="proposal">
-          <target>domicile</target>
+          <target>Domicile</target>
         </alt-trans>
       </trans-unit>
       <trans-unit id="home_wind_speed" maxbytes="10">

@@ -18,9 +18,22 @@ class ListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        createObservers()
         tableView.delegate = self
         tableView.dataSource = self
+        
+        self.navigationItem.title = NSLocalizedString("daily_title", comment: "")
+        self.navigationController?.title = NSLocalizedString("daily_title", comment: "")
+    }
+    
+    func createObservers() {
+        let updateNavTitleName = Notification.Name(rawValue: Keys.updateNavigationTitle.rawValue)
+        NotificationCenter.default.addObserver(self, selector: #selector(AboutViewController.updateNavTitle), name: updateNavTitleName, object: nil)
+    }
+    
+    @objc func updateNavTitle() {
+        self.navigationItem.title = NSLocalizedString("daily_title", comment: "")
+        self.navigationController?.title = NSLocalizedString("daily_title", comment: "")
     }
     
     override func viewWillAppear(_ animated: Bool) {

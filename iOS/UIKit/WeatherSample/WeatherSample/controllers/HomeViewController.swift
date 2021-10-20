@@ -28,6 +28,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var pressureValue: UILabel!
     @IBOutlet weak var loadingView: UIView!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -49,8 +51,16 @@ class HomeViewController: UIViewController {
     }
     
     func createObservers() {
-        let name = Notification.Name(rawValue: Keys.updateCurrent.rawValue)
-        NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.updateUi), name: name, object: nil)
+        let updateUiName = Notification.Name(rawValue: Keys.updateCurrent.rawValue)
+        NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.updateUi), name: updateUiName, object: nil)
+        
+        let updateNavTitleName = Notification.Name(rawValue: Keys.updateNavigationTitle.rawValue)
+        NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.updateNavTitle), name: updateNavTitleName, object: nil)
+    }
+    
+    @objc func updateNavTitle() {
+        self.navigationItem.title = NSLocalizedString("home_title", comment: "")
+        self.navigationController?.title = NSLocalizedString("home_title", comment: "")
     }
     
     @objc func updateUi() {

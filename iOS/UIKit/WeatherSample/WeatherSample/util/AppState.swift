@@ -30,4 +30,5 @@ class AppState {
 enum Keys: String {
     case updateCurrent = "UPDATE_CURRENT"
     case updateDaily = "UPDATE_DAILY"
+    case updateNavigationTitle = "UPDATE_NAVIGATION"
 }

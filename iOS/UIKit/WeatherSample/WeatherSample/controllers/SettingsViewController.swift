@@ -4,7 +4,6 @@
 //
 
 import UIKit
-import DropDown
 import Applanga
 
 class SettingsViewController: UIViewController {
@@ -20,7 +19,9 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var locationInput: UITextField!
     @IBOutlet weak var unitTitle: UILabel!
     @IBOutlet weak var languageTitle: UILabel!
-    @IBOutlet weak var selectedLanguage: UIButton!
+    @IBOutlet weak var langEn: UIButton!
+    @IBOutlet weak var langDe: UIButton!
+    @IBOutlet weak var langFr: UIButton!
     @IBOutlet weak var displayedDaysTitle: UILabel!
     @IBOutlet weak var displayedDaysSlider: UISlider!
     @IBOutlet weak var sliderValueTitle: UILabel!
@@ -37,7 +38,6 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var box5: UIView!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -48,7 +48,6 @@ class SettingsViewController: UIViewController {
         box5.layer.cornerRadius = 15
         
         configActions()
-        configDropdown()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -96,6 +95,10 @@ class SettingsViewController: UIViewController {
             // refresh page
             self.performSegue(withIdentifier: "refresh", sender: nil)
             self.dismiss(animated: true, completion:nil)
+            
+            // update navigation titles
+            let name = Notification.Name(rawValue: Keys.updateNavigationTitle.rawValue)
+            NotificationCenter.default.post(name: name, object: nil)
         }
     }
     
@@ -130,25 +133,28 @@ class SettingsViewController: UIViewController {
         }
         
         languageTitle.text = NSLocalizedString("settings_language", comment: "")
-        var lang: String
+        
+        
+        langEn.setTitle(NSLocalizedString("settings_app_language[0]", comment: ""), for: .normal)
+        langDe.setTitle(NSLocalizedString("settings_app_language[1]", comment: ""), for: .normal)
+        langFr.setTitle(NSLocalizedString("settings_app_language[2]", comment: ""), for: .normal)
+        
+        langEn.tintColor = .black
+        langDe.tintColor = .black
+        langFr.tintColor = .black
+
         switch (self.language) {
-            case "German": lang = NSLocalizedString("settings_app_language[1]", comment: "")
-            case "French": lang = NSLocalizedString("settings_app_language[2]", comment: "")
-            default: lang = NSLocalizedString("settings_app_language[0]", comment: "")
+            case "German": langDe.tintColor = .systemBlue
+            case "French": langFr.tintColor = .systemBlue
+            default: langEn.tintColor = .systemBlue
         }
-        selectedLanguage.setTitle(lang, for: .normal)
         
         displayedDaysTitle.text = NSLocalizedString("settings_displayed_days", comment: "")
         self.sliderValueTitle.text = String(displayedDays)
         self.displayedDaysSlider.value = Float(self.displayedDays)
         
         saveButton.setTitle(NSLocalizedString("settings_save_button", comment: ""), for: .normal)
-        
-        dropDown.dataSource = [
-            NSLocalizedString("settings_app_language[0]", comment: ""),
-            NSLocalizedString("settings_app_language[1]", comment: ""),
-            NSLocalizedString("settings_app_language[2]", comment: "")
-        ]
+    
     }
     
     func configActions() {
@@ -174,6 +180,28 @@ class SettingsViewController: UIViewController {
             self.units = "Imperial"
         }), for: .touchUpInside)
         
+        // language
+        langEn.addAction(UIAction(handler: { action in
+            self.language = "English"
+            self.langEn.tintColor = .systemBlue
+            self.langDe.tintColor = .black
+            self.langFr.tintColor = .black
+        }), for: .touchUpInside)
+        
+        langDe.addAction(UIAction(handler: { action in
+            self.language = "German"
+            self.langEn.tintColor = .black
+            self.langDe.tintColor = .systemBlue
+            self.langFr.tintColor = .black
+        }), for: .touchUpInside)
+        
+        langFr.addAction(UIAction(handler: { action in
+            self.language = "French"
+            self.langEn.tintColor = .black
+            self.langDe.tintColor = .black
+            self.langFr.tintColor = .systemBlue
+        }), for: .touchUpInside)
+
         // displayed days
         displayedDaysSlider.addAction(UIAction(handler: { action in
             let numOfDays = Int(round(self.displayedDaysSlider.value))
@@ -185,41 +213,6 @@ class SettingsViewController: UIViewController {
         saveButton.addAction(UIAction(handler: { action in
             self.saveSettings()
         }), for: .touchUpInside)
-    }
-    
-    // dropdown
-    let dropDown: DropDown = {
-        let dropDown = DropDown()
-        dropDown.dataSource = [
-            NSLocalizedString("settings_app_language[0]", comment: ""),
-            NSLocalizedString("settings_app_language[1]", comment: ""),
-            NSLocalizedString("settings_app_language[2]", comment: "")
-        ]
-        return dropDown
-    }()
-    
-    func configDropdown() {
-        dropDown.anchorView = selectedLanguage
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(dropdownTap))
-        gesture.numberOfTapsRequired = 1
-        gesture.numberOfTouchesRequired = 1
-        selectedLanguage.addGestureRecognizer(gesture)
-        selectedLanguage.tintColor = .black
-        
-        dropDown.selectionAction = { index, title in
-            var lang: String
-            switch (index) {
-                case 1: lang = "German"
-                case 2: lang = "French"
-                default: lang = "English"
-            }
-            self.language = lang
-            self.selectedLanguage.setTitle(NSLocalizedString("settings_app_language[\(index)]", comment: ""), for: .normal)
-        }
-    }
-    
-    @objc func dropdownTap() {
-        dropDown.show()
     }
 }
 
