@@ -5,3 +5,15 @@ iOS/UIKit/WeatherSample/WeatherSample/Frameworks
 iOS/UIKit/WeatherSample/WeatherSample/WeatherSample/applanga_settings.applanga
 iOS/UIKit/WeatherApp/WeatherSample.xcworkspace/xcuserdata
 iOS/UIKit/WeatherApp/WeatherSample.xcodeproj/project.xcworkspace/xcuserdata
+iOS/SwiftUI/WeatherApp/ios-sdk.xcworkspace/xcuserdata
+iOS/SwiftUI/WeatherApp/ios-sdk.xcodeproj/project.xcworkspace/xcuserdata
+iOS/SwiftUI/WeatherApp/Pods
+
+Android/WeatherApp/build
+Android/WeatherApp/app/build
+Android/WeatherApp/.idea
+Android/WeatherApp/.gradle
+Android/WeatherApp/local.properties
+Android/WeatherApp/**/*.applanga
+Android/WeatherApp/src/main/res/raw/applanga_settings.applanga
+applanga_meta.xml
