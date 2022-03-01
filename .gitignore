@@ -17,3 +17,4 @@ Android/WeatherApp/local.properties
 Android/WeatherApp/**/*.applanga
 Android/WeatherApp/src/main/res/raw/applanga_settings.applanga
 applanga_meta.xml
+iOS/UIKit/WeatherSample/WeatherSample.xcworkspace/xcuserdata

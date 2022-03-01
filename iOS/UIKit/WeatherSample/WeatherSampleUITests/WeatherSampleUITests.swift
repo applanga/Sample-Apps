@@ -4,27 +4,28 @@
 //
 
 import XCTest
-
-extension XCUIElement {
-    func tapOnPosition() {
-        coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
-    }
-}
+import ApplangaUITest
 
 class AutomatedScreenshotsTest: XCTestCase {
 
     let app = XCUIApplication()
-    
+    var applangaUITest: ApplangaUITest?
+
     override func setUp() {
         super.setUp()
-        app.launchArguments.append("ApplangaUITestScreenshotEnabled")
+        applangaUITest = ApplangaUITest(app: app)
         app.launch()
     }
 
-    func testSreenshots() {
+    
+    func takeScreenshot(tag: String) {
+        wait(for: [applangaUITest!.takeScreenshot(tag: tag)], timeout: 10.0)
+    }
+    
+    
+    func testScreenshots() {
         app.launch()
         
-        sleep(1)
         changeAppLanguage(lang: "en")
         takeAllScreenshots()
         
@@ -34,31 +35,6 @@ class AutomatedScreenshotsTest: XCTestCase {
         changeAppLanguage(lang: "fr")
         takeAllScreenshots()
     }
-    
-    func takeScreenshot(tag: String) {
-        //open screenshot menu by tapping invisible Applanga button
-        app.buttons["Applanga.ToggleDraftMenu"].tapOnPosition()
-        app.buttons["Applanga.OpenScreenshotView"].tapOnPosition()
-        app.buttons["Applanga.SelectTag"].tapOnPosition()
-        
-        // this line fails if you haven't add you tag to
-        // the applanga dashboard yet
-        // -> add the tag once on the dashboard and then run the test
-        app.tables.staticTexts["\(tag)"].tap();
-        app.buttons["Applanga.ConfirmScreenshot"].tapOnPosition()
-        
-        // screenshot upload takes a while so we need to wait until the screenshot menu is visible again until we can proceed
-        let predicate = NSPredicate(format: "exists == 1")
-        let query = XCUIApplication().buttons["Applanga.SelectTag"];
-        expectation(for: predicate, evaluatedWith: query, handler: nil)
-        waitForExpectations(timeout: 30, handler: nil)
-        
-        // close the draft menu
-        app.buttons["Applanga.CancelScreenshot"].tapOnPosition()
-        app.buttons["Applanga.ToggleDraftMenu"].tapOnPosition()
-        sleep(1)
-    }
-    
     func takeAllScreenshots() {
         
         // Home

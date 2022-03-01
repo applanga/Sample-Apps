@@ -1,9 +1,12 @@
-target 'WeatherSample' do
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '12.0'
 
+target 'WeatherSample' do
   use_frameworks!
-  	pod 'Applanga'
+  pod 'Applanga'
 end
 
 target 'WeatherSampleUITests' do
-    pod 'Applanga'
+  use_frameworks!
+  pod 'ApplangaUITest'
 end
