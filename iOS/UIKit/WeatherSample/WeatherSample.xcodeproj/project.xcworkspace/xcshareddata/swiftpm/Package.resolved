@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Applanga",
+        "repositoryURL": "https://github.com/applanga/sdk-ios",
+        "state": {
+          "branch": null,
+          "revision": "78359fb9c9e1deb5f6edca4c19f68a654f80377e",
+          "version": "2.0.157"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

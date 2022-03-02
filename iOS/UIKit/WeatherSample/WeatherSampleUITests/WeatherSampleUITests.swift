@@ -11,19 +11,12 @@ class AutomatedScreenshotsTest: XCTestCase {
     let app = XCUIApplication()
     var applangaUITest: ApplangaUITest?
 
-    override func setUp() {
-        super.setUp()
-        applangaUITest = ApplangaUITest(app: app)
-        app.launch()
-    }
-
-    
     func takeScreenshot(tag: String) {
         wait(for: [applangaUITest!.takeScreenshot(tag: tag)], timeout: 10.0)
     }
     
-    
     func testScreenshots() {
+        applangaUITest = ApplangaUITest(app: app)
         app.launch()
         
         changeAppLanguage(lang: "en")
@@ -35,6 +28,7 @@ class AutomatedScreenshotsTest: XCTestCase {
         changeAppLanguage(lang: "fr")
         takeAllScreenshots()
     }
+    
     func takeAllScreenshots() {
         
         // Home
