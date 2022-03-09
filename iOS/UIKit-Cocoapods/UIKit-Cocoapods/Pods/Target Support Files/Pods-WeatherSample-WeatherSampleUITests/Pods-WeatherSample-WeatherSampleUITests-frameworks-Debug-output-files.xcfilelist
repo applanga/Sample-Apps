@@ -1,0 +1,2 @@
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Applanga.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ApplangaUITest.framework

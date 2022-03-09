@@ -1,0 +1,6 @@
+framework module ApplangaUITest {
+  umbrella header "ApplangaUITest-umbrella.h"
+
+  export *
+  module * { export * }
+}
