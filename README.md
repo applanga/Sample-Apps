@@ -6,3 +6,6 @@ You can find further instructions on how to run the apps in each seperate folder
 ## Current Examples
 * Android
 * iOS SwiftUI
+* iOS UiKit SPM
+* iOS UIKit Cocoapods
+* Flutter
