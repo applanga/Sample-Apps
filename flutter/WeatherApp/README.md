@@ -37,5 +37,5 @@ Execute `flutter pub run applanga_flutter:push` from your shell and the package 
 By default your base language `.arb` file is the single source of truth. So a `pull` will get and save all translations for all languages except the base language into corresponding arb files. A `push` will update only strings from the base language which are not uploaded yet to the dashboard.
 With this configuration a `flutter pub run applanga_flutter:push --force` is recommended. All translations for the base language and its meta-data (important for icu strings) are uploaded and updated.You can change that `push` and `pull` behavior in your `.applanga.json`.
 
-### Running Integration Tests
+### Running Integration Tests for Screenshots
 When running the integration tests you can run this by navigating to your terminal and running the following command `flutter drive --driver=integration_test/test_driver/integration_test_driver.dart --target=integration_test/screenshot_test.dart`. The current integration test runs through the application and takes screenshots of each page and then uploads these to your Applanga project. 
