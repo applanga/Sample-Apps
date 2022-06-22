@@ -1,56 +1,54 @@
 package com.applanga.weathersample.utils
 
-import android.content.res.Resources
+import android.content.Context
 import com.applanga.weathersample.R
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.Calendar.*
 
-class DateTimeHelper {
-
-    private val system = Resources.getSystem()
+class DateTimeHelper(val context: Context) {
 
     private fun getDayNameFromInt(dayNumber: Int? = null): String {
         return when (dayNumber ?: getInstance().get(DAY_OF_WEEK)) {
-            1 -> system.getString(R.string.days_sunday)
-            2 -> system.getString(R.string.days_monday)
-            3 -> system.getString(R.string.days_tuesday)
-            4 -> system.getString(R.string.days_wednesday)
-            5 -> system.getString(R.string.days_thursday)
-            6 -> system.getString(R.string.days_friday)
-            7 -> system.getString(R.string.days_saturday)
-            else -> system.getString(R.string.not_available)
+            1 -> context.resources.getString(R.string.days_sunday)
+            2 -> context.resources.getString(R.string.days_monday)
+            3 -> context.resources.getString(R.string.days_tuesday)
+            4 -> context.resources.getString(R.string.days_wednesday)
+            5 -> context.resources.getString(R.string.days_thursday)
+            6 -> context.resources.getString(R.string.days_friday)
+            7 -> context.resources.getString(R.string.days_saturday)
+            else -> context.resources.getString(R.string.not_available)
         }
     }
 
     private fun getDayNameFromString(dayNumber: String): String {
         return when (dayNumber) {
-            "Sunday" -> system.getString(R.string.days_sunday)
-            "Monday" -> system.getString(R.string.days_monday)
-            "Tuesday" -> system.getString(R.string.days_tuesday)
-            "Wednesday" -> system.getString(R.string.days_wednesday)
-            "Thursday" -> system.getString(R.string.days_thursday)
-            "Friday" -> system.getString(R.string.days_friday)
-            "Saturday" -> system.getString(R.string.days_saturday)
-            else -> system.getString(R.string.not_available)
+            "Sunday" -> context.resources.getString(R.string.days_sunday)
+            "Monday" -> context.resources.getString(R.string.days_monday)
+            "Tuesday" -> context.resources.getString(R.string.days_tuesday)
+            "Wednesday" -> context.resources.getString(R.string.days_wednesday)
+            "Thursday" -> context.resources.getString(R.string.days_thursday)
+            "Friday" -> context.resources.getString(R.string.days_friday)
+            "Saturday" -> context.resources.getString(R.string.days_saturday)
+            else -> context.resources.getString(R.string.not_available)
         }
     }
 
-    private fun getMonthName(monthNumber: String? = null) : String {
-        return when(monthNumber ?: SimpleDateFormat("LLLL").format(getInstance().time)) {
-            "January" -> system.getString(R.string.month_january)
-            "February" -> system.getString(R.string.month_february)
-            "March" -> system.getString(R.string.month_march)
-            "April" -> system.getString(R.string.month_april)
-            "May" -> system.getString(R.string.month_may)
-            "June" -> system.getString(R.string.month_june)
-            "July" -> system.getString(R.string.month_july)
-            "August" -> system.getString(R.string.month_august)
-            "September" -> system.getString(R.string.month_september)
-            "October" -> system.getString(R.string.month_october)
-            "November" -> system.getString(R.string.month_november)
-            "December" -> system.getString(R.string.month_december)
-            else -> system.getString(R.string.not_available)
+    private fun getMonthName(monthNumber: String? = null): String {
+        return when (monthNumber ?: SimpleDateFormat("LLLL").format(getInstance().time)) {
+            "January" -> context.resources.getString(R.string.month_january)
+            "February" -> context.resources.getString(R.string.month_february)
+            "March" -> context.resources.getString(R.string.month_march)
+            "April" -> context.resources.getString(R.string.month_april)
+            "May" -> context.resources.getString(R.string.month_may)
+            "June" -> context.resources.getString(R.string.month_june)
+            "July" -> context.resources.getString(R.string.month_july)
+            "August" -> context.resources.getString(R.string.month_august)
+            "September" -> context.resources.getString(R.string.month_september)
+            "October" -> context.resources.getString(R.string.month_october)
+            "November" -> context.resources.getString(R.string.month_november)
+            "December" -> context.resources.getString(R.string.month_december)
+            else -> context.resources.getString(R.string.not_available)
         }
     }
 

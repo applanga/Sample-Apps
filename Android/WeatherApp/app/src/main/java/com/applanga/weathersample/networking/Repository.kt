@@ -1,5 +1,6 @@
 package com.applanga.weathersample.networking
 
+import android.content.Context
 import android.content.res.Resources
 import com.applanga.weathersample.R
 import com.applanga.weathersample.networking.interfaces.NetworkRequestListenerCurrent
@@ -26,11 +27,11 @@ class Repository {
 
     private val service: WeatherApi = retrofit.create(WeatherApi::class.java)
 
-    fun fetchCurrentWeather(networkRequestListener: NetworkRequestListenerCurrent, city: String, units: String) {
+    fun fetchCurrentWeather(context: Context, networkRequestListener: NetworkRequestListenerCurrent, city: String, units: String) {
         service.getCurrent(appId, units, city).enqueue(object : Callback<ApiResponseCurrent?> {
             override fun onResponse(call: Call<ApiResponseCurrent?>, response: Response<ApiResponseCurrent?>) {
                 if (response.code() == 404) {
-                    val error = Throwable(Resources.getSystem().getString(R.string.error_city_name))
+                    val error = Throwable(context.getString(R.string.error_city_name))
                     networkRequestListener.onNetworkRequestError(error)
                     return
                 }

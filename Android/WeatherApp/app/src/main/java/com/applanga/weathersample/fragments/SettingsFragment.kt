@@ -1,7 +1,6 @@
 package com.applanga.weathersample.fragments
 
 import android.content.Context
-import android.content.res.Resources
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.LayoutInflater
@@ -27,7 +26,7 @@ class SettingsFragment : androidx.fragment.app.Fragment() {
     lateinit var binding: FragmentSettingsBinding
     private lateinit var settings: SharedPrefrencesManager
 
-    private val languageOptions = Resources.getSystem().getStringArray(R.array.settings_language_options)
+    private lateinit var languageOptions: Array<String>
 
     private val daysOptions = arrayOf("1", "2", "3", "4", "5")
 
@@ -38,6 +37,7 @@ class SettingsFragment : androidx.fragment.app.Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSettingsBinding.inflate(inflater)
+        languageOptions = resources.getStringArray(R.array.settings_language_options)
         initUiSettings()
         return binding.root
     }
@@ -80,14 +80,20 @@ class SettingsFragment : androidx.fragment.app.Fragment() {
             settingsSaveBtn.setOnClickListener {
                 verifyApiResponse()
             }
-            settingsCity.setOnKeyListener { view, keyCode, _ -> hideSoftKeyboardOnEnter(view, keyCode) }
+            settingsCity.setOnKeyListener { view, keyCode, _ ->
+                hideSoftKeyboardOnEnter(
+                    view,
+                    keyCode
+                )
+            }
         }
 
     }
 
     private fun hideSoftKeyboardOnEnter(view: View, keyCode: Int): Boolean {
         if (keyCode == KeyEvent.KEYCODE_ENTER) {
-            val inputMethodManager = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            val inputMethodManager =
+                requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
             return true
         }
@@ -101,18 +107,24 @@ class SettingsFragment : androidx.fragment.app.Fragment() {
             }
 
             override fun onNetworkRequestError(error: Throwable) {
-                Toast.makeText(context, getString(R.string.settings_error_toast), Toast.LENGTH_LONG).show()
+                Toast.makeText(context, getString(R.string.settings_error_toast), Toast.LENGTH_LONG)
+                    .show()
             }
         }
 
-        repository.fetchCurrentWeather(listener, binding.settingsCity.text.toString(), "metric")
+        repository.fetchCurrentWeather(
+            requireContext(),
+            listener,
+            binding.settingsCity.text.toString(),
+            "metric"
+        )
     }
 
     private fun saveSettings() {
 
         val city = binding.settingsCity.text.toString()
         val measurement = if (binding.settingsMetric.isChecked) "metric" else "imperial"
-        val isoCode = when(binding.settingsLanguageSpinner.selectedItem.toString()) {
+        val isoCode = when (binding.settingsLanguageSpinner.selectedItem.toString()) {
             "English" -> "en"
             "German" -> "de"
             "French" -> "fr"

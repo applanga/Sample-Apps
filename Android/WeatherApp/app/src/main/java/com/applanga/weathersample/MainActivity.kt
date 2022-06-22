@@ -82,7 +82,7 @@ class MainActivity : AppCompatActivity() ,
         val unit = settings.getString(Keys.UNITS_KEY.toString(), "metric")
 
         if (city != null && unit != null) {
-            repository.fetchCurrentWeather(this, city, unit)
+            repository.fetchCurrentWeather(this, this, city, unit)
             repository.fetchDailyWeather(this, city, unit)
         }
     }

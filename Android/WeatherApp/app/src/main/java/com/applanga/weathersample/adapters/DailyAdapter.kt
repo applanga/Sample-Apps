@@ -10,7 +10,7 @@ import com.applanga.weathersample.networking.modules.daily.Day
 import com.applanga.weathersample.utils.DateTimeHelper
 import com.applanga.weathersample.utils.IconHelper
 
-class DailyAdapter(val context: Context?, private val days: List<Day>) : RecyclerView.Adapter<DayViewHolder>() {
+class DailyAdapter(val context: Context, private val days: List<Day>) : RecyclerView.Adapter<DayViewHolder>() {
 
     override fun getItemCount(): Int {
         return days.size
@@ -28,15 +28,15 @@ class DailyAdapter(val context: Context?, private val days: List<Day>) : Recycle
 
 }
 
-class DayViewHolder(val context: Context?, val binding: ItemDayBinding): RecyclerView.ViewHolder(binding.root) {
+class DayViewHolder(val context: Context, val binding: ItemDayBinding): RecyclerView.ViewHolder(binding.root) {
 
-    private val dateTimeHelper = DateTimeHelper()
+    private val dateTimeHelper = DateTimeHelper(this.context)
 
     private fun getTime() : String {
         val time = binding.dayItem!!.dt_txt.substring(11, 16)
         val suffix = if (binding.dayItem!!.dt_txt.substring(11, 13).toInt() > 11) {
             context?.getString(R.string.daily_pm).toString()
-        } else context?.getString(R.string.daily_am).toString()
+        } else context.getString(R.string.daily_am)
         return "$time $suffix"
     }
 

@@ -45,7 +45,7 @@ class DailyFragment : Fragment() {
     }
 
     private fun initUiDaily() {
-        dailyAdapter = DailyAdapter(context, dailyAdapterMutableData)
+        dailyAdapter = DailyAdapter(this.requireContext(), dailyAdapterMutableData)
 
         binding.apply {
             dailyRecyclerView.layoutManager = LinearLayoutManager(requireContext())

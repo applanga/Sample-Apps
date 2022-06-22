@@ -45,7 +45,7 @@ class HomeFragment : Fragment() {
         if (apiResponse != null) {
             binding.apply {
                 homeWeather = apiResponse
-                homeDate.text = DateTimeHelper().getCurrentDate()
+                homeDate.text = DateTimeHelper(requireContext()).getCurrentDate()
                 homeWeatherIcon.setImageResource(IconHelper.getWeatherIcon(apiResponse.weather[0].icon))
             }
         }
