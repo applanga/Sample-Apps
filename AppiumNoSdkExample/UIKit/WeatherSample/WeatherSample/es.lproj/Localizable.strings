@@ -1,0 +1,63 @@
+"app_name" = "Aplicación Meteorológica";
+/* home */
+"home_title" = "Hogar";
+"home_description" = "Descripción";
+"home_feels_like" = "Se siente como";
+"home_humidity" = "Humedad";
+"home_clouds" = "Nubes";
+"home_wind_speed" = "Velocidad del viento";
+"home_pressure" = "Presión";
+"clear_sky" = "cielo despejado";
+"few_clouds" = "pocas nubes";
+"scattered_clouds" = "nubes dispersas";
+"broken_clouds" = "nubes rotas";
+"shower_rain" = "lluvia de ducha";
+"rain" = "lluvia";
+"thunderstorm" = "tormenta";
+"snow" = "nieve";
+"mist" = "niebla";
+/* daily */
+"daily_title" = "Pronóstico diario";
+/* about */
+"about_title" = "Acerca de";
+"about_app_text" = "Weather-App es una herramienta simple para ayudarlo a descubrir cómo es el clima en su ubicación deseada";
+"about_features_header" = "Funciones";
+"about_features_text_first" = "Obtenga un informe detallado del clima en su ubicación actual u obtenga un informe diario de temperatura por hora y fecha";
+"about_features_text_second" = "La información mostrada se basa en la ubicación (basada en la ciudad) que proporcione";
+"about_display_header" = "Monitor";
+"about_display_text" = "Una interfaz de usuario simple diseñada para brindarle la información más importante de la manera más fácil";
+"about_customize_header" = "Personalizar";
+"about_customize_text" = "Utilice la ventana de configuración para cambiar la ubicación mostrada, la unidad de medida preferida, el idioma de la aplicación y el número de días mostrados";
+/* settings */
+"settings_title" = "Configuración";
+"settings_location" = "Ubicación";
+"settings_measurement_unit" = "Unidad de medida";
+"settings_metric_option" = "Métrico";
+"settings_imperial_option" = "Imperial";
+"settings_language" = "Idioma de la aplicación";
+"settings_displayed_days" = "Número de días mostrados";
+"settings_save_button" = "Guardar configuración";
+"settings_error_warning" = "Algo salió mal. Asegúrese de introducir un nombre de ciudad válido.";
+"settings_app_language[0]" = "Inglés";
+"settings_app_language[1]" = "Alemán";
+"settings_app_language[2]" = "Francés";
+/* dates */
+"January" = "Enero";
+"February" = "Febrero";
+"March" = "Marzo";
+"April" = "Abril";
+"May" = "Mayo";
+"June" = "Junio";
+"July" = "Julio";
+"August" = "Agosto";
+"September" = "Septiembre";
+"October" = "Octubre";
+"November" = "Noviembre";
+"December" = "Diciembre";
+"Sunday" = "Domingo";
+"Monday" = "Lunes";
+"Tuesday" = "Martes";
+"Wednesday" = "Miércoles";
+"Thursday" = "Jueves";
+"Friday" = "Viernes";
+"Saturday" = "Sábado";
