@@ -66,7 +66,7 @@ class SettingsFragment : androidx.fragment.app.Fragment() {
                 )) {
                     "en" -> 0
                     "de" -> 1
-                    "fr" -> 2
+                    "ar" -> 2
                     else -> 0
                 }
             )
@@ -127,7 +127,7 @@ class SettingsFragment : androidx.fragment.app.Fragment() {
         val isoCode = when (binding.settingsLanguageSpinner.selectedItem.toString()) {
             "English" -> "en"
             "German" -> "de"
-            "French" -> "fr"
+            "French" -> "ar"
             else -> "en"
         }
         val displayedDays = binding.settingsDaysSpinner.selectedItem.toString().toInt()
