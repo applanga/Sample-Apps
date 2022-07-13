@@ -11,11 +11,10 @@ function getOptions(locale,language) {
         path: '/wd/hub',
         port: 4723,
         capabilities: {
-            // locale: locale,
-            // language: language,
+            locale: locale,
+            language: language,
             platformName: "Android",
-            platformVersion: "11.0",
-            deviceName: "Pixel_5_API_30",
+            udid: "emulator-5554",
             app: __dirname + "/WeatherApp/app/build/outputs/apk/debug/app-debug.apk",
             appPackage: "com.applanga.weathersample",
             appActivity: "com.applanga.weathersample.MainActivity",
@@ -67,8 +66,8 @@ function findAppId(str) {
 
 async function takeAndroidScreenshots(apiToken, appId) {
     //Android Screenshots
-    const language = "en"
-    const locale = "US"
+    const language = "de"
+    const locale = "DE"
     client = await wdio.remote(getOptions(locale, language))
     await applanga.captureScreenshot(client, "Home", "Android", language, appId, apiToken)
     await client.pause(2000)

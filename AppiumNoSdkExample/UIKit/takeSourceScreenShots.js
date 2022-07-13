@@ -9,13 +9,14 @@ var buttonsToPress = ["Daily Forecast", "About", "Settings"]
 const apiToken = "Bearer 62c5b458d3d38210c8fb9fc9!2ead402d37301cae94b08e158b315116"
 const appId = "62c5b458d3d38210c8fb9fc9"
 
-function getOptions(language) {
+function getOptions(locale, language) {
 
 
     var iosOptions = {
         path: '/wd/hub',
         port: 4723,
         capabilities: {
+            locale: locale,
             language: language,
             platformName: "iOS",
             platformVersion: "15.5",
@@ -66,9 +67,10 @@ function findAppId(str) {
 
 async function takeIosScreenshots(apiToken, appId) {
     //iOS Screenshots
-    const language = "en"
-    const locale = "US"
-    client = await wdio.remote(getOptions(language))
+    const locale = "de_DE"
+    const language = "de"
+
+    client = await wdio.remote(getOptions(locale, language))
     await applanga.captureScreenshot(client, "Home", "iOS", language, appId, apiToken)
     await client.pause(2000)
     for (let i = 0; i < buttonsToPress.length; i++) {
