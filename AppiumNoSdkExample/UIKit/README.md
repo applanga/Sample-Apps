@@ -63,7 +63,7 @@ In order to make this demo work you will need to install Applanga CLI tools for 
 
 #### Applanga JSON Configuration 
 
-After initializing Applanga CLI with `applanga init` you should have an .applanga.json object on your root folder. According to your selections and type of project you should have a configuration on the file similar to this e.g.
+After initializing Applanga CLI with `applanga init` you should have an .applanga.json object on your root folder,make sure to initiate in AppiumNoSdkExample/UIKit since the scripts automatically read your api key from this file . According to your selections and type of project you should have a configuration on the file similar to this e.g.
 
 ```json
 {
