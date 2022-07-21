@@ -6,13 +6,11 @@ const fs = require('fs');
 var buttonsToPressAndroid = ["nav_daily", "nav_about", "nav_settings"]
 
 
-function getOptions(locale,language) {
+function getOptions() {
     var androidOptions = {
         path: '/wd/hub',
         port: 4723,
-        capabilities: {
-            locale: locale,
-            language: language,
+        capabilities: {         
             platformName: "Android",
             udid: "emulator-5554",
             app: __dirname + "/WeatherApp/app/build/outputs/apk/debug/app-debug.apk",
@@ -66,9 +64,8 @@ function findAppId(str) {
 
 async function takeAndroidScreenshots(apiToken, appId) {
     //Android Screenshots
-    const language = "de"
-    const locale = "DE"
-    client = await wdio.remote(getOptions(locale, language))
+    var language = "en"
+    client = await wdio.remote(getOptions())
     await applanga.captureScreenshot(client, "Home", "Android", language, appId, apiToken)
     await client.pause(2000)
     for (let i = 0; i < buttonsToPressAndroid.length; i++) {

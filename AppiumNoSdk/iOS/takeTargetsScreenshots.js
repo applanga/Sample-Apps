@@ -4,7 +4,7 @@ const applanga = require("applanganosdkappiumtools");
 const fs = require('fs');
 
 var languagesToUse = ["de", "es"]
-var localesToUse = ["DE", "ES"]
+var localesToUse = ["DE", "US"]
 var buttonsToPress = ["Daily Forecast", "About", "Settings"]
 
 

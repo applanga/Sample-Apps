@@ -10,7 +10,7 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		K33iii3PUnoie7219RlTSYWcpKc=
+		21JHHhMIFL7nhxdfVbbsSA12vsg=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Base.lproj/Localizable.strings</key>
 		<data>
-		s9Fzh+qKMfhhdltxkdu9O1WqiM8=
+		atwN7hyC0/8xmizFNxkpJFah4Nc=
 		</data>
 		<key>Base.lproj/Main.storyboardc/HomeView.nib</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Base.lproj/Main.storyboardc/gTD-57-AAu-view-8qM-iK-737.nib</key>
 		<data>
-		XFj7vcfC7dNLTj6rsdrtD5OFwQc=
+		f77DHdNCO5hB+p0vVpQnCbMpmwg=
 		</data>
 		<key>Base.lproj/Main.storyboardc/jJv-U3-FP5-view-Eus-Aw-FNf.nib</key>
 		<data>
@@ -150,24 +150,6 @@
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>fr.lproj/LaunchScreen.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			fGWIkuDdfIR7E8RBRoCqydULyog=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>fr.lproj/Main.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			e70Dv9s36n9ZJcIfx4u8fGW/pPM=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
 		<key>settings.png</key>
 		<data>
 		MtZThN/Kk4fdm0Op+DKNPAxvbUE=
@@ -190,7 +172,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			3zD4Sf9S+C86+yt7gBncBv8AvdhhAqyTmetXFCrjxlI=
+			BJ/uPEx2Y1bTHk/FsWFOeeUGi11JxP8aA2D53rcotNw=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
@@ -218,7 +200,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			TwIOpoVJBI+Ceyu1A9QYG797KwckqfJkAaiVgFkSULA=
+			9NZxFIpTPFAV7IAE3TBmvVavZvEMW2KRrgM2QKseB8M=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/HomeView.nib</key>
@@ -267,7 +249,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			xQkk/JT/xgYnAul0ON6tS2RiO/1ikG77Wc8qIlpw8P0=
+			Nyp85bGjBaNBGQ4Cb2fn+3ZxL53dgUdDRzTVC7pHTMg=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/jJv-U3-FP5-view-Eus-Aw-FNf.nib</key>
@@ -372,24 +354,6 @@
 			<true/>
 		</dict>
 		<key>es.lproj/Main.strings</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			3omis+FNOmSdPO1scAfx2HPjLlOJXBmaVsr3I/++/JQ=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>fr.lproj/LaunchScreen.strings</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			rS/Vj80R1robiTvkdtCitovfG605fTVIXGJTj92sS3k=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>fr.lproj/Main.strings</key>
 		<dict>
 			<key>hash2</key>
 			<data>

@@ -1,60 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">Aplicación Meteorológica</string>
-  <string name="home_title">Hogar</string>
-  <string name="home_description">Descripción</string>
-  <string name="home_feels_like">Se siente como</string>
-  <string name="home_humidity">Humedad</string>
-  <string name="home_clouds">Nubes</string>
-  <string name="home_wind_speed">Velocidad del viento</string>
-  <string name="home_pressure">Presión</string>
-  <string name="clear_sky">cielo despejado</string>
-  <string name="few_clouds">pocas nubes</string>
-  <string name="scattered_clouds">nubes dispersas</string>
-  <string name="broken_clouds">nubes rotas</string>
-  <string name="shower_rain">lluvia de ducha</string>
-  <string name="rain">lluvia</string>
-  <string name="thunderstorm">tormenta</string>
-  <string name="snow">nieve</string>
-  <string name="mist">niebla</string>
-  <string name="daily_title">Pronóstico diario</string>
-  <string name="about_title">Acerca de</string>
-  <string name="about_app_text">Weather-App es una herramienta simple para ayudarlo a descubrir cómo es el clima en su ubicación deseada</string>
-  <string name="about_features_header">Funciones</string>
-  <string name="about_features_text_first">Obtenga un informe detallado del clima en su ubicación actual u obtenga un informe diario de temperatura por hora y fecha</string>
-  <string name="about_features_text_second">La información mostrada se basa en la ubicación (basada en la ciudad) que proporcione</string>
-  <string name="about_display_header">Monitor</string>
-  <string name="about_display_text">Una interfaz de usuario simple diseñada para brindarle la información más importante de la manera más fácil</string>
-  <string name="about_customize_header">Personalizar</string>
-  <string name="about_customize_text">Utilice la ventana de configuración para cambiar la ubicación mostrada, la unidad de medida preferida, el idioma de la aplicación y el número de días mostrados</string>
-  <string name="settings_title">Configuración</string>
-  <string name="settings_location">Ubicación</string>
-  <string name="settings_measurement_unit">Unidad de medida</string>
-  <string name="settings_metric_option">Métrico</string>
-  <string name="settings_imperial_option">Imperial</string>
-  <string name="settings_language">Idioma de la aplicación</string>
-  <string name="settings_displayed_days">Número de días mostrados</string>
-  <string name="settings_save_button">Guardar configuración</string>
-  <string name="settings_error_warning">Algo salió mal. Asegúrese de introducir un nombre de ciudad válido.</string>
-  <string name="January">Enero</string>
-  <string name="February">Febrero</string>
-  <string name="March">Marzo</string>
-  <string name="April">Abril</string>
-  <string name="May">Mayo</string>
-  <string name="June">Junio</string>
-  <string name="July">Julio</string>
-  <string name="August">Agosto</string>
-  <string name="September">Septiembre</string>
-  <string name="October">Octubre</string>
-  <string name="November">Noviembre</string>
-  <string name="December">Diciembre</string>
-  <string name="Sunday">Domingo</string>
-  <string name="Monday">Lunes</string>
-  <string name="Tuesday">Martes</string>
-  <string name="Wednesday">Miércoles</string>
-  <string name="Thursday">Jueves</string>
-  <string name="Friday">Viernes</string>
-  <string name="Saturday">Sábado</string>
   <string name="nav_header_subtitle">Obtenga su clima local ahora</string>
   <string name="menu_home">Hogar</string>
   <string name="menu_daily">Pronóstico diario</string>
@@ -71,6 +17,14 @@
   <string name="daily_pm">PM</string>
   <string name="daily_am">AM</string>
   <string name="about_app_header">         Aplicación Meteorológica     </string>
+  <string name="about_app_text">         Weather-App es una herramienta simple para ayudarlo a descubrir cómo es el clima en su ubicación deseada     </string>
+  <string name="about_features_header">         Funciones     </string>
+  <string name="about_features_text_first">         Obtenga un informe detallado del clima en su ubicación actual u obtenga un informe diario de temperatura por hora y fecha     </string>
+  <string name="about_features_text_second">         La información mostrada se basa en la ubicación (basada en la ciudad) que proporcione     </string>
+  <string name="about_display_header">         Monitor     </string>
+  <string name="about_display_text">         Una interfaz de usuario simple diseñada para brindarle la información más importante de la manera más fácil     </string>
+  <string name="about_customize_header">         Personalizar     </string>
+  <string name="about_customize_text">         Utilice la ventana de configuración para cambiar la ubicación mostrada, la unidad de medida preferida, el idioma de la aplicación y el número de días mostrados     </string>
   <string name="settings_error_toast">Introduzca un nombre de ciudad válido</string>
   <string name="settings_location_title">Ubicación</string>
   <string name="settings_city_placeholder">Introduzca el nombre de una ciudad</string>
@@ -115,7 +69,7 @@
     <item quantity="one">\"Mostrando %d día\"</item>
     <item quantity="other">Visualización de los próximos %d días</item>
   </plurals>
-  <string-array name="settings_app_language">
+  <string-array name="settings_language_options">
     <item>Inglés</item>
     <item>Alemán</item>
     <item>Francés</item>

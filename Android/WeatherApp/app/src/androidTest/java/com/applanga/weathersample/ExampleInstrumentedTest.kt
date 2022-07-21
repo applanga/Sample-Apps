@@ -63,16 +63,16 @@ class ScreenshotRunner {
         runScreenshotAutomation();
     }
 
-//    @Test
-//    fun screenshotsDe() {
-//        Applanga.setLanguage("de");
-//        startMainActivity()
-//        runScreenshotAutomation();
-//    }
+    @Test
+    fun screenshotsDe() {
+        Applanga.setLanguage("de");
+        startMainActivity()
+        runScreenshotAutomation();
+    }
 
     @Test
     fun screenshotsFr() {
-        Applanga.setLanguage("ar");
+        Applanga.setLanguage("fr");
         startMainActivity()
         runScreenshotAutomation();
     }
@@ -90,8 +90,8 @@ class ScreenshotRunner {
         groups.add("main")
 
         val languages: MutableList<String> = ArrayList()
-//        languages.add("de")
-        languages.add("ar")
+        languages.add("de")
+        languages.add("fr")
         languages.add("en")
 
         Applanga.update(groups, languages) {

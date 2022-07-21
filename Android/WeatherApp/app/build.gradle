@@ -5,7 +5,7 @@ buildscript {
 
     }
     dependencies {
-        classpath  'com.applanga.android:plugin:3.0.165'
+        classpath  'com.applanga.android:plugin:3.0.153'
     }
 }
 
@@ -16,13 +16,13 @@ plugins {
 }
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
     defaultConfig {
         applicationId "com.applanga.weathersample"
         minSdkVersion 19
-        targetSdkVersion 31
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
@@ -73,7 +73,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
     androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.3.0'
     // Applanga
-    implementation 'com.applanga.android:Applanga:3.0.165'
+    implementation 'com.applanga.android:Applanga:3.0.153'
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     // Gson converter for retrofit

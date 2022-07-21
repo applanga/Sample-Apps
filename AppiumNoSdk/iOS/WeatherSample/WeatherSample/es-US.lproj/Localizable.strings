@@ -20,6 +20,7 @@
 "daily_title" = "Pronóstico diario";
 /* about */
 "about_title" = "Acerca de";
+"about_app_header" = "Aplicación Meteorológica";
 "about_app_text" = "Weather-App es una herramienta simple para ayudarlo a descubrir cómo es el clima en su ubicación deseada";
 "about_features_header" = "Funciones";
 "about_features_text_first" = "Obtenga un informe detallado del clima en su ubicación actual u obtenga un informe diario de temperatura por hora y fecha";

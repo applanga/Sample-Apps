@@ -67,9 +67,8 @@ function findAppId(str) {
 
 async function takeIosScreenshots(apiToken, appId) {
     //iOS Screenshots
-    const locale = "de_DE"
-    const language = "de"
-
+    const locale = "US"
+    const language = "en"
     client = await wdio.remote(getOptions(locale, language))
     await applanga.captureScreenshot(client, "Home", "iOS", language, appId, apiToken)
     await client.pause(2000)

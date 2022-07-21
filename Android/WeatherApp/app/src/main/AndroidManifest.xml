@@ -14,7 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WeatherApp">
         <activity
-            android:exported="true"
             android:name="com.applanga.weathersample.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.WeatherApp.NoActionBar"

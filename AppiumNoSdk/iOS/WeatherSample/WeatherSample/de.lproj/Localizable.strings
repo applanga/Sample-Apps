@@ -18,8 +18,7 @@
 "mist" = "Nebel";
 /* daily */
 "daily_title" = "Tägliche Vorhersage";
-/* about */
-"about_title" = "Über";
+"about_app_header" = "Wetter-App";
 "about_app_text" = "Weather-App ist ein einfaches Tool, mit dem Sie herausfinden können, wie das Wetter an Ihrem gewünschten Ort ist";
 "about_features_header" = "Funktionen";
 "about_features_text_first" = "Erhalten Sie einen detaillierten Bericht über das Wetter an Ihrem aktuellen Standort oder erhalten Sie einen täglichen Temperaturbericht nach Uhrzeit und Datum";
