@@ -1,28 +1,17 @@
-buildscript {
-    repositories {
-        mavenCentral()
-        maven { url 'https://maven.applanga.com/' }
-
-    }
-    dependencies {
-        classpath  'com.applanga.android:plugin:3.0.153'
-    }
-}
-
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'com.applanga.gradle' version '4.0.169'
     id 'kotlin-kapt'
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "com.applanga.weathersample"
         minSdkVersion 19
-        targetSdkVersion 30
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
 
@@ -73,18 +62,15 @@ dependencies {
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
     androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.3.0'
     // Applanga
-    implementation 'com.applanga.android:Applanga:3.0.153'
+    implementation 'com.applanga.android:Applanga:4.0.169'
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     // Gson converter for retrofit
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    // Picaso
+    // Picasso
     implementation 'com.squareup.picasso:picasso:2.8'
 }
 
 repositories {
     maven { url 'https://maven.applanga.com/'}
-    maven { url 'https://jitpack.io' }
 }
-
-apply plugin: 'applanga'

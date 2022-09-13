@@ -1,2 +1,9 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://maven.applanga.com/'}
+    }
+}
 include ':app'
 rootProject.name = "Weather App"
