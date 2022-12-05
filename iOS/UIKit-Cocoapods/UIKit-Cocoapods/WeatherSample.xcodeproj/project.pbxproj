@@ -34,7 +34,7 @@
 		5366D91626303F9800978EE7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5366D91526303F9800978EE7 /* HomeViewController.swift */; };
 		5366D91E26303FC900978EE7 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5366D91D26303FC900978EE7 /* AboutViewController.swift */; };
 		5366D92126303FD400978EE7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5366D92026303FD400978EE7 /* SettingsViewController.swift */; };
-		563EB68227D914C500DDD1D9 /* applanga_settings.applanga in Resources */ = {isa = PBXBuildFile; fileRef = 563EB68127D914C500DDD1D9 /* applanga_settings.applanga */; };
+		C2F171D929392D11009D6C44 /* applanga_settings.applanga in Resources */ = {isa = PBXBuildFile; fileRef = C2F171D829392D11009D6C44 /* applanga_settings.applanga */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,8 +81,8 @@
 		5366D91D26303FC900978EE7 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		5366D92026303FD400978EE7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5428858728948F9499FEFDE1 /* Pods-WeatherSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherSample.debug.xcconfig"; path = "Target Support Files/Pods-WeatherSample/Pods-WeatherSample.debug.xcconfig"; sourceTree = "<group>"; };
-		563EB68127D914C500DDD1D9 /* applanga_settings.applanga */ = {isa = PBXFileReference; lastKnownFileType = file; name = applanga_settings.applanga; path = ../../../../../../../Downloads/applanga_settings.applanga; sourceTree = "<group>"; };
 		829FDBFAE2648670E95D4748 /* Pods-WeatherSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherSample.release.xcconfig"; path = "Target Support Files/Pods-WeatherSample/Pods-WeatherSample.release.xcconfig"; sourceTree = "<group>"; };
+		C2F171D829392D11009D6C44 /* applanga_settings.applanga */ = {isa = PBXFileReference; lastKnownFileType = file; path = applanga_settings.applanga; sourceTree = "<group>"; };
 		E673B11250EE172A709F1490 /* Pods_WeatherSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -179,7 +179,7 @@
 				5366D8CB262ECA6100978EE7 /* Info.plist */,
 				5366D8E8262EDCE900978EE7 /* Localizable.strings */,
 				5366D8EB262EDD3500978EE7 /* Localizable.stringsdict */,
-				563EB68127D914C500DDD1D9 /* applanga_settings.applanga */,
+				C2F171D829392D11009D6C44 /* applanga_settings.applanga */,
 			);
 			path = WeatherSample;
 			sourceTree = "<group>";
@@ -343,7 +343,7 @@
 				5352E4B226676625008D893B /* sun_cloud_round.png in Resources */,
 				5366D8C5262ECA6000978EE7 /* Main.storyboard in Resources */,
 				5352E4B126676625008D893B /* settings.png in Resources */,
-				563EB68227D914C500DDD1D9 /* applanga_settings.applanga in Resources */,
+				C2F171D929392D11009D6C44 /* applanga_settings.applanga in Resources */,
 				5366D8EC262EDD3500978EE7 /* Localizable.stringsdict in Resources */,
 				5352E4A7266765FF008D893B /* about-page.css in Resources */,
 				5352E4A926676605008D893B /* about-page.html in Resources */,

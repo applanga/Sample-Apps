@@ -35,28 +35,67 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var box2: UIView!
     @IBOutlet weak var box3: UIView!
     @IBOutlet weak var box4: UIView!
-//    @IBOutlet weak var box5: UIView!
     
+    func applyLocalization() {
+        navigationItem.title = NSLocalizedString("settings_title", comment: "")
+        navigationController?.title = NSLocalizedString("settings_title", comment: "")
+        
+        errorText.text = NSLocalizedString("settings_error_warning", comment: "")
+        
+        locationTitle.text = NSLocalizedString("settings_location", comment: "")
+        
+        unitTitle.text = NSLocalizedString("settings_measurement_unit", comment: "")
+        metricTitle.text = NSLocalizedString("settings_metric_option", comment: "")
+        imperialTitle.text = NSLocalizedString("settings_imperial_option", comment: "")
+        
+        languageTitle.text = NSLocalizedString("settings_language", comment: "")
+        
+        langEn.setTitle(NSLocalizedString("settings_app_language[0]", comment: ""), for: .normal)
+        langDe.setTitle(NSLocalizedString("settings_app_language[1]", comment: ""), for: .normal)
+        langFr.setTitle(NSLocalizedString("settings_app_language[2]", comment: ""), for: .normal)
+        
+        displayedDaysTitle.text = NSLocalizedString("settings_displayed_days", comment: "")
+        saveButton.setTitle(NSLocalizedString("settings_save_button", comment: ""), for: .normal)
+    }
     
+    func handleUserLanguageChange() {
+        var isoCode: String
+        switch self.language {
+        case "English":
+            isoCode = "he"
+        case "German":
+            isoCode = "de"
+        case "French":
+            isoCode = "fr"
+        default:
+            isoCode = "en"
+        }
+        
+        Applanga.setLanguage(isoCode)
+    }
+}
+
+extension SettingsViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         box1.layer.cornerRadius = 15
         box2.layer.cornerRadius = 15
         box3.layer.cornerRadius = 15
         box4.layer.cornerRadius = 15
-//        box5.layer.cornerRadius = 15
         
         configActions()
+        applyLocalization()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         errorText.isHidden = true
         configUi()
     }
-    
+}
+
+extension SettingsViewController {
     func saveSettings() {
-        print("save button is working")
         let prevLocation = AppSettings().getLocation()!
         errorText.isHidden = true
         
@@ -66,7 +105,9 @@ class SettingsViewController: UIViewController {
         AppSettings().setLanguage(language: self.language)
         AppSettings().setDisplayedDays(displayedDays: self.displayedDays)
         
-        Repository().getCurrentWeather { (response) in
+        Repository().getCurrentWeather { [weak self] response in
+            guard let self = self else { return }
+            
             if (response == nil) {
                 self.errorText.isHidden = false
                 AppSettings().setLocation(location: prevLocation)
@@ -81,17 +122,7 @@ class SettingsViewController: UIViewController {
                 }
             }
             
-            // applanga change language
-            var isoCode: String
-            switch self.language {
-            case "German":
-                isoCode = "de"
-            case "French":
-                isoCode = "fr"
-            default:
-                isoCode = "en"
-            }
-            Applanga.setLanguage(isoCode)
+            self.handleUserLanguageChange()
             
             // refresh page
             self.performSegue(withIdentifier: "refresh", sender: nil)
@@ -104,18 +135,8 @@ class SettingsViewController: UIViewController {
     }
     
     func configUi() {
-        self.navigationItem.title = NSLocalizedString("settings_title", comment: "")
-        self.navigationController?.title = NSLocalizedString("settings_title", comment: "")
-        
-        errorText.text = NSLocalizedString("settings_error_warning", comment: "")
-        
-        locationTitle.text = NSLocalizedString("settings_location", comment: "")
         locationInput.text = self.location
         locationInput.borderStyle = .none
-        
-        unitTitle.text = NSLocalizedString("settings_measurement_unit", comment: "")
-        metricTitle.text = NSLocalizedString("settings_metric_option", comment: "")
-        imperialTitle.text = NSLocalizedString("settings_imperial_option", comment: "")
         
         metricButton.tintColor = .black
         metricButton.setTitle("", for: .normal)
@@ -132,30 +153,19 @@ class SettingsViewController: UIViewController {
             imperialButton.tintColor = .systemBlue
             metricButton.tintColor = .black
         }
-        
-        languageTitle.text = NSLocalizedString("settings_language", comment: "")
-        
-        
-        langEn.setTitle(NSLocalizedString("settings_app_language[0]", comment: ""), for: .normal)
-        langDe.setTitle(NSLocalizedString("settings_app_language[1]", comment: ""), for: .normal)
-        langFr.setTitle(NSLocalizedString("settings_app_language[2]", comment: ""), for: .normal)
-        
+                
         langEn.tintColor = .black
         langDe.tintColor = .black
         langFr.tintColor = .black
 
-        switch (self.language) {
+        switch (language) {
             case "German": langDe.tintColor = .systemBlue
             case "French": langFr.tintColor = .systemBlue
             default: langEn.tintColor = .systemBlue
         }
         
-        displayedDaysTitle.text = NSLocalizedString("settings_displayed_days", comment: "")
-        self.sliderValueTitle.text = String(displayedDays)
-        self.displayedDaysSlider.value = Float(self.displayedDays)
-        
-        saveButton.setTitle(NSLocalizedString("settings_save_button", comment: ""), for: .normal)
-    
+        sliderValueTitle.text = String(displayedDays)
+        displayedDaysSlider.value = Float(self.displayedDays)
     }
     
     func configActions() {
@@ -216,6 +226,3 @@ class SettingsViewController: UIViewController {
         }), for: .touchUpInside)
     }
 }
-
-
-

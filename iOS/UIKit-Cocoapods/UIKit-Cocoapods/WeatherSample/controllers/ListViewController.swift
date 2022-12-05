@@ -7,7 +7,7 @@ import UIKit
 import Applanga
 
 class ListViewController: UIViewController {
-
+    
     let state = AppState.shared
     var displayedDaysNum: Int = 0
     
@@ -19,16 +19,18 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createObservers()
+        
         tableView.delegate = self
         tableView.dataSource = self
         
         self.navigationItem.title = NSLocalizedString("daily_title", comment: "")
         self.navigationController?.title = NSLocalizedString("daily_title", comment: "")
     }
-    
+}
+
+extension ListViewController {
     func createObservers() {
         let updateNavTitleName = Notification.Name(rawValue: Keys.updateNavigationTitle.rawValue)
-        NotificationCenter.default.addObserver(self, selector: #selector(AboutViewController.updateNavTitle), name: updateNavTitleName, object: nil)
     }
     
     @objc func updateNavTitle() {
