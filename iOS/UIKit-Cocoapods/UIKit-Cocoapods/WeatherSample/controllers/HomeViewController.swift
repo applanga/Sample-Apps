@@ -64,6 +64,7 @@ extension HomeViewController {
         super.viewDidLoad()
         
         createObservers()
+        applyBaseLocalization()
         configBackground()
     }
     
