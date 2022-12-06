@@ -11,7 +11,6 @@ import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import com.applanga.android.Applanga
-import com.applanga.android.ScreenshotCallback
 import junit.framework.Assert.fail
 import org.junit.After
 import org.junit.Before
@@ -28,7 +27,7 @@ import java.util.concurrent.TimeUnit
  */
 @RunWith(AndroidJUnit4ClassRunner::class)
 class ScreenshotRunner {
-    val timeout = 6000L;
+    private val timeout = 6000L
     lateinit var scenario: ActivityScenario<MainActivity>
 
     @After
@@ -39,7 +38,7 @@ class ScreenshotRunner {
 
     @Before
     fun init() {
-        updateApplangaWithAllLanguages();
+        updateApplangaWithAllLanguages()
     }
 
     /*
@@ -58,23 +57,23 @@ class ScreenshotRunner {
 
     @Test
     fun screenshotsEn() {
-        Applanga.setLanguage("en");
+        Applanga.setLanguage("en")
         startMainActivity()
-        runScreenshotAutomation();
+        runScreenshotAutomation()
     }
 
     @Test
     fun screenshotsDe() {
-        Applanga.setLanguage("de");
+        Applanga.setLanguage("de")
         startMainActivity()
-        runScreenshotAutomation();
+        runScreenshotAutomation()
     }
 
     @Test
     fun screenshotsFr() {
-        Applanga.setLanguage("fr");
+        Applanga.setLanguage("fr")
         startMainActivity()
-        runScreenshotAutomation();
+        runScreenshotAutomation()
     }
 
     private fun startMainActivity() {
@@ -101,19 +100,19 @@ class ScreenshotRunner {
                 fail()
         }
         // wait for the callback
-        updateLatch.await(timeout, TimeUnit.MILLISECONDS);
+        updateLatch.await(timeout, TimeUnit.MILLISECONDS)
     }
 
     private fun captureScreenshot(screenTag: String, ids: List<String>? = null) {
         val latch = CountDownLatch(1)
-        Applanga.captureScreenshot(screenTag, ids, ScreenshotCallback {
+        Applanga.captureScreenshot(screenTag, ids) {
             if (it)
                 latch.countDown()
             else
                 fail()
-        })
+        }
         // wait for the screenshot
-        latch.await(timeout, TimeUnit.MILLISECONDS);
+        latch.await(timeout, TimeUnit.MILLISECONDS)
     }
 
     private fun waitUntilGone(timeout: Long): ViewAction {
