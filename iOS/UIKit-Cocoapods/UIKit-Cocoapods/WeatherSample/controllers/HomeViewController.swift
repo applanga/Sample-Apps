@@ -80,6 +80,7 @@ extension HomeViewController {
 extension HomeViewController {
     @objc func handleLanguageChanged() {
         applyScreenLocalization()
+        applyWeatherStateLocalization()
     }
     
     @objc func handleWeatherUpdated() {
