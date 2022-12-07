@@ -27,12 +27,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var pressureTitle: UILabel!
     @IBOutlet weak var pressureValue: UILabel!
     @IBOutlet weak var loadingView: UIView!
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
 
-    func applyBaseLocalization() {
+    func applyScreenLocalization() {
+        title = NSLocalizedString("home_title", comment: "")
         navigationItem.title = NSLocalizedString("home_title", comment: "")
         navigationController?.title = NSLocalizedString("home_title", comment: "")
         
@@ -56,6 +53,9 @@ class HomeViewController: UIViewController {
         
         let iconId = (state.currentWeather?.weather[0].icon)!
         descriptionValue.text = getWeatherDesc(iconCode: iconId)
+        
+        weatherIcon.image = UIImage(systemName: getWeatherIcon(iconCode: iconId))
+        getIconColor(iconCode: iconId, img: weatherIcon)
     }
 }
 
@@ -63,13 +63,12 @@ extension HomeViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        createObservers()
-        applyBaseLocalization()
+        applyScreenLocalization()
         configBackground()
+        addObservers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         if (state.currentWeather == nil) {
             configState()
         } else {
@@ -79,12 +78,19 @@ extension HomeViewController {
 }
 
 extension HomeViewController {
-    @objc func updateUi() {
-        applyWeatherStateLocalization()
-
+    @objc func handleLanguageChanged() {
+        applyScreenLocalization()
+    }
+    
+    @objc func handleWeatherUpdated() {
         let iconId = (state.currentWeather?.weather[0].icon)!
         weatherIcon.image = UIImage(systemName: getWeatherIcon(iconCode: iconId))
         getIconColor(iconCode: iconId, img: weatherIcon)
+        
+        applyWeatherStateLocalization()
+    }
+    
+    func updateUi() {
         weatherIcon.layer.shadowColor = UIColor.black.cgColor
         weatherIcon.layer.shadowOpacity = 0.5
         weatherIcon.layer.shadowOffset = CGSize.zero
@@ -94,16 +100,17 @@ extension HomeViewController {
     }
     
     func configState() {
-        Repository().getCurrentWeather { (response) in
-            if (response == nil) {
+        Repository().getCurrentWeather { [weak self] response in
+            guard let self = self, let response = response else {
                 return
             }
             
-            self.state.setCurrentWeather(currentWeather: response!)
+            self.updateUi()
+            self.state.setCurrentWeather(currentWeather: response)
         }
         
-        Repository().getDailyWeather { (response) in
-            self.state.dailyWeather = response
+        Repository().getDailyWeather { [weak self] response in
+            self?.state.dailyWeather = response
         }
     }
      
@@ -114,6 +121,15 @@ extension HomeViewController {
         self.view.layer.insertSublayer(gradient, at: 0)
     }
     
-    func createObservers() {
+    func addObservers() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handleLanguageChanged),
+                                               name: .userLanguageChanged,
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handleWeatherUpdated),
+                                               name: .weatherUpdated,
+                                               object: nil)
     }
 }

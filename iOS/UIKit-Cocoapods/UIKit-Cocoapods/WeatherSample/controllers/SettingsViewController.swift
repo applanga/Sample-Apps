@@ -36,7 +36,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var box3: UIView!
     @IBOutlet weak var box4: UIView!
     
-    func applyLocalization() {
+    func applyScreenLocalization() {
+        title = NSLocalizedString("settings_title", comment: "")
         navigationItem.title = NSLocalizedString("settings_title", comment: "")
         navigationController?.title = NSLocalizedString("settings_title", comment: "")
         
@@ -58,7 +59,7 @@ class SettingsViewController: UIViewController {
         saveButton.setTitle(NSLocalizedString("settings_save_button", comment: ""), for: .normal)
     }
     
-    func handleUserLanguageChange() {
+    func performLanguageChange() {
         var isoCode: String
         switch self.language {
         case "English":
@@ -79,13 +80,8 @@ extension SettingsViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        box1.layer.cornerRadius = 15
-        box2.layer.cornerRadius = 15
-        box3.layer.cornerRadius = 15
-        box4.layer.cornerRadius = 15
-        
+        applyScreenLocalization()
         configActions()
-        applyLocalization()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -108,21 +104,21 @@ extension SettingsViewController {
         Repository().getCurrentWeather { [weak self] response in
             guard let self = self else { return }
             
-            if (response == nil) {
+            guard let response = response else {
                 self.errorText.isHidden = false
                 AppSettings().setLocation(location: prevLocation)
                 return
             }
             
-            self.state.setCurrentWeather(currentWeather: response!)
+            self.state.setCurrentWeather(currentWeather: response)
 
-            Repository().getDailyWeather { (response) in
-                if (response != nil) {
-                    self.state.setDailyWeather(dailyWeather: response!)
+            Repository().getDailyWeather { response in
+                if let response = response {
+                    self.state.setDailyWeather(dailyWeather: response)
                 }
             }
             
-            self.handleUserLanguageChange()
+            self.performLanguageChange()
             
             // refresh page
             self.performSegue(withIdentifier: "refresh", sender: nil)
@@ -133,6 +129,11 @@ extension SettingsViewController {
     }
     
     func configUi() {
+        box1.layer.cornerRadius = 15
+        box2.layer.cornerRadius = 15
+        box3.layer.cornerRadius = 15
+        box4.layer.cornerRadius = 15
+        
         locationInput.text = self.location
         locationInput.borderStyle = .none
         
