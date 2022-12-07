@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,27 +18,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="zgt-l4-gcB">
-                                <rect key="frame" x="137" y="378" width="140" height="140"/>
+                                <rect key="frame" x="143" y="384" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="R7H-Hj-6h1"/>
+                                    <constraint firstAttribute="height" constant="128" id="yHN-lY-QEw"/>
+                                </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Weather-App" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="upR-P6-4gA">
-                                <rect key="frame" x="79" y="281" width="256" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather-App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIX-hn-0vi">
+                                <rect key="frame" x="0.0" y="333" width="414" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="32"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="ApplangaDarkBlue"/>
                         <constraints>
-                            <constraint firstItem="zgt-l4-gcB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="137" id="5G9-h0-M67"/>
-                            <constraint firstItem="upR-P6-4gA" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="8GA-w4-j4g"/>
                             <constraint firstItem="zgt-l4-gcB" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="A4h-zN-ccV"/>
-                            <constraint firstItem="upR-P6-4gA" firstAttribute="centerX" secondItem="zgt-l4-gcB" secondAttribute="centerX" id="HJ6-DW-ncX"/>
-                            <constraint firstItem="upR-P6-4gA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="237" id="PGc-9k-A1I"/>
-                            <constraint firstItem="zgt-l4-gcB" firstAttribute="top" secondItem="upR-P6-4gA" secondAttribute="bottom" constant="47" id="hTZ-AM-Egx"/>
-                            <constraint firstItem="upR-P6-4gA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="79" id="jGX-Dl-1Sm"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zgt-l4-gcB" secondAttribute="bottom" constant="344" id="otb-WJ-xnd"/>
+                            <constraint firstItem="zgt-l4-gcB" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Wmd-R8-FJs"/>
+                            <constraint firstItem="hIX-hn-0vi" firstAttribute="bottom" secondItem="zgt-l4-gcB" secondAttribute="top" constant="-15" id="fAU-JK-mIM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hIX-hn-0vi" secondAttribute="trailing" id="oak-7g-kIu"/>
+                            <constraint firstItem="hIX-hn-0vi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wQE-S2-dlL"/>
                         </constraints>
                     </view>
                 </viewController>
