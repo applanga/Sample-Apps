@@ -112,9 +112,9 @@ extension SettingsViewController {
             
             self.state.setCurrentWeather(currentWeather: response)
 
-            Repository().getDailyWeather { response in
+            Repository().getDailyWeather { [weak self] response in
                 if let response = response {
-                    self.state.setDailyWeather(dailyWeather: response)
+                    self?.state.setDailyWeather(dailyWeather: response)
                 }
             }
             
