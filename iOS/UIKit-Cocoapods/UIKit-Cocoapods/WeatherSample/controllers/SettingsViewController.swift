@@ -57,7 +57,7 @@ class SettingsViewController: UIViewController {
         saveButton.setTitle(NSLocalizedString("settings_save_button", comment: ""), for: .normal)
     }
     
-    func performLanguageChange() {
+    func performLanguageChange(completion: @escaping ()->()) {
         var isoCode: String
         switch self.language {
         case "English":
@@ -71,6 +71,16 @@ class SettingsViewController: UIViewController {
         }
         
         Applanga.setLanguage(isoCode)
+        Applanga.setLanguageAndUpdate(isoCode) { [weak self] success in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                success ? completion() : self?.handleLanguageUpdateError()
+            }
+        }
+    }
+    
+    func handleLanguageUpdateError() {
+        errorText.isHidden = false
+        errorText.text = NSLocalizedString("settings_error_warning", comment: "")
     }
 }
 
@@ -116,13 +126,20 @@ extension SettingsViewController {
                 }
             }
             
-            self.performLanguageChange()
-            
-            // refresh page
-            self.performSegue(withIdentifier: "refresh", sender: nil)
-            self.dismiss(animated: true, completion:nil)
-            
-            NotificationCenter.default.post(name: .userLanguageChanged, object: nil)
+            self.loadingView.isHidden = false
+
+            self.performLanguageChange { [weak self] in
+                guard let self = self else { return }
+                
+                self.loadingView.isHidden = true
+                self.applyScreenLocalization()
+                
+                // refresh page
+                self.performSegue(withIdentifier: "refresh", sender: nil)
+                self.dismiss(animated: true, completion:nil)
+                
+                NotificationCenter.default.post(name: .userLanguageChanged, object: nil)
+            }
         }
     }
     
