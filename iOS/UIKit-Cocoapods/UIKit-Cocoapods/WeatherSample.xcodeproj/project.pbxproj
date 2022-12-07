@@ -34,6 +34,7 @@
 		5366D91626303F9800978EE7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5366D91526303F9800978EE7 /* HomeViewController.swift */; };
 		5366D91E26303FC900978EE7 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5366D91D26303FC900978EE7 /* AboutViewController.swift */; };
 		5366D92126303FD400978EE7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5366D92026303FD400978EE7 /* SettingsViewController.swift */; };
+		C29C3C8F293FC19300DA1526 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29C3C8E293FC19300DA1526 /* TabBarController.swift */; };
 		C2F171D929392D11009D6C44 /* applanga_settings.applanga in Resources */ = {isa = PBXBuildFile; fileRef = C2F171D829392D11009D6C44 /* applanga_settings.applanga */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,7 @@
 		5366D92026303FD400978EE7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5428858728948F9499FEFDE1 /* Pods-WeatherSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherSample.debug.xcconfig"; path = "Target Support Files/Pods-WeatherSample/Pods-WeatherSample.debug.xcconfig"; sourceTree = "<group>"; };
 		829FDBFAE2648670E95D4748 /* Pods-WeatherSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherSample.release.xcconfig"; path = "Target Support Files/Pods-WeatherSample/Pods-WeatherSample.release.xcconfig"; sourceTree = "<group>"; };
+		C29C3C8E293FC19300DA1526 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		C2F171D829392D11009D6C44 /* applanga_settings.applanga */ = {isa = PBXFileReference; lastKnownFileType = file; path = applanga_settings.applanga; sourceTree = "<group>"; };
 		E673B11250EE172A709F1490 /* Pods_WeatherSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -217,9 +219,10 @@
 			isa = PBXGroup;
 			children = (
 				5366D91526303F9800978EE7 /* HomeViewController.swift */,
-				5366D91D26303FC900978EE7 /* AboutViewController.swift */,
 				5366D92026303FD400978EE7 /* SettingsViewController.swift */,
+				5366D91D26303FC900978EE7 /* AboutViewController.swift */,
 				5352E4B6266A2D74008D893B /* ListViewController.swift */,
+				C29C3C8E293FC19300DA1526 /* TabBarController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				5366D8F7262EDE5300978EE7 /* AppSettings.swift in Sources */,
 				5366D91626303F9800978EE7 /* HomeViewController.swift in Sources */,
 				5352E4C0266A6411008D893B /* DayCell.swift in Sources */,
+				C29C3C8F293FC19300DA1526 /* TabBarController.swift in Sources */,
 				5352E4B7266A2D74008D893B /* ListViewController.swift in Sources */,
 				5366D8F3262EDE1700978EE7 /* Repository.swift in Sources */,
 			);
