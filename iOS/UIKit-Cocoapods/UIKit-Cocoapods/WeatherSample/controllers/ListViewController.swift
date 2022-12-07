@@ -38,8 +38,6 @@ extension ListViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.displayedDaysNum = AppSettings().getDisplayedDays()!
         
-        self.navigationItem.title = NSLocalizedString("daily_title", comment: "")
-        self.navigationController?.title = NSLocalizedString("daily_title", comment: "")
         
         displayedDays.text = NSString.localizedStringWithFormat(NSString(string:(Applanga.localizedString(forKey: "daily_displayed_days", withDefaultValue: "Days display", andArguments: nil, andPluralRule: ALPluralRuleForQuantity(UInt(displayedDaysNum))))), displayedDaysNum) as String
         
