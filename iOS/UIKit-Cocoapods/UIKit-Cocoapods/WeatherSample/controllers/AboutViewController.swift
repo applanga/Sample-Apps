@@ -33,6 +33,5 @@ extension AboutViewController {
     }
     
     func createObservers() {
-        let updateNavTitleName = Notification.Name(rawValue: Keys.updateNavigationTitle.rawValue)
     }
 }

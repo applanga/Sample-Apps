@@ -128,9 +128,7 @@ extension SettingsViewController {
             self.performSegue(withIdentifier: "refresh", sender: nil)
             self.dismiss(animated: true, completion:nil)
             
-            // update navigation titles
-            let name = Notification.Name(rawValue: Keys.updateNavigationTitle.rawValue)
-            NotificationCenter.default.post(name: name, object: nil)
+            NotificationCenter.default.post(name: .userLanguageChanged, object: nil)
         }
     }
     

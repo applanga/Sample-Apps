@@ -115,7 +115,5 @@ extension HomeViewController {
     }
     
     func createObservers() {
-        let updateUiName = Notification.Name(rawValue: Keys.updateCurrent.rawValue)
-        NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.updateUi), name: updateUiName, object: nil)
     }
 }

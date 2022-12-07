@@ -30,7 +30,6 @@ class ListViewController: UIViewController {
 
 extension ListViewController {
     func createObservers() {
-        let updateNavTitleName = Notification.Name(rawValue: Keys.updateNavigationTitle.rawValue)
     }
     
     @objc func updateNavTitle() {
