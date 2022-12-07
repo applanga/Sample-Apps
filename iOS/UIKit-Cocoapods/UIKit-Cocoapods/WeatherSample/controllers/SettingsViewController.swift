@@ -7,7 +7,6 @@ import UIKit
 import Applanga
 
 class SettingsViewController: UIViewController {
-    
     let state = AppState.shared
     
     var location = AppSettings().getLocation()!
@@ -29,13 +28,12 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var errorText: UILabel!
     @IBOutlet weak var metricButton: UIButton!
     @IBOutlet weak var imperialButton: UIButton!
-    @IBOutlet weak var metricTitle: UILabel!
-    @IBOutlet weak var imperialTitle: UILabel!
     @IBOutlet weak var box1: UIView!
     @IBOutlet weak var box2: UIView!
     @IBOutlet weak var box3: UIView!
     @IBOutlet weak var box4: UIView!
-    
+    @IBOutlet weak var loadingView: UIView!
+
     func applyScreenLocalization() {
         title = NSLocalizedString("settings_title", comment: "")
         navigationItem.title = NSLocalizedString("settings_title", comment: "")
@@ -46,8 +44,8 @@ class SettingsViewController: UIViewController {
         locationTitle.text = NSLocalizedString("settings_location", comment: "")
         
         unitTitle.text = NSLocalizedString("settings_measurement_unit", comment: "")
-        metricTitle.text = NSLocalizedString("settings_metric_option", comment: "")
-        imperialTitle.text = NSLocalizedString("settings_imperial_option", comment: "")
+        metricButton.setTitle(NSLocalizedString("settings_metric_option", comment: ""), for: .normal)
+        imperialButton.setTitle(NSLocalizedString("settings_imperial_option", comment: ""), for: .normal)
         
         languageTitle.text = NSLocalizedString("settings_language", comment: "")
         
@@ -141,6 +139,7 @@ extension SettingsViewController {
         metricButton.setTitle("", for: .normal)
         imperialButton.tintColor = .black
         imperialButton.setTitle("", for: .normal)
+        
         if (units == "Metric") {
             metricButton.setImage(UIImage(systemName: "record.circle"), for: .normal)
             imperialButton.setImage(UIImage(systemName: "circle"), for: .normal)
@@ -152,7 +151,10 @@ extension SettingsViewController {
             imperialButton.tintColor = .systemBlue
             metricButton.tintColor = .black
         }
-                
+        
+        metricButton.setTitle(NSLocalizedString("settings_metric_option", comment: ""), for: .normal)
+        imperialButton.setTitle(NSLocalizedString("settings_imperial_option", comment: ""), for: .normal)
+  
         langEn.tintColor = .black
         langDe.tintColor = .black
         langFr.tintColor = .black
