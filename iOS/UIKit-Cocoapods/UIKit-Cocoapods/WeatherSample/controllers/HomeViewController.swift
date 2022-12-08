@@ -9,24 +9,25 @@ import Combine
 class HomeViewController: UIViewController {
     
     let state = AppState.shared
+    var baseFont: UIFont?
     
-    @IBOutlet weak var location: UILabel!
-    @IBOutlet weak var date: UILabel!
-    @IBOutlet weak var temperature: UILabel!
-    @IBOutlet weak var weatherIcon: UIImageView!
-    @IBOutlet weak var descriptionTitle: UILabel!
-    @IBOutlet weak var descriptionValue: UILabel!
-    @IBOutlet weak var feelsLikeTitle: UILabel!
-    @IBOutlet weak var feelsLikeValue: UILabel!
-    @IBOutlet weak var humidityTitle: UILabel!
-    @IBOutlet weak var humidityValue: UILabel!
-    @IBOutlet weak var cloudsTitle: UILabel!
-    @IBOutlet weak var cloudsValue: UILabel!
-    @IBOutlet weak var windSpeedTitle: UILabel!
-    @IBOutlet weak var windSpeedValue: UILabel!
-    @IBOutlet weak var pressureTitle: UILabel!
-    @IBOutlet weak var pressureValue: UILabel!
-    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet var location: UILabel!
+    @IBOutlet var date: UILabel!
+    @IBOutlet var temperature: UILabel!
+    @IBOutlet var weatherIcon: UIImageView!
+    @IBOutlet var descriptionTitle: UILabel!
+    @IBOutlet var descriptionValue: UILabel!
+    @IBOutlet var feelsLikeTitle: UILabel!
+    @IBOutlet var feelsLikeValue: UILabel!
+    @IBOutlet var humidityTitle: UILabel!
+    @IBOutlet var humidityValue: UILabel!
+    @IBOutlet var cloudsTitle: UILabel!
+    @IBOutlet var cloudsValue: UILabel!
+    @IBOutlet var windSpeedTitle: UILabel!
+    @IBOutlet var windSpeedValue: UILabel!
+    @IBOutlet var pressureTitle: UILabel!
+    @IBOutlet var pressureValue: UILabel!
+    @IBOutlet var loadingView: UIView!
 
     func applyScreenLocalization() {
         title = NSLocalizedString("home_title", comment: "")
@@ -63,17 +64,26 @@ extension HomeViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        baseFont = descriptionValue.font
+        
         applyScreenLocalization()
         configBackground()
         addObservers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        loadingView.isHidden = true
         if (state.currentWeather == nil) {
             configState()
         } else {
             updateUi()
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        alignFontSize()
     }
 }
 
@@ -81,6 +91,9 @@ extension HomeViewController {
     @objc func handleLanguageChanged() {
         applyScreenLocalization()
         applyWeatherStateLocalization()
+        
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
     }
     
     @objc func handleWeatherUpdated() {
@@ -89,6 +102,8 @@ extension HomeViewController {
         getIconColor(iconCode: iconId, img: weatherIcon)
         
         applyWeatherStateLocalization()
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
     }
     
     func updateUi() {
@@ -120,6 +135,22 @@ extension HomeViewController {
         gradient.frame = self.view.bounds
         gradient.colors = [#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1).cgColor, #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1).cgColor]
         self.view.layer.insertSublayer(gradient, at: 0)
+    }
+    
+    func alignFontSize() {
+        guard let baseFont = baseFont else { return }
+        let labels = [
+            descriptionValue,
+            feelsLikeValue,
+            humidityValue,
+            cloudsValue,
+            windSpeedValue,
+            pressureValue
+        ] as [UILabel]
+        
+        // After the weather state labels are auto scalled to fit, find the smallest font size, and use it for all labels
+        let smallestSize = labels.map { $0.adjustedFont(baseFont).pointSize }.min { $0 < $1 } ?? descriptionValue.adjustedFont(baseFont).pointSize
+        labels.forEach { $0.font = descriptionValue.font.withSize(smallestSize) }
     }
     
     func addObservers() {

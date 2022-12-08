@@ -158,3 +158,22 @@ func getTodayDate() -> String {
 
     return "\(NSLocalizedString(weekday, comment: "")), \(NSLocalizedString(month, comment: "")) \(day)"
 }
+
+extension UILabel{
+    func adjustedFont(_ baseFont: UIFont) -> UIFont {
+        guard let currentText = text else { return font }
+        
+        let attributes: [NSAttributedString.Key: Any] = [.font: baseFont as Any]
+        let attributedString = NSAttributedString(string: currentText, attributes: attributes)
+        
+        let drawingContext = NSStringDrawingContext()
+        drawingContext.minimumScaleFactor = minimumScaleFactor
+        
+        attributedString.boundingRect(with: bounds.size,
+                                      options: [.usesFontLeading],
+                                      context: drawingContext)
+
+        let fontSize = baseFont.pointSize * drawingContext.actualScaleFactor
+        return baseFont.withSize(CGFloat(floor(Double(fontSize))))
+    }
+}
