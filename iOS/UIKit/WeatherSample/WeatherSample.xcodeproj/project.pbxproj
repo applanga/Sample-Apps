@@ -35,6 +35,8 @@
 		5366D92126303FD400978EE7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5366D92026303FD400978EE7 /* SettingsViewController.swift */; };
 		70BEFBB227CFB298000CB4C4 /* Applanga in Frameworks */ = {isa = PBXBuildFile; productRef = 70BEFBB127CFB298000CB4C4 /* Applanga */; };
 		70BEFBB427CFB2F8000CB4C4 /* ApplangaUITest in Frameworks */ = {isa = PBXBuildFile; productRef = 70BEFBB327CFB2F8000CB4C4 /* ApplangaUITest */; };
+		C206036C297F06B300A6B3F8 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C206036B297F06B300A6B3F8 /* TabBarController.swift */; };
+		C206036D297F06B300A6B3F8 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C206036B297F06B300A6B3F8 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,7 @@
 		5366D91526303F9800978EE7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5366D91D26303FC900978EE7 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		5366D92026303FD400978EE7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		C206036B297F06B300A6B3F8 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +216,7 @@
 				5366D91D26303FC900978EE7 /* AboutViewController.swift */,
 				5366D92026303FD400978EE7 /* SettingsViewController.swift */,
 				5352E4B6266A2D74008D893B /* ListViewController.swift */,
+				C206036B297F06B300A6B3F8 /* TabBarController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -343,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5352E4CB266EA9BA008D893B /* WeatherSampleUITests.swift in Sources */,
+				C206036D297F06B300A6B3F8 /* TabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +366,7 @@
 				5366D8F7262EDE5300978EE7 /* AppSettings.swift in Sources */,
 				5366D91626303F9800978EE7 /* HomeViewController.swift in Sources */,
 				5352E4C0266A6411008D893B /* DayCell.swift in Sources */,
+				C206036C297F06B300A6B3F8 /* TabBarController.swift in Sources */,
 				5352E4B7266A2D74008D893B /* ListViewController.swift in Sources */,
 				5366D8F3262EDE1700978EE7 /* Repository.swift in Sources */,
 			);
