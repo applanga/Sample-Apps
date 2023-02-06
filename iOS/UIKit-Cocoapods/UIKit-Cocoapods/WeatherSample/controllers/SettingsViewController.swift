@@ -60,8 +60,6 @@ class SettingsViewController: UIViewController {
     func performLanguageChange(completion: @escaping ()->()) {
         var isoCode: String
         switch self.language {
-        case "English":
-            isoCode = "he"
         case "German":
             isoCode = "de"
         case "French":
@@ -70,7 +68,6 @@ class SettingsViewController: UIViewController {
             isoCode = "en"
         }
         
-        Applanga.setLanguage(isoCode)
         Applanga.setLanguageAndUpdate(isoCode) { [weak self] success in
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 success ? completion() : self?.handleLanguageUpdateError()
