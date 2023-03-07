@@ -7,7 +7,7 @@ import UIKit
 import Applanga
 
 class ListViewController: UIViewController {
-
+    
     let state = AppState.shared
     var displayedDaysNum: Int = 0
     
@@ -16,36 +16,55 @@ class ListViewController: UIViewController {
     @IBOutlet weak var displayedDays: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    func applyScreenLocalization() {
+        title = NSLocalizedString("daily_title", comment: "")
+        navigationItem.title = NSLocalizedString("daily_title", comment: "")
+        navigationController?.title = NSLocalizedString("daily_title", comment: "")
+    }
+}
+
+extension ListViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        createObservers()
+        
+        applyScreenLocalization()
+        
         tableView.delegate = self
         tableView.dataSource = self
         
-        self.navigationItem.title = NSLocalizedString("daily_title", comment: "")
-        self.navigationController?.title = NSLocalizedString("daily_title", comment: "")
-    }
-    
-    func createObservers() {
-        let updateNavTitleName = Notification.Name(rawValue: Keys.updateNavigationTitle.rawValue)
-        NotificationCenter.default.addObserver(self, selector: #selector(AboutViewController.updateNavTitle), name: updateNavTitleName, object: nil)
-    }
-    
-    @objc func updateNavTitle() {
-        self.navigationItem.title = NSLocalizedString("daily_title", comment: "")
-        self.navigationController?.title = NSLocalizedString("daily_title", comment: "")
+        addObservers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.displayedDaysNum = AppSettings().getDisplayedDays()!
         
-        self.navigationItem.title = NSLocalizedString("daily_title", comment: "")
-        self.navigationController?.title = NSLocalizedString("daily_title", comment: "")
-            
+        
         displayedDays.text = NSString.localizedStringWithFormat(NSString(string:(Applanga.localizedString(forKey: "daily_displayed_days", withDefaultValue: "Days display", andArguments: nil, andPluralRule: ALPluralRuleForQuantity(UInt(displayedDaysNum))))), displayedDaysNum) as String
         
         days = getDays()
         tableView.reloadData()
+    }
+}
+
+extension ListViewController {
+    @objc func handleLanguageChanged() {
+        applyScreenLocalization()
+    }
+    
+    @objc func handleWeatherChanged() {
+        tableView.reloadData()
+    }
+    
+    func addObservers() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handleLanguageChanged),
+                                               name: .userLanguageChanged,
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handleLanguageChanged),
+                                               name: .userLanguageChanged,
+                                               object: nil)
     }
     
     func getDays() -> [Day] {

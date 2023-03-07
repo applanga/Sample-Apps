@@ -6,7 +6,6 @@
 import Foundation
 
 class AppState {
-
     var currentWeather: CurrentWeatherDataModel?
     var dailyWeather: DailyWeatherDataModel?
     
@@ -16,19 +15,16 @@ class AppState {
     
     func setCurrentWeather(currentWeather: CurrentWeatherDataModel?) {
         self.currentWeather = currentWeather
-        let name = Notification.Name(rawValue: Keys.updateCurrent.rawValue)
-        NotificationCenter.default.post(name: name, object: nil)
+        NotificationCenter.default.post(name: .weatherUpdated, object: nil)
     }
     
     func setDailyWeather(dailyWeather: DailyWeatherDataModel?) {
         self.dailyWeather = dailyWeather
-        let name = Notification.Name(rawValue: Keys.updateDaily.rawValue)
-        NotificationCenter.default.post(name: name, object: nil)
+        NotificationCenter.default.post(name: .weatherUpdated, object: nil)
     }
 }
 
-enum Keys: String {
-    case updateCurrent = "UPDATE_CURRENT"
-    case updateDaily = "UPDATE_DAILY"
-    case updateNavigationTitle = "UPDATE_NAVIGATION"
+extension Notification.Name {
+    static let userLanguageChanged = Notification.Name("userLanguageChanged")
+    static let weatherUpdated = Notification.Name("weatherUpdated")
 }
