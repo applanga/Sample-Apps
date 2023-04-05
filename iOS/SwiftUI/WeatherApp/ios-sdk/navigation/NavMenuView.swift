@@ -65,21 +65,3 @@ struct NavMenuView: View {
         .edgesIgnoringSafeArea(.all)
     }
 }
-
-//struct NavMenuView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ZStack {
-//            NavMenuView(currentView: Views.home),
-//        }
-//        .background(LinearGradient(
-//            gradient: Gradient(
-//                colors: [Color("Applanga"), Color("ApplangaDark")]
-//
-//            ), startPoint: .top, endPoint: .bottom
-//        ))
-//    }
-//}
-
-
-
-

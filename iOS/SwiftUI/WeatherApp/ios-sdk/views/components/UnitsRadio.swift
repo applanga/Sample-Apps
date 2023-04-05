@@ -51,9 +51,3 @@ struct UnitsRadio: View {
         .padding(.bottom, 10)
     }
 }
-
-//struct UnitsRadio_Previews: PreviewProvider {
-//    static var previews: some View {
-//        UnitsRadio()
-//    }
-//}

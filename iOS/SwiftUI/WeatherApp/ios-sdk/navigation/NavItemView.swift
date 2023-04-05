@@ -37,15 +37,3 @@ struct NavItemView: View {
         .background(destination == currentView ? Color("menuPicked") : .white)
     }
 }
-
-//struct NavItemView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NavItemView(
-//            destination: Views.home,
-//            currentView: Views.settings,
-//            titleKey: "home_page",
-//            icon: "sun.max.fill"
-////            goToView: () -> Void
-//        )
-//    }
-//}

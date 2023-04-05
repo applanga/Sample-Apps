@@ -35,14 +35,3 @@ struct HomeDetailView: View {
     }
 }
 
-struct HomeDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeDetailView(title: "Beschreibung", content: "broken clouds")
-            .background(LinearGradient(
-                gradient: Gradient(
-                    colors: [Color("Applanga"), Color("ApplangaDark")]
-
-                ), startPoint: .top, endPoint: .bottom
-            ))
-    }
-}

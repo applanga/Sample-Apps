@@ -59,10 +59,3 @@ struct WeatherImageView: View {
         }
     }
 }
-
-struct WeatherImageView_Previews: PreviewProvider {
-    static var previews: some View {
-        WeatherImageView(iconCode: "02n")
-            .font(.system(size: 150))
-    }
-}

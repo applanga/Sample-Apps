@@ -42,9 +42,3 @@ struct LangaugeDropdown: View {
         }
     }
 }
-
-struct LangaugeDropdown_Previews: PreviewProvider {
-    static var previews: some View {
-        LangaugeDropdown(selectedValue: .constant("English"))
-    }
-}
