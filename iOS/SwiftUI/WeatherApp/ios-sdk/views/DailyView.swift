@@ -56,9 +56,3 @@ struct DailyView: View {
         }
     }
 }
-
-struct DailyView_Previews: PreviewProvider {
-    static var previews: some View {
-        DailyView()
-    }
-}

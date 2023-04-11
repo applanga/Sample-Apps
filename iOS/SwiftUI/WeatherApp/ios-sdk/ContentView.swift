@@ -118,65 +118,9 @@ struct ContentView: View {
     
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-
 enum Views: String {
     case home = "home_page"
     case daily = "daily_page"
     case settings = "settings_page"
     case about = "about_page"
 }
-
-//
-//// Gestures
-//let closeMenuDrag = DragGesture()
-//    .onEnded {
-//        if (self.state.isMenuOpen && $0.translation.width < -100) {
-//            withAnimation {
-//                self.state.isMenuOpen = false
-//            }
-//        }
-//    }
-//
-//// UI
-//return NavigationView {
-//    GeometryReader {  geometry in
-//        ZStack(alignment: .leading) {
-//
-//            // Navigation
-//            if (self.state.isMenuOpen) {
-//                SidebarMenuView()
-//                    .frame(
-//                        width: geometry.size.width / 2.2
-//                    )
-//                    .transition(.move(edge: .leading))
-//            }
-//
-//            // Main
-////                    DailyView()
-//            MainView()
-//                .frame(
-//                    width: geometry.size.width,
-//                    height: geometry.size.height
-//
-//                )
-//                .disabled(self.state.isMenuOpen)
-//
-//        }
-//        .gesture(closeMenuDrag)
-//    }
-//    .navigationBarTitle("", displayMode: .inline)
-//    .navigationBarItems(leading: (
-//        Button(action: {
-//            withAnimation {
-//                self.state.isMenuOpen = !self.state.isMenuOpen
-//            }
-//        }) {
-//            Image(systemName: "line.horizontal.3")
-//        }
-//    ))
-//}

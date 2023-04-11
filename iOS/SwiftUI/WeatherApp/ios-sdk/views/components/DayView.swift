@@ -74,17 +74,6 @@ struct DayView: View {
         .cornerRadius(15)
         .padding(20)
         .shadow(radius: 7)
-        
     }
 
-}
-
-struct DayView_Previews: PreviewProvider {
-    static var previews: some View {
-        DayView(
-            dateAndTime: "2021-03-18 18:00:00",
-            icon: "03d",
-            temp: 9.24
-        )
-    }
 }

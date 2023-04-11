@@ -10,9 +10,3 @@ struct AboutView: View {
         WebView()
     }
 }
-
-struct AboutView_Previews: PreviewProvider {
-    static var previews: some View {
-        AboutView()
-    }
-}

@@ -37,9 +37,3 @@ struct DisplayedDaysDropdown: View {
         }
     }
 }
-
-struct DisplayedDaysDropdown_Previews: PreviewProvider {
-    static var previews: some View {
-        DisplayedDaysDropdown(selectedValue: .constant(5))
-    }
-}
