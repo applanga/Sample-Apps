@@ -6,7 +6,7 @@ target 'WeatherSample' do
   use_frameworks!
 
   # Pods for WeatherSample
-  pod 'Applanga'
+  pod 'Applanga', :path => '/Users/simonborkin/Projects/applanga-web/sdk/ios/applanga'
 
   target 'WeatherSampleUITests' do
     # Pods for testing

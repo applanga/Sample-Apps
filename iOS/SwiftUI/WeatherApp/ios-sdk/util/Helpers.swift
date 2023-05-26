@@ -6,6 +6,8 @@
 import SwiftUI
 import Foundation
 
+import Applanga
+
 func getWeatherIcon(iconCode: String) -> String {
     switch iconCode {
         case "01d": return "sun.max.fill"
@@ -135,4 +137,32 @@ func getTodayDate() -> String {
     let day = stringArray[1].components(separatedBy:" ")[1]
 
     return "\(NSLocalizedString(weekday, comment: "")), \(NSLocalizedString(month, comment: "")) \(day)"
+}
+
+func localizationkeyForLanguage(_ language: AppSettings.Language) -> String {
+    switch (language) {
+    case .english:
+        return "settings_app_language[0]"
+    case .german:
+        return "settings_app_language[1]"
+    case .french:
+        return "settings_app_language[2]"
+    }
+}
+
+func formattedLocalizedPluralKey(_ key: String,
+                                 defaultValue: String,
+                                 rule: ALPluralRule,
+                                 formatArguments: CVarArg...) -> String? {
+    
+    guard
+        let rawValue = Applanga.localizedString(forKey: key,
+                                                withDefaultValue: defaultValue,
+                                                arguments: nil,
+                                                pluralRule: rule)
+    else {
+        return nil
+    }
+    
+    return String(format: rawValue, formatArguments)
 }

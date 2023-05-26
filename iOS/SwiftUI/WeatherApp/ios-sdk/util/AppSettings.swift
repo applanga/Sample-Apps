@@ -6,6 +6,11 @@
 import Foundation
 
 class AppSettings {
+    enum Language: String, CaseIterable {
+        case english
+        case german
+        case french
+    }
     
     enum Keys: String {
         case location = "location"
@@ -19,7 +24,7 @@ class AppSettings {
     public func initSettings() {
         let initialLocation = "New York"
         let initialUnits = "Metric"
-        let initialLanguage = "English"
+        let initialLanguage = Language.english
         let initialDisplayedDays = 5
         
         if (getLocation() == nil) {
@@ -49,8 +54,9 @@ class AppSettings {
         return settings.string(forKey: Keys.units.rawValue)
     }
     
-    public func getLanguage() -> String? {
-        return settings.string(forKey: Keys.language.rawValue)
+    public func getLanguage() -> Language? {
+        guard let rawValue = settings.string(forKey: Keys.language.rawValue) else { return nil }
+        return Language(rawValue: rawValue)
     }
     
     public func getDisplayedDays() -> Int? {
@@ -66,8 +72,8 @@ class AppSettings {
         settings.set(units, forKey: Keys.units.rawValue)
     }
     
-    public func setLanguage(language: String) {
-        settings.set(language, forKey: Keys.language.rawValue)
+    public func setLanguage(language: Language) {
+        settings.set(language.rawValue, forKey: Keys.language.rawValue)
     }
     
     public func setDisplayedDays(displayedDays: Int) {

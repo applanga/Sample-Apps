@@ -7,32 +7,26 @@ import SwiftUI
 
 struct LangaugeDropdown: View {
     @State var isExpanded = false
-    @Binding var selectedValue: String
-    
-    var options = [
-        NSLocalizedString("english", comment: "english"),
-        NSLocalizedString("german", comment: "german"),
-        NSLocalizedString("french", comment: "french"),
-    ]
+    @Binding var selectedValue: AppSettings.Language
     
     var body: some View {
         VStack {
-            DisclosureGroup(selectedValue, isExpanded: self.$isExpanded) {
+            DisclosureGroup(LocalizedStringKey(localizationkeyForLanguage(selectedValue)), isExpanded: self.$isExpanded) {
                 VStack {
-                    ForEach(options.indices, id: \.self) { index in
+                    ForEach(AppSettings.Language.allCases, id: \.self) { language in
                         Button(action: {}, label: {
-                            Text(options[index])
+                            Text(LocalizedStringKey(localizationkeyForLanguage(language)))
                                 .padding(.bottom)
                                 .font(.system(size: 22))
                         })
                         .onTapGesture {
-                            self.selectedValue = options[index]
+                            self.selectedValue = language
                             withAnimation {
                                 self.isExpanded.toggle()
                             }
                         }
                         .foregroundColor(Color("textGray"))
-                        .accessibility(identifier: "lang\(index)")
+                        .accessibility(identifier: "lang\(language)")
                     }
                 }
                 .padding(.top, 10)

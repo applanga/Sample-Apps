@@ -2,8 +2,10 @@ target 'ios-sdk' do
 
   use_frameworks!
   pod 'Applanga'
+  pod 'ApplangaSwiftUI'
 
   target 'ios-sdkUITests' do
     pod 'Applanga'
+    pod 'ApplangaSwiftUI'
   end
 end

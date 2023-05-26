@@ -4,11 +4,14 @@
 //
 
 import UIKit
+import SwiftUI
+
 import Applanga
 
 class SettingsViewController: UIViewController {
     let state = AppState.shared
     
+    @IBOutlet weak var stac: UIStackView!
     var location = AppSettings().getLocation()!
     var units = AppSettings().getUnits()!
     var language = AppSettings().getLanguage()!
@@ -237,7 +240,16 @@ extension SettingsViewController {
         
         // save button
         saveButton.addAction(UIAction(handler: { action in
-            self.saveSettings()
+            let vc = UIHostingController(rootView: SwiftUIView())
+            self.stac.addArrangedSubview(vc.view)
+//            NSLayoutConstraint.activate([
+//                self.view.leadingAnchor.constraint(equalTo:self.view.leadingAnchor, constant:60),
+//                self.view.trailingAnchor.constraint(equalTo:self.view.trailingAnchor, constant:-60),
+//                self.view.centerXAnchor.constraint(equalTo:self.view.centerXAnchor),
+//                self.view.centerYAnchor.constraint(equalTo:self.view.centerYAnchor)
+//            ])
+            self.addChild(vc)
+//            self.saveSettings()
         }), for: .touchUpInside)
     }
 }

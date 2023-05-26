@@ -1,0 +1,23 @@
+PODS:
+  - Applanga (2.0.999)
+  - ApplangaUITest (2.0.167)
+
+DEPENDENCIES:
+  - Applanga (from `/Users/simonborkin/Projects/applanga-web/sdk/ios/applanga`)
+  - ApplangaUITest
+
+SPEC REPOS:
+  trunk:
+    - ApplangaUITest
+
+EXTERNAL SOURCES:
+  Applanga:
+    :path: "/Users/simonborkin/Projects/applanga-web/sdk/ios/applanga"
+
+SPEC CHECKSUMS:
+  Applanga: 768fdd1a20ffecc86e51560a41533b931898d2e9
+  ApplangaUITest: f40601a3b4670587416d3ee2062b700ff27e4a55
+
+PODFILE CHECKSUM: 2a7c766ecb0b06f8899a5665e42e77519effad4f
+
+COCOAPODS: 1.12.0
