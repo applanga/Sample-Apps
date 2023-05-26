@@ -5,6 +5,10 @@
 
 import SwiftUI
 
+import ApplangaSwiftUI
+
+typealias LocalizedStringKey = ApplangaLocalizedStringKey
+
 @main
 struct ios_sdkApp: App {
     var body: some Scene {

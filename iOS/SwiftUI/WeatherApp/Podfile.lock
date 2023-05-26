@@ -1,16 +1,21 @@
 PODS:
-  - Applanga (2.0.149)
+  - Applanga (2.0.171)
+  - ApplangaSwiftUI (2.0.171):
+    - Applanga
 
 DEPENDENCIES:
   - Applanga
+  - ApplangaSwiftUI
 
 SPEC REPOS:
   trunk:
     - Applanga
+    - ApplangaSwiftUI
 
 SPEC CHECKSUMS:
-  Applanga: f6c37d1a60678119d2631f9584473d57da02678f
+  Applanga: 9264edaa17fa9e8f76d7e032ad81036f15bab2f2
+  ApplangaSwiftUI: ca9c2bd57ee4934ee41b6e4bfaa1c6ee5d52c82d
 
-PODFILE CHECKSUM: 2dabccf87954c60ec1208e12a97b213a406fc93d
+PODFILE CHECKSUM: 6bc2913a9ee4011d3a79c4b2533bd4b813606392
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.12.0

@@ -7,23 +7,21 @@ import SwiftUI
 import Applanga
 
 struct SettingsView: View {
-    
     @EnvironmentObject var state: AppState
     
     @State var location = ""
     @State var units = "Metric"
-    @State var language = ""
+    @State var language = AppSettings.Language.english
     @State var displayedDays = 5
     @State var isCityValid = true
     
     var goHome: () -> Void
     
     var body: some View {
-
         VStack {
             Form {
                 Section {
-                    Text(NSLocalizedString("title_location", comment: ""))
+                    Text("settings_location")
                         .font(.system(size: 24))
                         .foregroundColor(Color("textGray"))
                         .bold()
@@ -40,7 +38,7 @@ struct SettingsView: View {
                 
                 
                 Section {
-                    Text(NSLocalizedString("title_units", comment: ""))
+                    Text("settings_measurement_unit")
                         .font(.system(size: 24))
                         .foregroundColor(Color("textGray"))
                         .bold()
@@ -50,7 +48,7 @@ struct SettingsView: View {
                 
                 
                 Section {
-                    Text(NSLocalizedString("title_language", comment: ""))
+                    Text("settings_language")
                         .font(.system(size: 24))
                         .foregroundColor(Color("textGray"))
                         .bold()
@@ -60,7 +58,7 @@ struct SettingsView: View {
                 
                 
                 Section {
-                    Text(NSLocalizedString("title_displayed_days", comment: ""))
+                    Text("settings_displayed_days")
                         .font(.system(size: 24))
                         .foregroundColor(Color("textGray"))
                         .bold()
@@ -72,7 +70,7 @@ struct SettingsView: View {
                 Button(action: saveSettings, label: {
                     HStack {
                         Spacer()
-                        Text(NSLocalizedString("save_button", comment: ""))
+                        Text("settings_save_button")
                             .font(.system(size: 22))
                             .bold()
                         Spacer()
@@ -101,41 +99,46 @@ struct SettingsView: View {
         AppSettings().setDisplayedDays(displayedDays: self.displayedDays)
         
         // make api call
-        Repository().getCurrentWeather { (CurrentWeatherDataModel) in
+        Repository().getCurrentWeather { currentWeatherDataModel in
             
             // in case of error
-            if(CurrentWeatherDataModel == nil) {
+            if currentWeatherDataModel == nil {
                 // show some error message
                 self.isCityValid.toggle()
                 return
             }
             
             // set data
-            state.currentWeatherData = CurrentWeatherDataModel
+            state.currentWeatherData = currentWeatherDataModel
             
             // change language
             let isoCode = languageToIso(language: self.language)
-            Applanga.setLanguage(isoCode)
-            
-            // get daily weather
-            Repository().getDailyWeather { (DailyWeatherDataModel) in
-                state.dailyWeatherData = DailyWeatherDataModel
+            Applanga.setLanguageAndUpdate(isoCode) { success in
+                guard success else {
+                    return
+                }
+                
+                // get daily weather
+                Repository().getDailyWeather { (DailyWeatherDataModel) in
+                    state.dailyWeatherData = DailyWeatherDataModel
+                }
+                
+                // go back to home page
+                self.goHome()
             }
             
-            // go back to home page
-            self.goHome()
         }
     }
     
-    func languageToIso(language: String) -> String {
-        var isoCode: String
+    func languageToIso(language: AppSettings.Language) -> String {
         switch language {
-            case "German": isoCode = "de"
-            case "French": isoCode = "fr"
-            default: isoCode = "en"
+        case .english:
+            return "en"
+        case .german:
+            return "de"
+        case .french:
+            return "fr"
         }
-        
-        return isoCode
     }
 
 }

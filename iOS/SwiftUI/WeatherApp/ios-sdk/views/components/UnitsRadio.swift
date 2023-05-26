@@ -6,7 +6,6 @@
 import SwiftUI
 
 struct UnitsRadio: View {
-    
     @Binding var units: String
     
     var body: some View {
@@ -19,7 +18,7 @@ struct UnitsRadio: View {
                         .resizable()
                         .frame(width: 21, height: 21)
 
-                    Text(NSLocalizedString("metric", comment: ""))
+                    Text("settings_metric_option")
                         .font(.system(size: 22))
                         .foregroundColor(Color("textGray"))
                     
@@ -36,7 +35,7 @@ struct UnitsRadio: View {
                         .resizable()
                         .frame(width: 21, height: 21)
 
-                    Text(NSLocalizedString("imperial", comment: ""))
+                    Text("settings_imperial_option")
                         .font(.system(size: 22))
                         .foregroundColor(Color("textGray"))
                     

@@ -14,8 +14,8 @@ struct HomeDetailView: View {
         VStack(alignment: .leading, spacing: 10) {
             
             HStack {
-                Text(NSLocalizedString(title, comment: ""))
-                    .font(.system(size: 30))
+                Text(LocalizedStringKey(title))
+                    .font(.system(size: 20))
                     .bold()
                     .foregroundColor(.white)
                     .frame(maxHeight: 25)
@@ -23,7 +23,7 @@ struct HomeDetailView: View {
                 Spacer()
                 
                 Text(content)
-                    .font(.system(size: 26))
+                    .font(.system(size: 16))
                     .bold()
                     .foregroundColor(Color("textGray"))
                     .frame(maxHeight: 25)

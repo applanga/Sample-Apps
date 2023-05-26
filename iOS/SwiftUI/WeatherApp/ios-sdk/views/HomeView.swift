@@ -61,27 +61,27 @@ struct HomeView: View {
                     VStack {
                         
                         HomeDetailView(
-                            title: "title_description",
+                            title: "home_description",
                             content: (getWeatherDesc(iconCode: (state.currentWeatherData?.weather[0].icon)!)))
                         
                         HomeDetailView(
-                            title: "title_humidity",
+                            title: "home_humidity",
                             content: "\((state.currentWeatherData?.main.humidity)!)%")
                         
                         HomeDetailView(
-                            title: "title_wind_speed",
+                            title: "home_wind_speed",
                             content: String((state.currentWeatherData?.wind.speed)!) + " km/h")
 
                         HomeDetailView(
-                            title: "title_feels_like",
+                            title: "home_feels_like",
                             content: "\(Int(round((state.currentWeatherData?.main.feelsLike)!)))°")
                         
                         HomeDetailView(
-                            title: "title_clouds",
+                            title: "home_clouds",
                             content: String((state.currentWeatherData?.clouds.all)!) + "%")
                         
                         HomeDetailView(
-                            title: "title_wind_pressure",
+                            title: "home_pressure",
                             content: String((state.currentWeatherData?.main.pressure)!) + " hPa")
                     }
                     

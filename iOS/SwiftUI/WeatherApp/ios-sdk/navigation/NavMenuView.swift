@@ -27,13 +27,13 @@ struct NavMenuView: View {
                     .padding(.leading, 10)
                     .padding(.top, 10)
             
-                Text(NSLocalizedString("app_name", comment: ""))
+                Text("app_name")
                     .font(.system(size: 28))
                     .bold()
                     .foregroundColor(Color("textGray"))
                     .padding(.leading, 10)
             
-                Text(NSLocalizedString("nav_subtitle", comment: ""))
+                Text("nav_subtitle")
                     .font(.system(size: 20))
                     .bold()
                     .foregroundColor(Color("textGray"))
@@ -44,21 +44,36 @@ struct NavMenuView: View {
             .padding(.top, 10)
             .padding(.bottom, 10)
 
-            NavItemView(destination: Views.home, currentView: self.currentView, titleKey: "home_page", icon: "sun.max.fill", goToDestination: self.goToHome)
+            NavItemView(destination: Views.home,
+                        titleKey: "home_title",
+                        icon: "sun.max.fill",
+                        isSelected: false,
+                        goToDestination: self.goToHome)
                 .accessibility(identifier: "navHome")
                 
             
-            NavItemView(destination: Views.daily, currentView: self.currentView, titleKey: "daily_page", icon: "calendar", goToDestination: self.goToDaily)
+            NavItemView(destination: Views.daily,
+                        titleKey: "daily_title",
+                        icon: "calendar",
+                        isSelected: false,
+                        goToDestination: self.goToDaily)
                 .accessibility(identifier: "navDaily")
             
-            NavItemView(destination: Views.about, currentView: self.currentView, titleKey: "about_page", icon: "doc.plaintext", goToDestination: self.goToAbout)
+            NavItemView(destination: Views.about,
+                        titleKey: "about_title",
+                        icon: "doc.plaintext",
+                        isSelected: false,
+                        goToDestination: self.goToAbout)
                 .accessibility(identifier: "navAbout")
             
-            NavItemView(destination: Views.settings, currentView: self.currentView, titleKey: "settings_page", icon: "gearshape.fill", goToDestination: self.goToSettings)
+            NavItemView(destination: Views.settings,
+                        titleKey: "settings_title",
+                        icon: "gearshape.fill",
+                        isSelected: false,
+                        goToDestination: self.goToSettings)
                 .accessibility(identifier: "navSettings")
             
             Spacer()
-                
         }
         .frame(width: 280)
         .background(Color(.white))

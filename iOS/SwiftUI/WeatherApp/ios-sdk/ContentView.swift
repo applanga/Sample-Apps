@@ -48,7 +48,7 @@ struct ContentView: View {
                     Rectangle()
                         .fill(Color.black)
                         .opacity(0.6)
-                        .frame(width: .infinity, height: .infinity)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .ignoresSafeArea()
                         .animation(.easeInOut(duration: 1))
                 }
@@ -67,10 +67,9 @@ struct ContentView: View {
                                         
                     Spacer()
                 }
-                
             }
             .gesture(closeMenuDrag)
-            .navigationBarTitle(NSLocalizedString(self.currentView.rawValue, comment: ""), displayMode: .inline)
+            .navigationBarTitle(LocalizedStringKey(self.currentView.rawValue), displayMode: .inline)
             .navigationBarItems(leading: (
                 Button(action: {
                     withAnimation {
@@ -119,8 +118,8 @@ struct ContentView: View {
 }
 
 enum Views: String {
-    case home = "home_page"
-    case daily = "daily_page"
-    case settings = "settings_page"
-    case about = "about_page"
+    case home = "home_title"
+    case daily = "daily_title"
+    case settings = "settings_title"
+    case about = "about_title"
 }
