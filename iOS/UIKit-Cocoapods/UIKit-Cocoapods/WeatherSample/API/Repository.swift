@@ -29,11 +29,16 @@ struct Repository {
         let url = URL(string: urlString)!
 
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
+                return
+            }
             
             let decoder = JSONDecoder()
-            
             do {
-                let currentWeather = try decoder.decode(CurrentWeatherDataModel.self, from: data!)
+                let currentWeather = try decoder.decode(CurrentWeatherDataModel.self, from: data)
                 
                 DispatchQueue.main.async {
                     completion(currentWeather)
@@ -66,11 +71,16 @@ struct Repository {
         let url = URL(string: urlString)!
         
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
+                return
+            }
             
             let decoder = JSONDecoder()
-                
             do {
-                let dailyWeather = try decoder.decode(DailyWeatherDataModel.self, from: data!)
+                let dailyWeather = try decoder.decode(DailyWeatherDataModel.self, from: data)
 
                 DispatchQueue.main.async {
                     completion(dailyWeather)
