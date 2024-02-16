@@ -139,12 +139,11 @@ class SettingsFragment : androidx.fragment.app.Fragment() {
             it.putInt(Keys.DAYS_NUMBER_KEY.toString(), displayedDays)
         }
 
-        Applanga.setLanguage(isoCode)
-
-        requireActivity().finish()
-        requireActivity().startActivity(requireActivity().intent)
-
-        Toast.makeText(context, getString(R.string.settings_saved_toast), Toast.LENGTH_LONG).show()
+        Applanga.setLanguageAndUpdate(isoCode) {
+            requireActivity().finish()
+            requireActivity().startActivity(requireActivity().intent)
+            Toast.makeText(context, getString(R.string.settings_saved_toast), Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun initLanguageSpinner() {
