@@ -10,7 +10,9 @@ iOS/SwiftUI/WeatherApp/ios-sdk.xcodeproj/project.xcworkspace/xcuserdata
 iOS/SwiftUI/WeatherApp/Pods
 iOS/UIKit-Cocoapods/UIKit-Cocoapods/Pods
 
-Android/WeatherApp/build
+Android/WeatherApp/build/
+Android/WeatherApp/buildSrc/build
+Android/WeatherApp/buildSrc/.gradle
 Android/WeatherApp/app/build
 Android/WeatherApp/.idea
 Android/WeatherApp/.gradle
