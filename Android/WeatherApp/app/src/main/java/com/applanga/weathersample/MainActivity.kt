@@ -1,13 +1,17 @@
 package com.applanga.weathersample
 
+import android.content.BroadcastReceiver
+import android.content.IntentFilter
 import android.os.Bundle
 import android.view.MotionEvent
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MediatorLiveData
 import com.applanga.android.Applanga
+import com.applanga.android.ApplangaBroadcastReceiver
 import com.applanga.weathersample.classes.SharedPrefrencesManager.Keys
 import com.applanga.weathersample.classes.WeatherAppApplication
 import com.applanga.weathersample.databinding.ActivityMainBinding
@@ -36,6 +40,10 @@ class MainActivity : AppCompatActivity() ,
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+         val br: BroadcastReceiver = ApplangaBroadcastReceiver()
+         val filter = IntentFilter(ApplangaBroadcastReceiver.INTENT_ACTION)
+         ContextCompat.registerReceiver(this, br, filter, ContextCompat.RECEIVER_EXPORTED);
     }
 
     override fun onResume() {
