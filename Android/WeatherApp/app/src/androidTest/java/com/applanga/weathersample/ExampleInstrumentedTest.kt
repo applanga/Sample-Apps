@@ -33,6 +33,7 @@ class ScreenshotRunner {
     @After
     fun cleanup() {
         Applanga.setShowIdModeEnabled(false)
+        Applanga.setLanguage(null)
         scenario.close()
     }
 
