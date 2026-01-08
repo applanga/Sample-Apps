@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() ,
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
          val br: BroadcastReceiver = ApplangaBroadcastReceiver()
-         val filter = IntentFilter(ApplangaBroadcastReceiver.INTENT_ACTION)
+         val filter = IntentFilter(ApplangaBroadcastReceiver.INTENT_ACTION_SCREENSHOT)
          ContextCompat.registerReceiver(this, br, filter, ContextCompat.RECEIVER_EXPORTED);
     }
 
