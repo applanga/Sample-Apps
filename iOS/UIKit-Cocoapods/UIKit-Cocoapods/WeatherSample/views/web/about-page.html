@@ -3,13 +3,15 @@
         <title>About Page</title>
         <link rel="stylesheet" href="about-page.css">
         <script type="text/javascript">
-            window.initApplanga = function() {
-                    if(typeof window.ApplangaNative !== 'undefined'){ window.ApplangaNative.loadScript();
-                    } else { setTimeout(window.initApplanga, 180); }
-            }; window.initApplanga();
+            <!-- this example shows how to manually update strings -->
+            window.updateStrings = function() {
+                window.Applanga.getString('about_app_text', undefined, undefined, undefined, undefined, undefined, function(translation) {
+                    document.getElementById("about_app_text").textContent = translation;
+                });
+            }
         </script>
     </head>
-    <body>
+    <body onload="window.updateStrings();">
         <section>
             <div class="section-dark">
                 <div class="image">
@@ -20,9 +22,9 @@
                     Weather-App
                 </h1>
                 <div class="colored-line"></div>
-                <!--suppress HtmlUnknownAttribute -->
-                <p class="text" applanga-text="about_app_text">
-                    Weather-App is a simple tool to help you find out what's the weather like in your desired location
+                <p class="text" id="about_app_text"> <!-- Manual string update -->
+                Weather-App is a simple tool to help you find out what's the weather like in your desired location
+                </p>
             </div>
         </section>
         <section>
